@@ -2,6 +2,7 @@ import BorderedButton from "../components/BorderedButton";
 import Footer from "../components/Footer";
 import { TimelineDemo } from "../components/Timeline";
 import ScheduleTable from "../components/ScheduleTable";
+import HeadingNText from "../components/HeadingNText";
 import {
   HiOutlineComputerDesktop,
   HiOutlineUsers,
@@ -18,25 +19,36 @@ function Events() {
   // Schedule table state and data
   const [activeTab, setActiveTab] = useState(0);
   const schedule = [
+    // Day 1
+  [
+    { from: "09:30 AM", to: "10:00 AM", activity: "Assembly" },
+    { from: "10:00 AM", to: "11:00 AM", activity: "Inauguration" },
+    { from: "11:00 AM", to: "12:30 PM", activity: "Round 1: Srishti" },
+    { from: "12:30 PM", to: "01:00 PM", activity: "Round 1 Review" },
+    { from: "01:00 PM", to: "02:00 PM", activity: "Lunch" },
+    { from: "02:00 PM", to: "04:00 PM", activity: "Round 2: Sankalp" },
+    { from: "04:00 PM", to: "04:15 PM", activity: "Break" },
+    { from: "04:15 PM", to: "07:30 PM", activity: "Round 2 (Continued)" },
+    { from: "07:30 PM", to: "08:30 PM", activity: "Dinner" },
+    { from: "08:30 PM", to: "09:30 PM", activity: "Musical Night" },
+    { from: "09:30 PM", to: "10:00 PM", activity: "Round 2 Review" },
+    { from: "10:00 PM", to: "12:00 AM", activity: "Round 3: Samarth" },
+  ],
+  // Day 2
+  [
+    { from: "12:00 AM", to: "02:00 AM", activity: "Activities + Refreshments" },
+    { from: "02:00 AM", to: "07:00 AM", activity: "Round 3 (Continued)" },
+    { from: "07:00 AM", to: "09:00 AM", activity: "Morning Break" },
+    { from: "09:00 AM", to: "12:00 PM", activity: "Round 3 (Continued)" },
+    { from: "12:00 PM", to: "01:00 PM", activity: "Lunch" },
+    { from: "01:00 PM", to: "03:00 PM", activity: "Final Review" },
+    { from: "03:00 PM", to: "03:30 PM", activity: "Closing Ceremony & Vote of Thanks" },
+  ],
     [
-      { from: "9:00 AM", to: "10:00 AM", activity: "Inauguration Ceremony" },
-      { from: "10:00 AM", to: "12:00 PM", activity: "Hackathon Kickoff" },
-      { from: "12:00 PM", to: "1:00 PM", activity: "Tech Talk 1" },
-      { from: "12:00 PM", to: "1:00 PM", activity: "Tech Talk 1" },
-      { from: "12:00 PM", to: "1:00 PM", activity: "Tech Talk 1" },
-      { from: "12:00 PM", to: "1:00 PM", activity: "Tech Talk 1" },
-      { from: "12:00 PM", to: "1:00 PM", activity: "Tech Talk 1" },
-    ],
-    [
-      { from: "9:30 AM", to: "11:30 AM", activity: "Coding Competition" },
-      { from: "12:00 PM", to: "1:00 PM", activity: "Tech Talk 2" },
-      { from: "2:00 PM", to: "4:00 PM", activity: "UI/UX Workshop" },
-    ],
-    [
-      { from: "10:00 AM", to: "11:00 AM", activity: "Final Presentations" },
-      { from: "11:30 AM", to: "12:30 PM", activity: "Closing Ceremony" },
-      { from: "1:00 PM", to: "2:00 PM", activity: "Networking Lunch" },
-    ],
+    { from: "09:30 AM", to: "10:00 AM", activity: "Assembly" },
+    { from: "10:00 AM", to: "12:30 PM", activity: "Drishti - Ideathon" },
+    { from: "12:45 PM", to: "03:45 PM", activity: "Chanakya - Coding Contest" },
+  ]
   ];
 
   const eventDate = new Date("2025-07-17T09:00:00"); // Adjust as needed
@@ -75,10 +87,10 @@ function Events() {
 
       <div className="relative z-20 w-full text-white">
         <div className="absolute z-0 inset-0 pointer-events-none">
-          <HiOutlineComputerDesktop className="text-green-600/80 bg-green-700/10 backdrop-blur-md rounded-xl p-4 text-6xl animate-float-left absolute top-[13%] left-[8%]" />
-          <HiOutlineUsers className="text-purple-200/80 bg-purple-400/10 backdrop-blur-md rounded-xl p-4 text-6xl animate-float-right absolute top-[3%] left-[78%]" />
-          <HiOutlinePresentationChartBar className="text-orange-200/80 bg-orange-400/10 backdrop-blur-md rounded-xl p-4 text-6xl animate-float-down absolute top-[13%] left-[64%]" />
-          <HiOutlineGlobeAlt className="text-blue-300/80 bg-blue-500/10 backdrop-blur-md rounded-xl p-4 text-6xl animate-float-up absolute top-[4%] left-[18%]" />
+          <HiOutlineComputerDesktop className="text-green-600/80 bg-green-700/10 backdrop-blur-md rounded-xl p-4 text-6xl animate-float-left absolute top-[9%] left-[8%]" />
+          <HiOutlineUsers className="text-purple-200/80 bg-purple-400/10 backdrop-blur-md rounded-xl p-4 text-6xl animate-float-right absolute top-[2%] left-[75%]" />
+          <HiOutlinePresentationChartBar className="text-orange-200/80 bg-orange-400/10 backdrop-blur-md rounded-xl p-4 text-6xl animate-float-down absolute top-[10%] left-[64%]" />
+          <HiOutlineGlobeAlt className="text-blue-300/80 bg-blue-500/10 backdrop-blur-md rounded-xl p-4 text-6xl animate-float-up absolute top-[3%] left-[18%]" />
         </div>
 
         <section className="min-h-screen flex flex-col items-center justify-center gap-6 text-center px-6">
@@ -125,16 +137,13 @@ function Events() {
         </section>
 
         <section ref={whatIsRef} className="min-h-screen flex flex-col items-center justify-center text-center px-6">
-          <h2 className="text-6xl p-2 m-10 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
-            All about this years TechSurge
-          </h2>
-          <p className="max-w-5xl text-neutral-300 text-2xl tracking-tight leading-relaxed">
+          <HeadingNText title="All about this years TechSurge">
             TechSurge is an annual techfest conducted at BVRIT Narsapur by the
             Department of Computer Science and Engineering, hosted by the CBB
             club. Spanning over three exciting days, the event brings together
             innovation, creativity, and collaboration through a variety of
             technical and cultural activities.
-          </p>
+          </HeadingNText>
           <div className="mt-12 bg-blue-400/20 text-blue-300 px-6 py-2 rounded-full text-md font-medium backdrop-blur-sm shadow-md">
             TechSurge consists of 3 main events
           </div>

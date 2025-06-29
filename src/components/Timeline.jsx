@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { div } from "framer-motion/client";
 
+
+
+
 const Timeline = ({ data, heading, description }) => {
   const ref = useRef(null);
   const containerRef = useRef(null);
@@ -27,7 +30,7 @@ const Timeline = ({ data, heading, description }) => {
       className="w-full font-sans px-4 md:px-6 lg:px-8"
       ref={containerRef}
     >
-      <div className="max-w-5xl mx-auto px-2 text-center">
+      <div className="max-w-5xl mx-auto mt-50 px-2 text-center">
         {heading && (
           <h2 className="text-6xl p-2 m-6 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
             {heading}
@@ -94,12 +97,22 @@ export function TimelineDemo() {
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="https://assets.aceternity.com/templates/startup-1.webp"
+              src="/images/TechTussle2/TechTussle2-1.jpg"
               alt="event image"
               className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
             <img
-              src="https://assets.aceternity.com/templates/startup-2.webp"
+              src="/images/TechTussle2/TechTussle2-2.jpg"
+              alt="event image"
+              className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+            />
+            <img
+              src="/images/TechTussle2/TechTussle2-3.JPG"
+              alt="event image"
+              className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+            />
+            <img
+              src="/images/TechTussle2/TechTussle2-4.JPG"
               alt="event image"
               className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
@@ -116,15 +129,16 @@ export function TimelineDemo() {
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="https://assets.aceternity.com/templates/startup-1.webp"
+              src="/images/DL_Workshop/DL-1.jpg"
               alt="event image"
               className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
             <img
-              src="https://assets.aceternity.com/templates/startup-2.webp"
+              src="/images/DL_Workshop/DL-2.jpg"
               alt="event image"
               className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
+         
           </div>
         </div>
       ),
@@ -138,12 +152,22 @@ export function TimelineDemo() {
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="https://assets.aceternity.com/templates/startup-1.webp"
+              src="/images/FutureStack/FutureStack-1.jpg"
               alt="event image"
               className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
             <img
-              src="https://assets.aceternity.com/templates/startup-2.webp"
+              src="/images/FutureStack/FutureStack-2.jpg"
+              alt="event image"
+              className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+            />
+            <img
+              src="/images/FutureStack/FutureStack-3.JPG"
+              alt="event image"
+              className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+            />
+            <img
+              src="/images/FutureStack/FutureStack-4.jpg"
               alt="event image"
               className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
@@ -160,12 +184,22 @@ export function TimelineDemo() {
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="https://assets.aceternity.com/templates/startup-1.webp"
+              src="/images/Nandyala/Nandyala-1.gif"
               alt="event image"
               className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
             <img
-              src="https://assets.aceternity.com/templates/startup-2.webp"
+              src="/images/Nandyala/Nandyala-2.jpeg"
+              alt="event image"
+              className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+            />
+            <img
+              src="/images/Nandyala/Nandyala-3.jpeg"
+              alt="event image"
+              className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+            />
+            <img
+              src="/images/Nandyala/Nandyala-4.jpeg"
               alt="event image"
               className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
@@ -182,15 +216,26 @@ export function TimelineDemo() {
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="https://assets.aceternity.com/templates/startup-1.webp"
+              src="/images/TechTussle/TechTussle-1.JPG"
               alt="event image"
               className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
             <img
-              src="https://assets.aceternity.com/templates/startup-2.webp"
+              src="/images/TechTussle/TechTussle-2.JPG"
               alt="event image"
               className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
+            <img
+              src="/images/TechTussle/TechTussle-3.JPG"
+              alt="event image"
+              className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+            />
+            <img
+              src="/images/TechTussle/TechTussle-4.JPG"
+              alt="event image"
+              className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
+            />
+
           </div>
         </div>
       ),
@@ -204,22 +249,22 @@ export function TimelineDemo() {
             </p>
             <div className="grid grid-cols-2 gap-4">
                 <img
-                src="https://assets.aceternity.com/templates/startup-1.webp"
+                src="/images/TechSurge24/TechSurge-1.JPG"
                 alt="startup template"
                 className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                 />
                 <img
-                src="https://assets.aceternity.com/templates/startup-2.webp"
+                src="/images/TechSurge24/TechSurge-2.JPG"
                 alt="startup template"
                 className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                 />
                 <img
-                src="https://assets.aceternity.com/templates/startup-3.webp"
+                src="/images/TechSurge24/TechSurge-3.JPG"
                 alt="startup template"
                 className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                 />
                 <img
-                src="https://assets.aceternity.com/templates/startup-4.webp"
+                src="/images/TechSurge24/TechSurge-4.JPG"
                 alt="startup template"
                 className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
                 />

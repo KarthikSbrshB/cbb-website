@@ -1,14 +1,15 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import HeadingNText from "../components/HeadingNText";
 
 const ScheduleTable = ({ activeTab, setActiveTab, schedule }) => {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center text-center px-6">
-      <h2 className="text-6xl p-2 m-10 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
-        Event Schedule
-      </h2>
+      <HeadingNText title="Event Schedule">
+        This is the detailed schedule for the three-day TechSurge 2k25 festival, outlining all planned activities, rounds, breaks, and celebrations.
+      </HeadingNText>
 
-      <div className="mt-4 mb-12 flex space-x-4 text-white">
+      <div className="mt-10 mb-12 flex space-x-4 text-white">
         {["Day 1", "Day 2", "Day 3"].map((day, i) => (
           <button
             key={i}
