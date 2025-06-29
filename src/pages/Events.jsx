@@ -18,25 +18,36 @@ function Events() {
   // Schedule table state and data
   const [activeTab, setActiveTab] = useState(0);
   const schedule = [
+    // Day 1
+  [
+    { from: "09:30 AM", to: "10:00 AM", activity: "Assembly" },
+    { from: "10:00 AM", to: "11:00 AM", activity: "Inauguration" },
+    { from: "11:00 AM", to: "12:30 PM", activity: "Round 1: Srishti" },
+    { from: "12:30 PM", to: "01:00 PM", activity: "Round 1 Review" },
+    { from: "01:00 PM", to: "02:00 PM", activity: "Lunch" },
+    { from: "02:00 PM", to: "04:00 PM", activity: "Round 2: Sankalp" },
+    { from: "04:00 PM", to: "04:15 PM", activity: "Break" },
+    { from: "04:15 PM", to: "07:30 PM", activity: "Round 2 (Continued)" },
+    { from: "07:30 PM", to: "08:30 PM", activity: "Dinner" },
+    { from: "08:30 PM", to: "09:30 PM", activity: "Musical Night" },
+    { from: "09:30 PM", to: "10:00 PM", activity: "Round 2 Review" },
+    { from: "10:00 PM", to: "12:00 AM", activity: "Round 3: Samarth" },
+  ],
+  // Day 2
+  [
+    { from: "12:00 AM", to: "02:00 AM", activity: "Activities + Refreshments" },
+    { from: "02:00 AM", to: "07:00 AM", activity: "Round 3 (Continued)" },
+    { from: "07:00 AM", to: "09:00 AM", activity: "Morning Break" },
+    { from: "09:00 AM", to: "12:00 PM", activity: "Round 3 (Continued)" },
+    { from: "12:00 PM", to: "01:00 PM", activity: "Lunch" },
+    { from: "01:00 PM", to: "03:00 PM", activity: "Final Review" },
+    { from: "03:00 PM", to: "03:30 PM", activity: "Closing Ceremony & Vote of Thanks" },
+  ],
     [
-      { from: "9:00 AM", to: "10:00 AM", activity: "Inauguration Ceremony" },
-      { from: "10:00 AM", to: "12:00 PM", activity: "Hackathon Kickoff" },
-      { from: "12:00 PM", to: "1:00 PM", activity: "Tech Talk 1" },
-      { from: "12:00 PM", to: "1:00 PM", activity: "Tech Talk 1" },
-      { from: "12:00 PM", to: "1:00 PM", activity: "Tech Talk 1" },
-      { from: "12:00 PM", to: "1:00 PM", activity: "Tech Talk 1" },
-      { from: "12:00 PM", to: "1:00 PM", activity: "Tech Talk 1" },
-    ],
-    [
-      { from: "9:30 AM", to: "11:30 AM", activity: "Coding Competition" },
-      { from: "12:00 PM", to: "1:00 PM", activity: "Tech Talk 2" },
-      { from: "2:00 PM", to: "4:00 PM", activity: "UI/UX Workshop" },
-    ],
-    [
-      { from: "10:00 AM", to: "11:00 AM", activity: "Final Presentations" },
-      { from: "11:30 AM", to: "12:30 PM", activity: "Closing Ceremony" },
-      { from: "1:00 PM", to: "2:00 PM", activity: "Networking Lunch" },
-    ],
+    { from: "09:30 AM", to: "10:00 AM", activity: "Assembly" },
+    { from: "10:00 AM", to: "12:30 PM", activity: "Drishti - Ideathon" },
+    { from: "12:45 PM", to: "03:45 PM", activity: "Chanakya - Coding Contest" },
+  ]
   ];
 
   const eventDate = new Date("2025-07-17T09:00:00"); // Adjust as needed
