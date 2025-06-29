@@ -30,7 +30,7 @@ const Timeline = ({ data, heading, description }) => {
       className="w-full font-sans px-4 md:px-6 lg:px-8"
       ref={containerRef}
     >
-      <div className="max-w-5xl mx-auto px-2 text-center">
+      <div className="max-w-5xl mx-auto mt-50 px-2 text-center">
         {heading && (
           <h2 className="text-6xl p-2 m-6 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
             {heading}
