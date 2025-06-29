@@ -1,0 +1,65 @@
+import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const ScheduleTable = ({ activeTab, setActiveTab, schedule }) => {
+  return (
+    <section className="min-h-screen flex flex-col items-center justify-center text-center px-6">
+      <h2 className="text-6xl p-2 m-10 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
+        Event Schedule
+      </h2>
+
+      <div className="mt-4 mb-12 flex space-x-4 text-white">
+        {["Day 1", "Day 2", "Day 3"].map((day, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveTab(i)}
+            className={`px-8 py-2 rounded-full backdrop-blur-sm border transition-all duration-300 cursor-pointer ${
+              activeTab === i
+                ? "bg-white/15 border-white/25 text-white shadow-[0_0_10px_rgba(255,255,255,0.2)]"
+                : "bg-white/5 border-white/5 text-neutral-400"
+            }`}
+          >
+            {day}
+          </button>
+        ))}
+      </div>
+
+      <div className="relative inline-flex w-full max-w-4xl overflow-hidden rounded-xl p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+        <div className="absolute inset-0 -z-10 rounded-xl overflow-hidden">
+          <div className="absolute -inset-[25%] animate-[spin_6s_linear_infinite] bg-[conic-gradient(from_180deg_at_center,#4cdef5_0%,#1e3a8a_50%,#4cdef5_100%)] rounded-full blur-md opacity-70" />
+          <div className="absolute inset-[1px] rounded-xl bg-[#0e0e0e]" />
+        </div>
+        <div className="relative z-10 w-[96%] p-6 mx-auto">
+          <table className="w-full table-fixed border-separate border-spacing-y-2 text-white">
+            <thead>
+              <tr className="text-center border-b border-white/20 bg-black rounded-full">
+                <th className="px-6 py-3 font-semibold text-lg text-center first:rounded-l-full last:rounded-r-full text-neutral-100">From</th>
+                <th className="px-6 py-3 font-semibold text-lg text-center first:rounded-l-full last:rounded-r-full text-neutral-100">To</th>
+                <th className="px-6 py-3 font-semibold text-lg text-center first:rounded-l-full last:rounded-r-full text-neutral-100">Activity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <AnimatePresence mode="wait">
+                {(schedule[activeTab] || []).map((row, i) => (
+                  <motion.tr
+                    key={i}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <td className="px-4 py-4 text-center border-b border-white/20 text-neutral-200">{row.from}</td>
+                    <td className="px-4 py-4 text-center border-b border-white/20 text-neutral-200">{row.to}</td>
+                    <td className="px-4 py-4 text-center border-b border-white/20 text-neutral-200">{row.activity}</td>
+                  </motion.tr>
+                ))}
+              </AnimatePresence>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ScheduleTable;
