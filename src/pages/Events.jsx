@@ -18,34 +18,34 @@ function Events() {
 
   const [activeTab, setActiveTab] = useState(0);
   const schedule = [
-    [
-      { from: "09:30 AM", to: "10:00 AM", activity: "Assembly" },
-      { from: "10:00 AM", to: "11:00 AM", activity: "Inauguration" },
-      { from: "11:00 AM", to: "12:30 PM", activity: "Round 1: Srishti" },
-      { from: "12:30 PM", to: "01:00 PM", activity: "Round 1 Review" },
-      { from: "01:00 PM", to: "02:00 PM", activity: "Lunch" },
-      { from: "02:00 PM", to: "04:00 PM", activity: "Round 2: Sankalp" },
-      { from: "04:00 PM", to: "04:15 PM", activity: "Break" },
-      { from: "04:15 PM", to: "07:30 PM", activity: "Round 2 (Continued)" },
-      { from: "07:30 PM", to: "08:30 PM", activity: "Dinner" },
-      { from: "08:30 PM", to: "09:30 PM", activity: "Musical Night" },
-      { from: "09:30 PM", to: "10:00 PM", activity: "Round 2 Review" },
-      { from: "10:00 PM", to: "12:00 AM", activity: "Round 3: Samarth" },
-    ],
-    [
-      { from: "12:00 AM", to: "02:00 AM", activity: "Activities + Refreshments" },
-      { from: "02:00 AM", to: "07:00 AM", activity: "Round 3 (Continued)" },
-      { from: "07:00 AM", to: "09:00 AM", activity: "Morning Break" },
-      { from: "09:00 AM", to: "12:00 PM", activity: "Round 3 (Continued)" },
-      { from: "12:00 PM", to: "01:00 PM", activity: "Lunch" },
-      { from: "01:00 PM", to: "03:00 PM", activity: "Final Review" },
-      { from: "03:00 PM", to: "03:30 PM", activity: "Closing Ceremony & Vote of Thanks" },
-    ],
-    [
-      { from: "09:30 AM", to: "10:00 AM", activity: "Assembly" },
-      { from: "10:00 AM", to: "12:30 PM", activity: "Drishti - Ideathon" },
-      { from: "12:45 PM", to: "03:45 PM", activity: "Chanakya - Coding Contest" },
-    ]
+    // Day 1
+  [
+    { from: "09:30 AM", to: "10:00 AM", activity: "Assembly" },
+    { from: "10:00 AM", to: "10:30 AM", activity: "Inauguration" },
+    { from: "10:30 AM", to: "12:30 PM", activity: "Round 1: Srishti" },
+    { from: "12:30 PM", to: "01:00 PM", activity: "Round 1 Review" },
+    { from: "01:00 PM", to: "02:00 PM", activity: "Lunch" },
+    { from: "02:00 PM", to: "04:00 PM", activity: "Round 2: Sankalp" },
+    { from: "04:00 PM", to: "04:15 PM", activity: "Break" },
+    { from: "04:15 PM", to: "07:30 PM", activity: "Round 2 (Continued)" },
+    { from: "07:30 PM", to: "08:30 PM", activity: "Dinner" },
+    { from: "08:30 PM", to: "09:00 PM", activity: "Round 2 Review" },
+    { from: "09:00 PM", to: "12:00 AM", activity: "Round 3: Samarth" },
+  ],
+
+  // Day 2
+  [
+    { from: "12:00 AM", to: "02:00 AM", activity: "Activities + Refreshments" },
+    { from: "02:00 AM", to: "07:00 AM", activity: "Round 3 (Continued)" },
+    { from: "07:00 AM", to: "09:00 AM", activity: "Morning Break" },
+    { from: "09:00 AM", to: "09:30 AM", activity: "Round 3 (Continued)" },
+    { from: "09:30 AM", to: "11:15 AM", activity: "Final Review & Announcement of winners" },
+    { from: "11:15 AM", to: "11:30 AM", activity: "Closing Ceremony & Vote of Thanks" },
+    { from: "11:30 AM", to: "12:00 PM", activity: "Assemble for Drishti" },
+    { from: "12:00 PM", to: "03:00 PM", activity: "Participants pitch their ideas" },
+    { from: "03:00 PM", to: "03:30 PM", activity: "Announcement of winners & Vote of Thanks" }
+  ]
+   
   ];
 
   const eventDate = new Date("2025-07-17T09:00:00");
@@ -139,15 +139,15 @@ function Events() {
           <HeadingNText title="All about this years TechSurge">
             TechSurge is an annual techfest conducted at BVRIT Narsapur by the
             Department of Computer Science and Engineering, hosted by the CBB
-            club. Spanning over three exciting days, the event brings together
+            club. Spanning over two exciting days, the event brings together
             innovation, creativity, and collaboration through a variety of
             technical and cultural activities.
           </HeadingNText>
           <div className="mt-12 bg-blue-400/20 text-blue-300 px-6 py-2 rounded-full text-md font-medium backdrop-blur-sm shadow-md">
-            TechSurge consists of 3 main events
+            TechSurge consists of 2 main events
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-12 px-6">
-            {["Competitions", "Workshops", "Exhibits"].map((title, i) => (
+            {["Competitions", "Workshops"].map((title, i) => (
               <div
                 key={i}
                 onClick={() => setActiveModal(title)}
