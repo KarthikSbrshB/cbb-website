@@ -6,11 +6,11 @@ const ScheduleTable = ({ activeTab, setActiveTab, schedule }) => {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center text-center px-6">
       <HeadingNText title="Event Schedule">
-        This is the detailed schedule for the three-day TechSurge 2k25 festival, outlining all planned activities, rounds, breaks, and celebrations.
+        This is the detailed schedule for the two-day TechSurge 2k25 festival, outlining all planned activities, rounds, breaks, and celebrations.
       </HeadingNText>
 
       <div className="mt-10 mb-12 flex space-x-4 text-white">
-        {["Day 1", "Day 2", "Day 3"].map((day, i) => (
+        {["Day 1", "Day 2"].map((day, i) => (
           <button
             key={i}
             onClick={() => setActiveTab(i)}
