@@ -2,11 +2,11 @@ import React from "react";
 
 const HeadingNText = ({ title, children }) => {
   return (
-    <div className="text-center px-6">
-      <h2 className="text-6xl p-2 m-10 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
+    <div className="text-center px-4 sm:px-6">
+      <h2 className="text-4xl sm:text-5xl lg:text-6xl p-2 sm:p-4 m-6 sm:m-10 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center leading-tight max-w-4xl mx-auto break-words whitespace-normal">
         {title}
       </h2>
-      <p className="max-w-5xl mx-auto text-neutral-300 text-2xl tracking-tight leading-relaxed">
+      <p className="max-w-3xl sm:max-w-4xl lg:max-w-5xl mx-auto text-neutral-300 text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight leading-relaxed">
         {children}
       </p>
     </div>
