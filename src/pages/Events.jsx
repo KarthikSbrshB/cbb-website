@@ -95,16 +95,15 @@ function Events() {
 
 
 
-{/* Hero Section - Matching image layout with responsive positioning */}
-<section className="min-h-screen mt-12 sm:mt-20 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-8 sm:py-12">
-  {/* Title Container with overlapping positioning */}
-  <div className="relative w-full max-w-full">
-    <div className="absolute -top-14 sm:-top-20 left-1/2 -translate-x-1/2 whitespace-nowrap bg-blue-200/10 text-blue-300 backdrop-blur-sm px-5 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold">
+<section className="min-h-screen mt-16 sm:mt-24 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-8 sm:py-12">
+  {/* Title Container */}
+  <div className="relative w-full sm:w-fit mt-6 sm:mt-10">
+    <div className="absolute -top-5 sm:-top-5 left-1/2 -translate-x-1/2 bg-blue-200/10 text-blue-300 backdrop-blur-sm px-6 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold">
       Upcoming Event
     </div>
-    
-    {/* Desktop Layout - Hidden on mobile */}
-    <div className="hidden sm:block relative">
+
+    {/* Desktop Layout */}
+    <div className="hidden sm:block relative mt-10 sm:mt-14">
       <span className="relative left-[-15%] bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text py-8 pb-6 text-[8vw] leading-[1.2] font-[Revamped] text-transparent">
         TechSurge
       </span>
@@ -112,26 +111,26 @@ function Events() {
         2k25
       </span>
     </div>
-    
-    {/* Mobile Layout - Visible only on mobile */}
-    <div className="block sm:hidden relative">
+
+    {/* Mobile Layout */}
+    <div className="block sm:hidden relative mt-10">
       <div className="flex flex-col items-center">
-        <span className="bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text py-6 pb-1 text-[11vw] leading-[1.1] font-[Revamped] text-transparent">
+        <span className="bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text py-6 pb-1 text-[13vw] leading-[1.1] font-[Revamped] text-transparent">
           TechSurge
         </span>
-        <span className="tracking-tighter flicker text-[12vw] text-[#4cdef5d7] font-[CyberBrush] -mt-3">
+        <span className="tracking-tighter flicker text-[16vw] text-[#4cdef5d7] font-[CyberBrush] -mt-3">
           2k25
         </span>
       </div>
     </div>
   </div>
-  
+
   {/* Countdown Timer */}
-  <div className="text-center w-full flex flex-col items-center mt-12 mb-6 sm:mt-16 sm:mb-10 md:mt-20 md:mb-12">
+  <div className="text-center w-full flex flex-col items-center mt-10 sm:mt-12 md:mt-14">
     <p className="text-xs sm:text-sm uppercase tracking-widest text-neutral-400 mb-2 sm:mb-4">
       Starts in
     </p>
-    <div className="flex gap-4 sm:gap-6 md:gap-8 text-center font-mono text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl text-[#4cdef5]">
+    <div className="flex gap-3 sm:gap-5 md:gap-6 text-center font-mono text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#4cdef5]">
       {timeLeft.split(" ").map((unit, i) => (
         <motion.div
           key={i}
@@ -151,14 +150,15 @@ function Events() {
       ))}
     </div>
   </div>
-  
+
   {/* Register Button */}
-  <div className="w-full flex justify-center mt-10 sm:mt-14 md:mt-20">
+  <div className="w-full flex justify-center mt-8 sm:mt-10 md:mt-12">
     <BorderedButton onClick={() => whatIsRef.current?.scrollIntoView({ behavior: "smooth" })}>
       Register Now!
     </BorderedButton>
   </div>
 </section>
+
 
         {/* About Section - Responsive */}
         <section ref={whatIsRef} className="min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 py-8 sm:py-12">
