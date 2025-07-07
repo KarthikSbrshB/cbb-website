@@ -52,7 +52,9 @@ class Title {
     this.text = text;
     this.textColor = textColor;
     this.font = font;
-    this.createMesh();
+    if (this.text && this.text.trim() !== '') {
+      this.createMesh();
+    }
   }
   createMesh() {
     const { texture, width, height } = createTextTexture(this.gl, this.text, this.font, this.textColor);
@@ -351,7 +353,7 @@ class App {
         renderer: this.renderer,
         scene: this.scene,
         screen: this.screen,
-        text: data.text,
+        text: data.text || '',
         viewport: this.viewport,
         bend,
         textColor,

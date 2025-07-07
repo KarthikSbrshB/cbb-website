@@ -163,15 +163,15 @@ function Team() {
 
       <div className="relative z-20 w-full text-white">
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 pt-16 sm:pt-20 md:pt-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
             {/* Header */}
-            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#4cdef5] mb-2 sm:mb-4">Team CBB</h2>
-              <p className="text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl">More Than a Team — A Family.</p>
+            <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+              <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-[#4cdef5] mb-2 sm:mb-4">Team CBB</h2>
+              <p className="text-gray-400 text-xs sm:text-base md:text-lg lg:text-xl">More Than a Team — A Family.</p>
             </div>
 
             {/* Team Grid with ProfileCards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 justify-items-center items-center min-h-[60vh]">
               {teamMembers.map((member, index) => (
                 <div key={index} className="flex justify-center">
                   <ProfileCard

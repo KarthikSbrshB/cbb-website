@@ -1,19 +1,20 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+const navItems = ["Home", "About", "Team", "Events", "Contact Us"];
 
 const PillNavbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
-
       const isAtTop = currentScrollY < 10;
       const isAtBottom = currentScrollY >= maxScrollY - 10;
-
       if (isAtTop) {
         setShowNavbar(true);
       } else if (isAtBottom) {
@@ -23,10 +24,8 @@ const PillNavbar = () => {
       } else if (currentScrollY < lastScrollY) {
         setShowNavbar(true);
       }
-
       setLastScrollY(currentScrollY);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
@@ -47,16 +46,82 @@ const PillNavbar = () => {
     };
   }, []);
 
+  // Close mobile menu on route change
+  const location = useLocation();
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
   return (
-    <div
-      className={`fixed top-5 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 rounded-full overflow-hidden ${
-        showNavbar ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
-      } backdrop-blur`}
-    >
-      <SlideTabs />
-    </div>
+    <>
+      {/* Desktop Navbar */}
+      <div
+        className={`fixed top-5 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 rounded-full overflow-hidden \
+        ${showNavbar ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"} backdrop-blur hidden md:block`}
+      >
+        <SlideTabs />
+      </div>
+      {/* Hamburger for mobile */}
+      <div className={`fixed top-5 left-5 z-50 md:hidden transition-all duration-300 ${showNavbar ? "opacity-100" : "opacity-0 -translate-y-full"}`}>
+        <HamburgerButton open={mobileMenuOpen} setOpen={setMobileMenuOpen} />
+      </div>
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-40 bg-zinc-950/90 backdrop-blur flex flex-col items-center justify-center md:hidden"
+          >
+            <nav>
+              <ul className="space-y-8 text-2xl text-zinc-100 font-light text-center">
+                {navItems.map((label) => {
+                  const path =
+                    label.toLowerCase() === "home"
+                      ? "/"
+                      : `/${label.toLowerCase().replace(/\s+/g, "-")}`;
+                  return (
+                    <li key={label}>
+                      <Link
+                        to={path}
+                        className="hover:text-cyan-400 transition-colors duration-200"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
+
+const HamburgerButton = ({ open, setOpen }) => (
+  <button
+    aria-label="Open menu"
+    className="w-12 h-12 flex flex-col items-center justify-center relative group"
+    onClick={() => setOpen((v) => !v)}
+  >
+    <span
+      className={`block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 origin-center
+        ${open ? "rotate-45 translate-y-2" : ""}`}
+    ></span>
+    <span
+      className={`block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 my-1
+        ${open ? "opacity-0" : ""}`}
+    ></span>
+    <span
+      className={`block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 origin-center
+        ${open ? "-rotate-45 -translate-y-2" : ""}`}
+    ></span>
+  </button>
+);
 
 const SlideTabs = () => {
   const [position, setPosition] = useState({
@@ -64,13 +129,9 @@ const SlideTabs = () => {
     width: 0,
     opacity: 0,
   });
-
   const location = useLocation();
   const pathname = location.pathname;
-
-  const navItems = ["Home", "About", "Team", "Alumni", "Events", "Contact Us"];
   const tabRefs = useRef([]);
-
   const getLabelFromPath = (path) => {
     if (path === "/") return "Home";
     const match = navItems.find(
@@ -79,9 +140,7 @@ const SlideTabs = () => {
     );
     return match || null;
   };
-
   const activeLabel = getLabelFromPath(pathname);
-
   useEffect(() => {
     const updatePillPosition = () => {
       const activeIndex = navItems.findIndex((label) => label === activeLabel);
@@ -91,10 +150,8 @@ const SlideTabs = () => {
         setPosition({ left: offsetLeft, width: offsetWidth, opacity: 1 });
       }
     };
-    // Use requestAnimationFrame to ensure refs are measured after DOM update.
     requestAnimationFrame(updatePillPosition);
-  }, [pathname, navItems, activeLabel]);
-
+  }, [pathname, activeLabel]);
   return (
     <ul
       onMouseLeave={() => {
@@ -110,7 +167,6 @@ const SlideTabs = () => {
           label.toLowerCase() === "home"
             ? "/"
             : `/${label.toLowerCase().replace(/\s+/g, "-")}`;
-
         return (
           <Tab
             key={label}
@@ -130,7 +186,6 @@ const SlideTabs = () => {
 const Tab = ({ label, to, activeLabel, tabRef }) => {
   const ref = React.useRef(null);
   const isActive = activeLabel === label;
-
   return (
     <li
       ref={(el) => {

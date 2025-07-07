@@ -1,8 +1,40 @@
 import BorderedButton from "../components/BorderedButton";
 import Footer from "../components/Footer";
 import HeadingNText from "../components/HeadingNText";
+import React, { useState } from "react";
 
 function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("");
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("Message sent successfully!");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        const data = await res.json();
+        setStatus(data.error || "Failed to send message.");
+      }
+    } catch {
+      setStatus("Failed to send message. Please try again later.");
+    }
+    setLoading(false);
+  };
+
   return (
     <div className="relative flex w-full items-center justify-center bg-black">
       {/* Grid background */}
@@ -19,8 +51,7 @@ function Contact() {
           </HeadingNText>
 
           <form
-            action="/api/contact"
-            method="POST"
+            onSubmit={handleSubmit}
             className="mt-12 w-full max-w-2xl bg-[#0e0e0e] backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-6 md:p-8 shadow-lg flex flex-col gap-6 text-left"
           >
             {/* Name Field */}
@@ -30,6 +61,8 @@ function Contact() {
                 type="text"
                 name="name"
                 required
+                value={form.name}
+                onChange={handleChange}
                 className="w-full p-3 rounded-md bg-black border border-neutral-700 text-white placeholder-neutral-500 text-sm md:text-base focus:outline-none focus:ring-1 focus:ring-blue-500"
                 placeholder="Your Name"
               />
@@ -42,6 +75,8 @@ function Contact() {
                 type="email"
                 name="email"
                 required
+                value={form.email}
+                onChange={handleChange}
                 className="w-full p-3 rounded-md bg-black border border-neutral-700 text-white placeholder-neutral-500 text-sm md:text-base focus:outline-none focus:ring-1 focus:ring-blue-500"
                 placeholder="you@example.com"
               />
@@ -54,15 +89,22 @@ function Contact() {
                 name="message"
                 rows="5"
                 required
+                value={form.message}
+                onChange={handleChange}
                 className="w-full p-3 rounded-md bg-black border border-neutral-700 text-white placeholder-neutral-500 text-sm md:text-base focus:outline-none focus:ring-1 focus:ring-blue-500"
                 placeholder="Type your message here..."
               ></textarea>
             </div>
 
+            {/* Status Message */}
+            {status && (
+              <div className={`text-center text-sm font-medium ${status.includes('success') ? 'text-green-400' : 'text-red-400'}`}>{status}</div>
+            )}
+
             {/* Submit Button */}
             <div className="flex justify-center">
-              <BorderedButton type="submit" className="px-6 py-2 text-sm sm:text-base">
-                Send Message
+              <BorderedButton type="submit" className="px-6 py-2 text-sm sm:text-base" disabled={loading}>
+                {loading ? "Sending..." : "Send Message"}
               </BorderedButton>
             </div>
           </form>
