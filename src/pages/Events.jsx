@@ -48,7 +48,7 @@ function Events() {
    
   ];
 
-  const eventDate = new Date("2025-07-17T09:00:00");
+  const eventDate = new Date("2025-07-29T09:00:00");
 
   const [timeLeft, setTimeLeft] = useState("");
 
@@ -78,11 +78,13 @@ function Events() {
   }, []);
 
   return (
-    <div className="relative flex w-full items-center justify-center bg-black">
+    <div className="relative flex w-full items-center justify-center bg-black overflow-x-hidden">
       <div className="absolute inset-0 [background-size:40px_40px] [background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]" />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
       <div className="relative z-20 w-full text-white">
+        <div className="mx-auto w-full max-w-screen-xl px-4 sm:px-6">
+
         {/* Floating Icons - Responsive positioning */}
         <div className="absolute z-0 inset-0 pointer-events-none hidden lg:block">
           <HiOutlineComputerDesktop className="text-green-600/80 bg-green-700/10 backdrop-blur-md rounded-xl p-3 lg:p-4 text-4xl lg:text-6xl animate-float-left absolute top-[9%] left-[8%]" />
@@ -96,8 +98,8 @@ function Events() {
 {/* Hero Section - Matching image layout with responsive positioning */}
 <section className="min-h-screen mt-12 sm:mt-20 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-8 sm:py-12">
   {/* Title Container with overlapping positioning */}
-  <div className="relative w-fit">
-    <div className="absolute -top-35 left-1/2 -translate-x-1/2 bg-blue-200/10 text-blue-300 backdrop-blur-sm px-6 py-2 rounded-full text-md font-semibold">
+  <div className="relative w-full max-w-full">
+    <div className="absolute -top-14 sm:-top-20 left-1/2 -translate-x-1/2 whitespace-nowrap bg-blue-200/10 text-blue-300 backdrop-blur-sm px-5 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold">
       Upcoming Event
     </div>
     
@@ -114,10 +116,10 @@ function Events() {
     {/* Mobile Layout - Visible only on mobile */}
     <div className="block sm:hidden relative">
       <div className="flex flex-col items-center">
-        <span className="bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text py-8 pb-2 text-[15vw] leading-[1.1] font-[Revamped] text-transparent">
+        <span className="bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text py-6 pb-1 text-[11vw] leading-[1.1] font-[Revamped] text-transparent">
           TechSurge
         </span>
-        <span className="tracking-tighter flicker text-[18vw] text-[#4cdef5d7] font-[CyberBrush] -mt-4">
+        <span className="tracking-tighter flicker text-[12vw] text-[#4cdef5d7] font-[CyberBrush] -mt-3">
           2k25
         </span>
       </div>
@@ -125,11 +127,11 @@ function Events() {
   </div>
   
   {/* Countdown Timer */}
-  <div className="text-center w-full flex flex-col items-center mb-8 sm:mb-12 md:mb-16">
+  <div className="text-center w-full flex flex-col items-center mt-12 mb-6 sm:mt-16 sm:mb-10 md:mt-20 md:mb-12">
     <p className="text-xs sm:text-sm uppercase tracking-widest text-neutral-400 mb-2 sm:mb-4">
       Starts in
     </p>
-    <div className="flex gap-3 sm:gap-4 md:gap-6 text-center font-mono text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#4cdef5]">
+    <div className="flex gap-4 sm:gap-6 md:gap-8 text-center font-mono text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl text-[#4cdef5]">
       {timeLeft.split(" ").map((unit, i) => (
         <motion.div
           key={i}
@@ -151,7 +153,7 @@ function Events() {
   </div>
   
   {/* Register Button */}
-  <div className="w-full flex justify-center">
+  <div className="w-full flex justify-center mt-10 sm:mt-14 md:mt-20">
     <BorderedButton onClick={() => whatIsRef.current?.scrollIntoView({ behavior: "smooth" })}>
       Register Now!
     </BorderedButton>
@@ -205,14 +207,14 @@ function Events() {
               className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
               onClick={() => setActiveModal(null)}
             >
-              <motion.div
-                initial={{ scale: 0.95, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.95, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                onClick={(e) => e.stopPropagation()}
-                className="relative bg-zinc-900 rounded-xl border border-white/10 p-6 sm:p-8 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-4xl min-h-[50vh] sm:min-h-[60vh] text-white shadow-xl max-h-[90vh] overflow-y-auto"
-              >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative bg-zinc-900 rounded-xl border border-white/10 p-4 sm:p-6 w-full max-w-[90%] sm:max-w-[80%] md:max-w-md lg:max-w-lg min-h-[40vh] sm:min-h-[50vh] text-white shadow-xl max-h-[85vh] overflow-y-auto"
+            >
                 <button
                   onClick={() => setActiveModal(null)}
                   className="absolute top-3 right-3 text-white text-xl bg-white/10 hover:bg-white/20 rounded-full w-8 h-8 flex items-center justify-center transition-colors duration-200"
@@ -230,6 +232,7 @@ function Events() {
         </AnimatePresence>
 
         <Footer />
+        </div>
       </div>
     </div>
   );
