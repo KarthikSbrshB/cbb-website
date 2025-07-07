@@ -12,7 +12,8 @@ function Contact() {
 
       {/* Main content */}
       <div className="relative z-20 w-full text-white">
-        <section className="min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-8 pb-20">
+        <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-18 pb-16">
+
           <HeadingNText title="Contact Us">
             Reach out to the CBB team for collaborations, queries, or just to say hi!
           </HeadingNText>
