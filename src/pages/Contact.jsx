@@ -11,7 +11,7 @@ function Contact() {
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
       <div className="relative z-20 w-full text-white">
-        <section className="min-h-screen flex flex-col items-center justify-center text-center px-6">
+        <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-18 pb-16">
           <HeadingNText title="Contact Us">
             Reach out to the CBB team for collaborations, queries, or just to say hi!
           </HeadingNText>

@@ -31,6 +31,22 @@ const PillNavbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  useEffect(() => {
+    let mouseTimer;
+    const handleMouseMove = () => {
+      setShowNavbar(true);
+      clearTimeout(mouseTimer);
+      mouseTimer = setTimeout(() => {
+        setShowNavbar(false);
+      }, 2000);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      clearTimeout(mouseTimer);
+    };
+  }, []);
+
   return (
     <div
       className={`fixed top-5 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 rounded-full overflow-hidden ${
