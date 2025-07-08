@@ -177,13 +177,20 @@ function Events() {
           
           {/* Event Cards - Responsive grid */}
           <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-center gap-6 sm:gap-8 lg:gap-12 px-4 sm:px-6">
-            {["Competitions", "Workshops"].map((title, i) => (
+            {[
+              { title: "Vyoma", image: "/src/assets/event-posters/Vyoma.PNG" },
+              { title: "Drishti", image: "/src/assets/event-posters/Drishti.PNG" }
+            ].map(({ title, image }, i) => (
               <div
                 key={i}
                 onClick={() => setActiveModal(title)}
-                className="cursor-pointer w-full sm:w-64 md:w-72 lg:w-80 aspect-[1/1.2] bg-[#0e0e0e] hover:bg-[#1a1a1a] transition-colors duration-300 backdrop-blur-md rounded-xl border border-white/10 p-6 flex items-center justify-center text-xl sm:text-2xl font-semibold text-neutral-200 shadow-lg"
+                className="cursor-pointer w-full max-w-[300px] bg-[#0e0e0e] hover:bg-[#1a1a1a] transition-colors duration-300 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden"
               >
-                {title}
+                <img
+                  src={image}
+                  alt={`${title} Poster`}
+                  className="w-full h-auto object-contain rounded-lg"
+                />
               </div>
             ))}
           </div>
@@ -221,7 +228,7 @@ function Events() {
                 >
                   ×
                 </button>
-                {activeModal === "Competitions" ? (
+                {activeModal === "Vyoma" ? (
                   <div className="w-full h-full flex flex-col items-center justify-center">
                     {/* Title and tagline at top center */}
                     <div className="w-full text-center mb-8 sm:mb-10">
@@ -235,9 +242,9 @@ function Events() {
                       {/* Left: Image */}
                       <div className="w-full sm:w-1/3">
                         <img
-                          src="/images/competition.jpg"
-                          alt="Vyoma Hackathon"
-                          className="w-full h-full object-cover rounded-lg"
+                          src="/src/assets/event-posters/Vyoma.PNG"
+                          alt="Vyoma Hackathon Poster"
+                          className="w-full max-w-xs sm:max-w-sm object-contain rounded-lg"
                         />
                       </div>
                       {/* Right: Text */}
@@ -287,7 +294,7 @@ function Events() {
                       </div>
                     </div>
                   </div>
-                ) : activeModal === "Workshops" ? (
+                ) : activeModal === "Drishti" ? (
                   <div className="w-full h-full flex flex-col items-center justify-center">
                     {/* Title and tagline at top center */}
                     <div className="w-full text-center mb-8 sm:mb-10">
@@ -301,9 +308,9 @@ function Events() {
                       {/* Left: Image */}
                       <div className="w-full sm:w-1/3">
                         <img
-                          src="/images/workshops.jpg"
+                          src="/src/assets/event-posters/Drishti.PNG"
                           alt="Drishti"
-                          className="w-full h-full object-cover rounded-lg"
+                          className="w-full max-w-xs sm:max-w-sm object-contain rounded-lg"
                         />
                       </div>
                       {/* Right: Text */}
