@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import PillNavbar from './components/PillNavbar';
 import Home from './pages/Home';
@@ -17,20 +16,6 @@ function ScrollToTop() {
 }
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1800); // show loader for 1.8 seconds
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return <Loader_cbb />;
-  }
-
   return (
     <div className="min-h-screen bg-black text-white">
       <ScrollToTop />
