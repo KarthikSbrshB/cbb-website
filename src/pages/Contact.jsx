@@ -2,7 +2,7 @@ import BorderedButton from "../components/BorderedButton";
 import Footer from "../components/Footer";
 import HeadingNText from "../components/HeadingNText";
 import React, { useState } from "react";
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });

@@ -1,12 +1,15 @@
+import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+
 import PillNavbar from './components/PillNavbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Team from './pages/Team';
 import Events from './pages/Events';
 import Contact from './pages/Contact';
-import { useEffect } from 'react';
+import Loader from './components/Loader_cbb'; // ✅ Adjust name if needed
 
+// Scroll to top on every route change
 function ScrollToTop() {
   const location = useLocation();
   useEffect(() => {
@@ -16,6 +19,18 @@ function ScrollToTop() {
 }
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1800); // ⏱ Reduced loader time (1.8 seconds)
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <Loader />;
+
   return (
     <div className="min-h-screen bg-black text-white">
       <ScrollToTop />
