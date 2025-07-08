@@ -130,3 +130,12 @@
         display: none !important;
     }
 }
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 25px 4px rgba(76, 222, 245, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px 8px rgba(76, 222, 245, 0.3);
+  }
+}
