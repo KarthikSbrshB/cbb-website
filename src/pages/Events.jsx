@@ -11,6 +11,7 @@ import {
 } from "react-icons/hi2";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { IoClose } from "react-icons/io5";
 
 function Events() {
   const [activeModal, setActiveModal] = useState(null);
@@ -178,13 +179,13 @@ function Events() {
           {/* Event Cards - Responsive grid */}
           <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-center gap-6 sm:gap-8 lg:gap-12 px-4 sm:px-6">
             {[
-              { title: "Vyoma", image: "/src/assets/event-posters/Vyoma.PNG" },
-              { title: "Drishti", image: "/src/assets/event-posters/Drishti.PNG" }
-            ].map(({ title, image }, i) => (
+              { title: "Vyoma", image: "/src/assets/event-posters/Vyoma.PNG", glow: "hover:shadow-[0_0_15px_rgba(168,85,247,0.5)]" },
+              { title: "Drishti", image: "/src/assets/event-posters/Drishti.PNG", glow: "hover:shadow-[0_0_15px_rgba(93,188,252,0.4)]" }
+            ].map(({ title, image, glow }, i) => (
               <div
                 key={i}
                 onClick={() => setActiveModal(title)}
-                className="cursor-pointer w-full max-w-[300px] bg-[#0e0e0e] hover:bg-[#1a1a1a] transition-colors duration-300 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden"
+                className={`cursor-pointer w-full max-w-[300px] bg-[#0e0e0e] hover:bg-[#1a1a1a] transition-all duration-300 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden ${glow}`}
               >
                 <img
                   src={image}
@@ -224,9 +225,9 @@ function Events() {
             >
                 <button
                   onClick={() => setActiveModal(null)}
-                  className="absolute top-3 right-3 text-white text-xl bg-white/10 hover:bg-white/20 rounded-full w-8 h-8 flex items-center justify-center transition-colors duration-200"
+                  className="absolute top-3 right-3 text-white bg-white/10 hover:bg-white/20 rounded-full w-8 h-8 flex items-center justify-center transition-colors duration-200"
                 >
-                  ×
+                  <IoClose className="text-xl" />
                 </button>
                 {activeModal === "Vyoma" ? (
                   <div className="w-full h-full flex flex-col items-center justify-center">
@@ -280,7 +281,7 @@ function Events() {
                       </div>
                     </div>
                     {/* Buttons at bottom center */}
-                    <div className="w-full flex flex-col items-center justify-center gap-4 mt-10 sm:mt-14">
+                    <div className="w-full flex flex-col items-center justify-center gap-4 mt-6 sm:mt-8">
                       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
                         <button
                           onClick={() => window.open("https://docs.google.com/spreadsheets/d/18u1uKEjQNXe3LyQH_j_hK6dC0hw3F2Hr", "_blank")}
@@ -343,7 +344,7 @@ function Events() {
                       </div>
                     </div>
                     {/* Buttons at bottom center */}
-                    <div className="w-full flex flex-col items-center justify-center gap-4 mt-10 sm:mt-14">
+                    <div className="w-full flex flex-col items-center justify-center gap-4 mt-6 sm:mt-8">
                       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
                         <BorderedButton as="a" href="https://forms.gle/gLswHWz9p4rqDSUEA" target="_blank" rel="noopener noreferrer">
                           Register for Drishti
