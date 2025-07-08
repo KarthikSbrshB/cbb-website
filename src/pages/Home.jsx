@@ -31,80 +31,55 @@ function Home() {
 
       <div className="relative z-20 w-full text-white">
         {/* Hero Section */}
-        <section className="min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 mb-0 sm:mb-0">
-          <img src={logo} alt="CBB Logo" className="w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 mb-6 sm:mb-8 object-contain" />
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-center">
-            <span className="text-[#4cdef5]">Coding </span>
-            <span className="text-[#1b7bb3]">Brigade BVRIT</span>
+        <section className="min-h-screen py-10 sm:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
+          <img src={logo} alt="CBB Logo" className="w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 mb-6 sm:mb-8 object-contain drop-shadow-[0_8px_16px_rgba(76,222,245,0.35)]" />
+          <h2 className="text-4xl pb-1 sm:text-5xl md:text-7xl font-extrabold text-center">
+            <span className="bg-gradient-to-b from-[#c0f4ff] to-[#4cdef5] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] [text-shadow:_0_2px_4px_rgba(0,0,0,0.4)]">Coding </span>
+            <span className="bg-gradient-to-b from-[#c0f4ff] to-[#4cdef5] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] [text-shadow:_0_2px_4px_rgba(0,0,0,0.4)]">Brigade </span>
+            <span className="bg-gradient-to-b from-[#81c7f5] to-[#1b7bb3] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] [text-shadow:_0_2px_4px_rgba(0,0,0,0.4)]">BVRIT</span>
           </h2>
           <p className="mt-6 sm:mt-8 text-lg sm:text-2xl text-orange-300 animate-pulse font-medium tracking-wide">
-            Marching Towards Success
+            March Towards Success
           </p>
+          <Link 
+            to="/about"
+            onClick={scrollToTop}
+            className="inline-flex items-center mt-10 sm:mt-14"
+          >
+            <BorderedButton>Know More</BorderedButton>
+          </Link>
         </section>
-
-        {/* About Glimpse */}
-        <section className="pt-1 pb-10 sm:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
-          <div className="max-w-2xl sm:max-w-4xl mx-auto">
-            <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
-              About Glimpse
-            </h3>
-            <p className="text-base sm:text-xl md:text-2xl text-neutral-300 leading-relaxed mb-8 sm:mb-12">
-              CBB (Coding Brigade BVRIT) is a student-run coding club that empowers young minds through technology, collaboration, and innovation.
-            </p>
-            <Link 
-              to="/about"
-              onClick={scrollToTop}
-              className="inline-flex items-center"
-            >
-              <BorderedButton>Read More</BorderedButton>
-            </Link>
-          </div>
-        </section>
-
+        
         {/* Upcoming Events */}
-        <section className="py-10 sm:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto w-full">
-            <h3 className="text-3xl sm:text-5xl font-bold mb-2 sm:mb-4 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
-              TechSurge 2K25
-            </h3>
-            <div className="md:grid md:grid-cols-2 md:items-center md:gap-8 min-h-[400px]">
-              {/* Text Column */}
-              <div className="flex flex-col items-center md:items-start text-center md:text-left justify-center h-full">
-                <div className="text-base sm:text-lg font-semibold mb-1 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">Department of CSE, BVRIT presents</div>
-                <div className="text-base sm:text-lg mb-3 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">A national-level techfest with hackathons, ideathons, and a prize pool of <span className='text-[#4cdef5] font-bold'>1 Lakh</span>!</div>
-                <div className="text-lg sm:text-xl font-semibold mb-2 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">29th & 30th July, 2025</div>
-                <div className="text-base sm:text-lg mb-2 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">Prize Pool: <span className="text-[#4cdef5] font-bold">1 Lakh</span></div>
-                <div className="flex flex-col gap-2 items-center md:items-start mb-4 w-full">
-                  <div className="text-base sm:text-lg bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
-                    <span className="font-bold">29th July:</span> <span className="font-bold text-[#4cdef5]">Vyoma</span> Hackathon
-                  </div>
-                  <div className="text-base sm:text-lg bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
-                    <span className="font-bold">30th July:</span> <span className="font-bold text-[#4cdef5]">Drishti</span> Ideathon
-                  </div>
-                </div>
-                <div className="text-base sm:text-lg font-semibold mb-4 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">Don't miss out! Open to all students.</div>
-                <div className="flex w-full justify-center md:justify-start">
-                  <Link to="/events" className="inline-flex items-center mb-4">
-                    <BorderedButton>Register</BorderedButton>
-                  </Link>
-                </div>
-              </div>
-              {/* Computer Model Column */}
-              <div className="hidden md:flex w-full h-[250px] md:h-[350px] lg:h-[400px] xl:h-[450px] items-center justify-center">
-                <ComputersCanvas />
+        <section className="min-h-[80vh] py-4 sm:py-8 flex flex-col items-center justify-center text-center px-2 sm:px-4">
+          <div className="max-w-5xl w-full bg-gradient-to-br from-[#0f0f0f] to-[#1a1a1a] rounded-2xl p-10 sm:p-16 border border-[#4cdef5]/20 [box-shadow:_0_0_25px_6px_rgba(76,222,245,0.15)] animate-[glowPulse_2s_ease-in-out_infinite]">
+            <div className="mb-6 sm:mb-8 mt-[-8px]">
+              <div className="inline-block px-4 py-2 bg-[#4cdef5]/10 text-[#4cdef5] font-semibold rounded-full text-sm tracking-wide shadow-inner">
+                CURRENT EVENT
               </div>
             </div>
-            {/* Mobile Computer Model */}
-            <div className="block md:hidden w-full h-[160px] mt-4 bg-black flex items-center justify-center rounded-xl">
-              <div className="w-full h-full flex items-center justify-center">
-                <ComputersCanvas />
-              </div>
+            <h3 className="text-3xl py-4 sm:text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-b from-white to-[#4cdef5]">
+              TechSurge 2K25
+            </h3>
+            <div className="space-y-3 text-base sm:text-lg text-white/90 font-medium">
+              <p className="text-[#4cdef5] font-semibold">Department of CSE, BVRIT presents</p>
+              <p>A national-level techfest with hackathons, ideathons, and a prize pool of <span className="text-[#4cdef5] font-bold">1 Lakh</span>!</p>
+              <p className="text-[#4cdef5] font-semibold">29th & 30th July, 2025</p>
+              <p className="my-8">Prize Pool: <span className="text-[#4cdef5] font-bold">1 Lakh</span></p>
+              <p><span className="font-bold text-[#4cdef5]">29th July:</span> Vyoma Hackathon</p>
+              <p><span className="font-bold text-[#4cdef5]">30th July:</span> Drishti Ideathon</p>
+              <p className="py-4 text-orange-300 font-semibold">Don't miss out! Open to all students.</p>
+            </div>
+            <div className="mt-2 sm:mt-10">
+              <Link to="/events" className="inline-flex items-center">
+                <BorderedButton>Participate Now!</BorderedButton>
+              </Link>
             </div>
           </div>
         </section>
 
         {/* Meet the Team Glimpse */}
-        <section className="py-10 sm:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
+        <section className="min-h-screen py-10 sm:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
           <div className="max-w-3xl md:max-w-6xl mx-auto">
             <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-10 md:mb-16 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
               Meet the Team
@@ -137,7 +112,7 @@ function Home() {
         </section>
 
         {/* Gallery Preview */}
-        <section className="py-10 sm:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
+        <section className="min-h-screen py-10 sm:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
           <div className="max-w-3xl md:max-w-6xl mx-auto w-full">
             <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:-mb-16 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
               Gallery Preview
@@ -169,38 +144,6 @@ function Home() {
             </Link>
           </div>
         </section>
-
-        {/* Call to Action */}
-        <section className="py-10 sm:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
-          <div className="max-w-2xl sm:max-w-4xl mx-auto">
-            <div className="bg-[#0e0e0e] backdrop-blur-md border border-white/10 rounded-xl p-6 sm:p-12 shadow-lg flex flex-col items-center text-center">
-              <div className="text-4xl sm:text-6xl mb-4 sm:mb-6">💡</div>
-              <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
-                Ready to be part of something big?
-              </h3>
-              <p className="text-base sm:text-xl text-neutral-300 mb-6 sm:mb-8">
-                Join CBB and start your journey in tech today.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
-                <Link 
-                  to="/contact-us"
-                  onClick={scrollToTop}
-                  className="inline-flex items-center"
-                >
-                  <BorderedButton>Join Now</BorderedButton>
-                </Link>
-                <Link 
-                  to="/contact-us"
-                  onClick={scrollToTop}
-                  className="inline-flex items-center"
-                >
-                  <BorderedButton>Contact Us</BorderedButton>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <Footer />
       </div>
     </div>
