@@ -221,7 +221,7 @@ function Events() {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative bg-zinc-900 rounded-xl border border-white/10 px-4 sm:px-6 py-3 sm:py-4 w-full max-w-full sm:max-w-[98%] md:max-w-6xl lg:max-w-7xl min-h-[70vh] sm:min-h-[80vh] text-white shadow-xl max-h-[95vh] overflow-y-auto flex items-center justify-center"
+              className="relative bg-zinc-900 rounded-xl border border-white/10 px-4 sm:px-6 py-2 sm:py-3 w-full max-w-full sm:max-w-[98%] md:max-w-6xl lg:max-w-7xl min-h-[60vh] sm:min-h-[70vh] text-white shadow-xl max-h-[95vh] overflow-y-auto flex items-center justify-center"
             >
                 <button
                   onClick={() => setActiveModal(null)}
@@ -245,7 +245,7 @@ function Events() {
                         <img
                           src="/src/assets/event-posters/Vyoma.PNG"
                           alt="Vyoma Hackathon Poster"
-                          className="w-full max-w-xs sm:max-w-sm object-contain rounded-lg"
+                          className="w-full max-w-[220px] sm:max-w-[260px] object-contain rounded-lg mx-auto"
                         />
                       </div>
                       {/* Right: Text */}
@@ -289,9 +289,11 @@ function Events() {
                         >
                           View Problem Statements
                         </button>
-                        <BorderedButton as="a" href="https://unstop.com/p/vyoma-code-the-change-you-want-to-see-bv-raju-institute-of-technology-narsapur-bvrit-n-1513999" target="_blank" rel="noopener noreferrer">
-                          Register for Vyoma
-                        </BorderedButton>
+                        <a href="https://unstop.com/p/vyoma-code-the-change-you-want-to-see-bv-raju-institute-of-technology-narsapur-bvrit-n-1513999" target="_blank" rel="noopener noreferrer">
+                          <BorderedButton>
+                            Register for Vyoma
+                          </BorderedButton>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -311,7 +313,7 @@ function Events() {
                         <img
                           src="/src/assets/event-posters/Drishti.PNG"
                           alt="Drishti"
-                          className="w-full max-w-xs sm:max-w-sm object-contain rounded-lg"
+                          className="w-full max-w-[220px] sm:max-w-[260px] object-contain rounded-lg mx-auto"
                         />
                       </div>
                       {/* Right: Text */}
@@ -346,9 +348,11 @@ function Events() {
                     {/* Buttons at bottom center */}
                     <div className="w-full flex flex-col items-center justify-center gap-4 mt-6 sm:mt-8">
                       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-                        <BorderedButton as="a" href="https://forms.gle/gLswHWz9p4rqDSUEA" target="_blank" rel="noopener noreferrer">
-                          Register for Drishti
-                        </BorderedButton>
+                        <a href="https://forms.gle/gLswHWz9p4rqDSUEA" target="_blank" rel="noopener noreferrer">
+                          <BorderedButton>
+                            Register for Drishti
+                          </BorderedButton>
+                        </a>
                       </div>
                     </div>
                   </div>
