@@ -213,7 +213,7 @@ function Events() {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative bg-zinc-900 rounded-xl border border-white/10 p-4 sm:p-6 w-full max-w-[90%] sm:max-w-[80%] md:max-w-md lg:max-w-lg min-h-[40vh] sm:min-h-[50vh] text-white shadow-xl max-h-[85vh] overflow-y-auto"
+              className="relative bg-zinc-900 rounded-xl border border-white/10 px-4 sm:px-6 py-3 sm:py-4 w-full max-w-full sm:max-w-[98%] md:max-w-6xl lg:max-w-7xl min-h-[70vh] sm:min-h-[80vh] text-white shadow-xl max-h-[95vh] overflow-y-auto flex items-center justify-center"
             >
                 <button
                   onClick={() => setActiveModal(null)}
@@ -221,11 +221,115 @@ function Events() {
                 >
                   ×
                 </button>
-                <h3 className="text-xl sm:text-2xl font-bold mb-4 pr-8">{activeModal}</h3>
-                <p className="text-neutral-300 text-sm sm:text-base">
-                  More information about {activeModal} will be available soon.
-                  Stay tuned!
-                </p>
+                {activeModal === "Competitions" ? (
+                  <div className="w-full h-full flex flex-col sm:flex-row items-center justify-center text-center sm:text-left gap-6">
+                    {/* Left: Image */}
+                    <div className="w-full sm:w-1/3">
+                      <img
+                        src="/images/competition.jpg"
+                        alt="Vyoma Hackathon"
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                    {/* Right: Text */}
+                    <div className="w-full sm:w-2/3 flex flex-col items-center justify-center text-center px-2 sm:px-6">
+                      <div>
+                        <h2 className="text-xl sm:text-2xl lg:text-3xl p-2 sm:p-3 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center leading-tight break-words whitespace-normal">
+                          Vyoma – 24-Hour Hackathon
+                        </h2>
+                        <p className="italic text-blue-400 mb-4">Theme: Smart Tech, Smarter World</p>
+                        <p className="text-neutral-300 text-sm sm:text-base mb-4">
+                          Vyoma is the centerpiece of <strong>TechSurge 2K25</strong> – a high-intensity, 24-hour national-level hackathon that challenges participants to push the boundaries of innovation and build tech-driven solutions for a smarter, more connected world.
+                        </p>
+                        <div className="bg-white/5 border border-white/10 rounded-lg p-4 sm:p-5 mt-4 mb-6">
+                          <p className="text-neutral-300 text-sm sm:text-base mb-4">
+                            This two-stage competition is designed to identify and empower the most creative minds across the country:
+                          </p>
+                          <ul className="text-left text-sm text-neutral-300 mb-4 space-y-2">
+                            <li><strong>1) Online PPT Submission:</strong> Teams submit a structured idea presentation outlining the problem, solution, tech stack, and impact.</li>
+                            <li><strong>2) Offline 24-Hour Hackathon:</strong> Shortlisted teams build prototypes across three progressive rounds:</li>
+                            <ul className="pl-4 list-disc">
+                              <li><em>Srishti (Creation):</em> Idea clarity, understanding, and innovation</li>
+                              <li><em>Sankalp (Commitment):</em> Execution and collaboration</li>
+                              <li><em>Samarth (Capability):</em> Functionality and real-world impact</li>
+                            </ul>
+                          </ul>                          
+                        </div>
+                        <div className="flex flex-wrap gap-2 justify-center mb-6">
+                          <div className="inline-block px-4 py-1 rounded-full bg-blue-400/10 border border-blue-300 text-blue-300 text-sm font-medium">
+                            ₹100 – Round 1
+                          </div>
+                          <div className="inline-block px-4 py-1 rounded-full bg-blue-400/10 border border-blue-300 text-blue-300 text-sm font-medium">
+                            ₹400 – Round 2
+                          </div>
+                        </div>
+                        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-4">
+                          <button
+                            onClick={() => window.open("https://docs.google.com/spreadsheets/d/18u1uKEjQNXe3LyQH_j_hK6dC0hw3F2Hr", "_blank")}
+                            className="px-8 h-12 rounded-full text-md font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/20 transition duration-200"
+                          >
+                            View Problem Statements
+                          </button>
+                          <BorderedButton as="a" href="https://example.com/competitions" target="_blank" rel="noopener noreferrer">
+                            Explore Vyoma
+                          </BorderedButton>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : activeModal === "Workshops" ? (
+                  <div className="w-full h-full flex flex-col sm:flex-row items-center justify-center text-center sm:text-left gap-6">
+                    {/* Left: Image */}
+                    <div className="w-full sm:w-1/3">
+                      <img
+                        src="/images/workshops.jpg"
+                        alt="Drishti"
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                    {/* Right: Text */}
+                    <div className="w-full sm:w-2/3 flex flex-col items-center justify-center text-center px-2 sm:px-6">
+                      <div>
+                        <h2 className="text-xl sm:text-2xl lg:text-3xl p-2 sm:p-3 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center leading-tight break-words whitespace-normal">
+                          Drishti – Idea Pitching Event
+                        </h2>
+                        <p className="italic text-blue-400 mb-4">Pitch. Persuade. Propel.</p>
+                        <p className="text-neutral-300 text-sm sm:text-base mb-4">
+                          Drishti is <strong>TechSurge 2K25’s</strong> signature pitching competition inspired by <em>Shark Tank</em>, where innovators present their game-changing ideas to a panel of industry experts, mentors, and potential investors.
+                        </p>
+                        <p className="text-neutral-300 text-sm sm:text-base mb-4">
+                          Participants focus on innovation, feasibility, and market potential. The expert panel offers feedback, evaluates for collaboration, and supports standout ideas.
+                        </p>
+                        <p className="text-neutral-300 text-sm sm:text-base mb-4 font-semibold">Why Participate?</p>
+                        <ul className="text-left text-sm text-neutral-300 mb-6 space-y-1 list-disc pl-4">
+                          <li>Showcase your entrepreneurial vision on a national platform</li>
+                          <li>Gain expert insights and validation</li>
+                          <li>Network with mentors, founders, and investors</li>
+                          <li>Win cash prizes and incubation support</li>
+                        </ul>
+                        <p className="text-neutral-300 text-sm sm:text-base mb-6 italic">
+                          Think big. Pitch smart. Build the future.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-4">
+                          <div className="inline-block px-4 py-1 rounded-full bg-blue-400/10 border border-blue-300 text-blue-300 text-sm font-medium">
+                            ₹200 Registration Fee
+                          </div>
+                          <BorderedButton as="a" href="https://example.com/workshops" target="_blank" rel="noopener noreferrer">
+                            Explore Drishti
+                          </BorderedButton>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-4 pr-8">{activeModal}</h3>
+                    <p className="text-neutral-300 text-sm sm:text-base">
+                      More information about {activeModal} will be available soon.
+                      Stay tuned!
+                    </p>
+                  </>
+                )}
               </motion.div>
             </motion.div>
           )}
