@@ -48,9 +48,6 @@ const Footer = () => {
             <a href="https://x.com/CBB_BVRIT" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-sky-400 transition-colors">
               <FaTwitter className="w-5 h-5" />
             </a>
-            <a href="#" className="text-gray-300 hover:text-white transition-colors">
-              <FaGithub className="w-5 h-5" />
-            </a>
           </div>
 
           {/* Contact */}
