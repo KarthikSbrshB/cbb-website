@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import HeadingNText from "../components/HeadingNText";
+import "../index.css";
 
 const ScheduleTable = ({ activeTab, setActiveTab, schedule }) => {
   return (
@@ -25,7 +26,8 @@ const ScheduleTable = ({ activeTab, setActiveTab, schedule }) => {
         ))}
       </div>
 
-      <div className="relative inline-flex w-full max-w-4xl overflow-hidden rounded-xl p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+      {/* Desktop Table */}
+      <div className="force-hide-mobile hidden sm:block relative inline-flex w-full max-w-4xl overflow-hidden rounded-xl p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
         <div className="absolute inset-0 -z-10 rounded-xl overflow-hidden">
           <div className="absolute -inset-[25%] animate-[spin_6s_linear_infinite] bg-[conic-gradient(from_180deg_at_center,#4cdef5_0%,#1e3a8a_50%,#4cdef5_100%)] rounded-full blur-md opacity-70" />
           <div className="absolute inset-[1px] rounded-xl bg-[#0e0e0e]" />
@@ -58,6 +60,32 @@ const ScheduleTable = ({ activeTab, setActiveTab, schedule }) => {
             </tbody>
           </table>
         </div>
+      </div>
+
+      {/* Mobile Cards */}
+      <div className="w-full max-w-2xl mx-auto flex flex-col gap-4 sm:hidden mt-6">
+        {(schedule[activeTab] || []).map((row, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.3 }}
+            className="rounded-xl bg-[#0e0e0e] border border-white/10 shadow-md p-4 flex flex-col items-start"
+          >
+            <div className="flex gap-4 mb-2 w-full justify-between">
+              <span className="text-xs font-semibold text-neutral-400">From</span>
+              <span className="text-xs font-semibold text-neutral-400">To</span>
+            </div>
+            <div className="flex gap-4 mb-2 w-full justify-between">
+              <span className="text-base font-bold text-[#4cdef5]">{row.from}</span>
+              <span className="text-base font-bold text-[#4cdef5]">{row.to}</span>
+            </div>
+            <div className="mt-1 text-sm text-neutral-200 font-medium w-full text-left">
+              {row.activity}
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

@@ -11,6 +11,7 @@ import {
 } from "react-icons/hi2";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import PillNavbar from "../components/PillNavbar";
 
 function Events() {
   const [activeModal, setActiveModal] = useState(null);
@@ -79,6 +80,7 @@ function Events() {
 
   return (
     <div className="relative flex w-full items-center justify-center bg-black overflow-x-hidden">
+      <PillNavbar />
       <div className="absolute inset-0 [background-size:40px_40px] [background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]" />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
@@ -295,7 +297,7 @@ function Events() {
                         </h2>
                         <p className="italic text-blue-400 mb-4">Pitch. Persuade. Propel.</p>
                         <p className="text-neutral-300 text-sm sm:text-base mb-4">
-                          Drishti is <strong>TechSurge 2K25’s</strong> signature pitching competition inspired by <em>Shark Tank</em>, where innovators present their game-changing ideas to a panel of industry experts, mentors, and potential investors.
+                          Drishti is <strong>TechSurge 2K25's</strong> signature pitching competition inspired by <em>Shark Tank</em>, where innovators present their game-changing ideas to a panel of industry experts, mentors, and potential investors.
                         </p>
                         <p className="text-neutral-300 text-sm sm:text-base mb-4">
                           Participants focus on innovation, feasibility, and market potential. The expert panel offers feedback, evaluates for collaboration, and supports standout ideas.
