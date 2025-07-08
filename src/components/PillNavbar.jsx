@@ -150,14 +150,17 @@ const SlideTabs = () => {
         setPosition({ left: offsetLeft, width: offsetWidth, opacity: 1 });
       }
     };
-    requestAnimationFrame(updatePillPosition);
+    const timeout = setTimeout(() => {
+      requestAnimationFrame(updatePillPosition);
+    }, 10);
+    return () => clearTimeout(timeout);
   }, [pathname, activeLabel]);
   return (
     <ul
       onMouseLeave={() => {
         setPosition((pv) => ({
           ...pv,
-          opacity: 0,
+          opacity: 1,
         }));
       }}
       className="relative flex w-fit rounded-full bg-zinc-900/70 backdrop-blur px-2 py-2 space-x-1 text-sm overflow-hidden"
