@@ -281,8 +281,8 @@ function Events() {
                         >
                           View Problem Statements
                         </button>
-                        <BorderedButton as="a" href="https://example.com/competitions" target="_blank" rel="noopener noreferrer">
-                          Explore Vyoma
+                        <BorderedButton as="a" href="https://unstop.com/p/vyoma-code-the-change-you-want-to-see-bv-raju-institute-of-technology-narsapur-bvrit-n-1513999" target="_blank" rel="noopener noreferrer">
+                          Register for Vyoma
                         </BorderedButton>
                       </div>
                     </div>
@@ -338,8 +338,8 @@ function Events() {
                     {/* Buttons at bottom center */}
                     <div className="w-full flex flex-col items-center justify-center gap-4 mt-10 sm:mt-14">
                       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-                        <BorderedButton as="a" href="https://example.com/workshops" target="_blank" rel="noopener noreferrer">
-                          Explore Drishti
+                        <BorderedButton as="a" href="https://forms.gle/gLswHWz9p4rqDSUEA" target="_blank" rel="noopener noreferrer">
+                          Register for Drishti
                         </BorderedButton>
                       </div>
                     </div>
