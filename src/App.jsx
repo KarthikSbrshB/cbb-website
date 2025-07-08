@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PillNavbar from './components/PillNavbar';
 import Home from './pages/Home';
@@ -6,8 +7,23 @@ import Team from './pages/Team';
 import Alumni from './pages/Alumni';
 import Events from './pages/Events';
 import Contact from './pages/Contact';
+import Loader_cbb from './components/Loader_cbb'; // 👈 use your correct loader filename
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1800); // show loader for 1.8 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader_cbb />;
+  }
+
   return (
     <div className="min-h-screen bg-black text-white">
       <PillNavbar />
