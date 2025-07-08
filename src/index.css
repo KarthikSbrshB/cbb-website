@@ -121,3 +121,12 @@
     font-weight: bold;
     text-shadow: 0 0 20px rgba(76, 222, 245, 0.5);
 }
+
+
+/* Force hide table on mobile as a workaround */
+
+@media (max-width: 639px) {
+    .force-hide-mobile {
+        display: none !important;
+    }
+}
