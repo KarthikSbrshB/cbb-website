@@ -29,12 +29,12 @@ const Loader = () => {
           />
         </div>
         
-        {/* Optional pulsing effect for the center */}
+        {/* Optional pulsing effect for the center*/}
         <div className="absolute inset-0 flex items-center justify-center z-0">
           <div 
             className="w-28 h-28 rounded-full bg-white/20 animate-pulse"
             style={{
-              animation: 'pulse 12s ease-in-out infinite'
+              animation:'pulse 12s ease-in-out infinite'
             }}
           />
         </div>
