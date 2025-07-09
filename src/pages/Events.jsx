@@ -190,20 +190,22 @@ function Events() {
         {/* About Section - Responsive */}
         <section id="what-is" ref={whatIsRef} className="min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 py-8 sm:py-12">
           <HeadingNText title="All about TechSurge 2k25">
-            TechSurge is an annual techfest conducted at BVRIT Narsapur by the
-            Department of Computer Science and Engineering, hosted by the CBB
-            club. Spanning over two exciting days, the event brings together
-            innovation, creativity, and collaboration through a variety of
-            technical and cultural activities.
+            <span className="text-center sm:text-left block">
+              TechSurge is an annual techfest conducted at BVRIT Narsapur by the
+              Department of Computer Science and Engineering, hosted by the CBB
+              club. Spanning over two exciting days, the event brings together
+              innovation, creativity, and collaboration through a variety of
+              technical and cultural activities.
+            </span>
           </HeadingNText>
           
           {/* Badge - Responsive */}
-          <div className="mt-8 sm:mt-12 bg-blue-400/20 text-blue-300 px-4 sm:px-6 py-2 rounded-full text-sm sm:text-md font-medium backdrop-blur-sm shadow-md">
+          <div className="mt-8 sm:mt-12 bg-blue-400/20 text-blue-300 px-4 sm:px-6 py-2 rounded-full text-sm sm:text-md font-medium backdrop-blur-sm shadow-md text-center">
             TechSurge consists of 2 main events
           </div>
           
           {/* Event Cards - Responsive grid */}
-          <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-center gap-6 sm:gap-8 lg:gap-12 px-4 sm:px-6">
+          <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-8 lg:gap-12 px-4 sm:px-6">
             {[
               { title: "Vyoma", image: "/src/assets/event-posters/Vyoma.PNG", glow: "hover:shadow-[0_0_15px_rgba(168,85,247,0.5)]" },
               { title: "Drishti", image: "/src/assets/event-posters/Drishti.PNG", glow: "hover:shadow-[0_0_15px_rgba(93,188,252,0.4)]" }
@@ -223,12 +225,12 @@ function Events() {
           </div>
 
           {/* Brochure Download Button */}
-          <div className="mt-10 flex justify-center">
+          <div className="mt-10 flex justify-center items-center">
             <a
               href="/src/assets/Brochure.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/5 border-white/5 text-neutral-400 px-8 py-2 rounded-full backdrop-blur-sm border transition-all duration-300 cursor-pointer hover:bg-white/15 hover:border-white/25 hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.2)]"
+              className="bg-white/5 border-white/5 text-neutral-400 px-8 py-2 rounded-full backdrop-blur-sm border transition-all duration-300 cursor-pointer hover:bg-white/15 hover:border-white/25 hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.2)] text-center"
             >
               Download Event Brochure
             </a>
@@ -259,7 +261,7 @@ function Events() {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative bg-zinc-900 rounded-xl border border-white/10 px-4 sm:px-6 py-2 sm:py-3 w-full max-w-full sm:max-w-[98%] md:max-w-6xl lg:max-w-7xl min-h-[60vh] sm:min-h-[70vh] text-white shadow-xl max-h-[95vh] overflow-y-auto flex items-center justify-center"
+              className="relative bg-zinc-900 rounded-xl border border-white/10 px-4 sm:px-6 py-2 sm:py-3 w-full max-w-full sm:max-w-[98%] md:max-w-6xl lg:max-w-7xl min-h-[60vh] sm:min-h-[70vh] text-white shadow-xl max-h-[95vh] overflow-y-auto sm:overflow-y-visible flex items-center justify-center"
             >
                 <button
                   onClick={() => setActiveModal(null)}
@@ -270,11 +272,11 @@ function Events() {
                 {activeModal === "Vyoma" ? (
                   <div className="w-full h-full flex flex-col items-center justify-center">
                     {/* Title and tagline at top center */}
-                    <div className="w-full text-center mb-8 sm:mb-10">
-                      <h2 className="text-2xl sm:text-3xl lg:text-5xl p-2 sm:p-3 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center leading-tight break-words whitespace-normal">
+                    <div className="w-full text-center mb-8 sm:mb-10 pt-2 sm:pt-0">
+                      <h2 className="text-4xl sm:text-3xl lg:text-5xl p-2 sm:p-3 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-[#4cdef5] bg-clip-text text-transparent text-center leading-tight break-words whitespace-normal mt-0 sm:mt-0 [text-shadow:_0_2px_8px_rgba(0,0,0,0.5)]">
                         Vyoma – 24-Hour Hackathon
                       </h2>
-                      <p className="italic text-blue-400">Theme: Smart Tech, Smarter World</p>
+                      <p className="italic text-blue-400 text-base sm:text-lg mt-1 mb-2">Theme: Smart Tech, Smarter World</p>
                     </div>
                     {/* Main content: image and text */}
                     <div className="w-full flex flex-col sm:flex-row items-center justify-center text-center sm:text-left gap-6">
@@ -283,20 +285,20 @@ function Events() {
                         <img
                           src="/src/assets/event-posters/Vyoma.PNG"
                           alt="Vyoma Hackathon Poster"
-                          className="w-full max-w-[220px] sm:max-w-[260px] object-contain rounded-lg mx-auto"
+                          className="hidden sm:block w-full max-w-[220px] sm:max-w-[260px] object-contain rounded-lg mx-auto"
                         />
                       </div>
                       {/* Right: Text */}
                       <div className="w-full sm:w-2/3 flex flex-col items-center justify-center text-center px-2 sm:px-6">
                         <div>
-                          <p className="text-neutral-300 text-sm sm:text-base mb-4">
+                          <p className="text-neutral-300 text-sm sm:text-base mb-4 text-center sm:text-left">
                             Vyoma is the centerpiece of <strong>TechSurge 2K25</strong> – a high-intensity, 24-hour national-level hackathon that challenges participants to push the boundaries of innovation and build tech-driven solutions for a smarter, more connected world.
                           </p>
                           <div className="bg-white/5 border border-white/10 rounded-lg p-4 sm:p-5 mt-4 mb-6">
-                            <p className="text-neutral-300 text-sm sm:text-base mb-4">
+                            <p className="text-neutral-300 text-sm sm:text-base mb-4 text-center sm:text-left">
                               This two-stage competition is designed to identify and empower the most creative minds across the country:
                             </p>
-                            <ul className="text-left text-sm text-neutral-300 mb-4 space-y-2">
+                            <ul className="text-left sm:text-left text-sm text-neutral-300 mb-4 space-y-2">
                               <li><strong>1) Online PPT Submission:</strong> Teams submit a structured idea presentation outlining the problem, solution, tech stack, and impact.</li>
                               <li><strong>2) Offline 24-Hour Hackathon:</strong> Shortlisted teams build prototypes across three progressive rounds:</li>
                               <ul className="pl-4 list-disc">
@@ -336,13 +338,13 @@ function Events() {
                     </div>
                   </div>
                 ) : activeModal === "Drishti" ? (
-                  <div className="w-full h-full flex flex-col items-center justify-center">
+                  <div className="w-full h-full flex flex-col items-center justify-center pt-8 sm:pt-0">
                     {/* Title and tagline at top center */}
-                    <div className="w-full text-center mb-8 sm:mb-10">
-                      <h2 className="text-2xl sm:text-3xl lg:text-5xl p-2 sm:p-3 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center leading-tight break-words whitespace-normal">
+                    <div className="w-full text-center mb-8 sm:mb-10 pt-2 sm:pt-0">
+                      <h2 className="hidden sm:block text-4xl sm:text-3xl lg:text-5xl p-2 sm:p-3 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-[#4cdef5] bg-clip-text text-transparent text-center leading-tight break-words whitespace-normal mt-0 sm:mt-0 [text-shadow:_0_2px_8px_rgba(0,0,0,0.5)]">
                         Drishti – Idea Pitching Event
                       </h2>
-                      <p className="italic text-blue-400">Pitch. Persuade. Propel.</p>
+                      <p className="hidden sm:block italic text-blue-400 text-base sm:text-lg mt-1 mb-2">Pitch. Persuade. Propel.</p>
                     </div>
                     {/* Main content: image and text */}
                     <div className="w-full flex flex-col sm:flex-row items-center justify-center text-center sm:text-left gap-6">
@@ -351,28 +353,28 @@ function Events() {
                         <img
                           src="/src/assets/event-posters/Drishti.PNG"
                           alt="Drishti"
-                          className="w-full max-w-[220px] sm:max-w-[260px] object-contain rounded-lg mx-auto"
+                          className="hidden sm:block w-full max-w-[220px] sm:max-w-[260px] object-contain rounded-lg mx-auto"
                         />
                       </div>
                       {/* Right: Text */}
                       <div className="w-full sm:w-2/3 flex flex-col items-center justify-center text-center px-2 sm:px-6">
                         <div>
-                          <p className="text-neutral-300 text-sm sm:text-base mb-4">
+                          <p className="text-neutral-300 text-sm sm:text-base mb-4 text-center sm:text-left">
                             Drishti is <strong>TechSurge 2K25’s</strong> signature pitching competition inspired by <em>Shark Tank</em>, where innovators present their game-changing ideas to a panel of industry experts, mentors, and potential investors.
                           </p>
-                          <p className="text-neutral-300 text-sm sm:text-base mb-4">
+                          <p className="text-neutral-300 text-sm sm:text-base mb-4 text-center sm:text-left">
                             Participants focus on innovation, feasibility, and market potential. The expert panel offers feedback, evaluates for collaboration, and supports standout ideas.
                           </p>
                           <div className="bg-white/5 border border-white/10 rounded-lg p-4 sm:p-5 mt-4 mb-6">
-                            <p className="text-neutral-300 text-sm sm:text-base mb-4 font-semibold">Why Participate?</p>
-                            <ul className="text-left text-sm text-neutral-300 mb-6 space-y-1 list-disc pl-4">
+                            <p className="text-neutral-300 text-sm sm:text-base mb-4 font-semibold text-center sm:text-left">Why Participate?</p>
+                            <ul className="text-left sm:text-left text-sm text-neutral-300 mb-6 space-y-1 list-disc pl-4">
                               <li>Showcase your entrepreneurial vision on a national platform</li>
                               <li>Gain expert insights and validation</li>
                               <li>Network with mentors, founders, and investors</li>
                               <li>Win cash prizes and incubation support</li>
                             </ul>
                           </div>
-                          <p className="text-neutral-300 text-sm sm:text-base mb-6 italic">
+                          <p className="text-neutral-300 text-sm sm:text-base mb-6 italic text-center sm:text-left">
                             Think big. Pitch smart. Build the future.
                           </p>
                           <div className="flex flex-wrap gap-2 justify-center mt-4">
@@ -396,7 +398,9 @@ function Events() {
                   </div>
                 ) : (
                   <>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-4 pr-8">{activeModal}</h3>
+                    <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-10 md:mb-16 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent leading-[1.45]">
+                      {activeModal}
+                    </h3>
                     <p className="text-neutral-300 text-sm sm:text-base">
                       More information about {activeModal} will be available soon.
                       Stay tuned!

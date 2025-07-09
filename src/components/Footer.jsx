@@ -68,16 +68,6 @@ const Footer = () => {
           © {currentYear} Coding Brigade BVRIT. All rights reserved.
         </div>
       </div>
-
-      <style jsx>{`
-        .logo-text {
-          background: linear-gradient(45deg, #4cdef5, #1b7bb3);
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          font-weight: bold;
-        }
-      `}</style>
     </footer>
   );
 };

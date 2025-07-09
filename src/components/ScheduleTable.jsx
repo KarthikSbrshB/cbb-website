@@ -42,7 +42,7 @@ const ScheduleTable = ({ activeTab, setActiveTab, schedule }) => {
               </tr>
             </thead>
             <tbody>
-              <AnimatePresence mode="wait">
+              <AnimatePresence>
                 {(schedule[activeTab] || []).map((row, i) => (
                   <motion.tr
                     key={i}

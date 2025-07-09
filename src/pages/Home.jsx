@@ -39,9 +39,9 @@ function Home() {
 
       <div className="relative z-20 w-full text-white">
         {/* Hero Section */}
-        <section className="min-h-screen py-8 sm:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
-          <img src={logo} alt="CBB Logo" className="w-46 h-46 sm:w-62 sm:h-62 md:w-76 md:h-76 mb-6 sm:mb-8 pb-6 object-contain drop-shadow-[0_8px_16px_rgba(76,222,245,0.35)]" />
-          <h2 className="text-4xl pb-1 sm:text-5xl md:text-7xl font-extrabold text-center">
+        <section className="min-h-screen pt-16 md:pt-24 py-8 sm:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
+          <img src={logo} alt="CBB Logo" className="w-63 h-63 sm:w-62 sm:h-62 md:w-76 md:h-76 mb-6 sm:mb-8 pb-6 object-contain drop-shadow-[0_8px_16px_rgba(76,222,245,0.35)]" />
+          <h2 className="text-4xl pb-1 sm:text-5xl md:text-7xl font-extrabold text-center leading-[1.45]">
             <span className="bg-gradient-to-b from-[#c0f4ff] to-[#4cdef5] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] [text-shadow:_0_2px_4px_rgba(0,0,0,0.4)]">Coding </span>
             <span className="bg-gradient-to-b from-[#c0f4ff] to-[#4cdef5] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] [text-shadow:_0_2px_4px_rgba(0,0,0,0.4)]">Brigade </span>
             <span className="bg-gradient-to-b from-[#81c7f5] to-[#1b7bb3] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] [text-shadow:_0_2px_4px_rgba(0,0,0,0.4)]">BVRIT</span>
@@ -59,14 +59,14 @@ function Home() {
         </section>
         
         {/* Upcoming Events */}
-        <section className="min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] py-4 sm:py-6 md:py-8 flex flex-col items-center justify-center text-center px-2 sm:px-4">
+        <section className="min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] py-4 sm:py-6 md:py-8 flex flex-col items-center justify-center text-center px-4 sm:px-8">
           <div className="max-w-5xl w-full bg-gradient-to-br from-[#0f0f0f] to-[#1a1a1a] rounded-2xl p-6 sm:p-10 md:p-16 border border-[#4cdef5]/20 [box-shadow:_0_0_25px_6px_rgba(76,222,245,0.15)] animate-[glowPulse_2s_ease-in-out_infinite]">
-            <div className="mb-4 sm:mb-6 md:mb-8 mt-[-4px] sm:mt-[-6px] md:mt-[-8px]">
-              <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-[#4cdef5]/10 text-[#4cdef5] font-semibold rounded-full text-xs sm:text-sm tracking-wide shadow-inner">
+            <div className="mb-4 sm:mb-6 md:mb-8 mt-4 sm:mt-[-6px] md:mt-[-8px]">
+              <div className="inline-block px-5 sm:px-6 py-2 sm:py-2 bg-[#4cdef5]/10 text-[#4cdef5] font-semibold rounded-full text-xs sm:text-sm tracking-wide shadow-inner mx-auto">
                 CURRENT EVENT
               </div>
             </div>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6 py-2 sm:py-4 text-transparent bg-clip-text bg-gradient-to-b from-white to-[#4cdef5]">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6 py-2 sm:py-4 text-transparent bg-clip-text bg-gradient-to-b from-white to-[#4cdef5] leading-[1.45]">
               TechSurge 2K25
             </h3>
             <div className="space-y-2 sm:space-y-3 text-sm sm:text-base md:text-lg text-white/90 font-medium">
@@ -89,21 +89,17 @@ function Home() {
         {/* Meet the Team Glimpse */}
         <section className="min-h-[60vh] sm:min-h-screen py-4 sm:py-10 md:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
           <div className="max-w-3xl md:max-w-6xl mx-auto">
-            <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-10 md:mb-16 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
+            <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-10 md:mb-16 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent leading-[1.45]">
               Meet the Team
             </h3>
             {/* Team Photo with Spinning Border */}
             <div className="flex justify-center mb-3 sm:mb-6 md:mb-8">
-              <div className="relative inline-block overflow-hidden rounded-xl p-[2px]">
-                <div className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#4cdef5_0%,#1b7bb3_50%,#4cdef5_100%)]" />
-                <div className="relative bg-black rounded-xl">
-                  <img 
-                    src={teamImage} 
-                    alt="CBB Team" 
-                    className="rounded-xl mx-auto max-w-xs w-[85vw] sm:w-[90vw] h-auto md:max-w-full"
-                    style={{ maxHeight: '35vh', minHeight: '100px', maxWidth: '100%' , ...(window.innerWidth >= 768 ? { maxHeight: '600px', maxWidth: '800px' } : {}) }}
-                  />
-                </div>
+              <div className="relative bg-black rounded-xl overflow-hidden">
+                <img 
+                  src={teamImage} 
+                  alt="CBB Team" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
             {/* Call to Action */}
@@ -122,7 +118,7 @@ function Home() {
         {/* Gallery Preview */}
         <section className="min-h-[60vh] sm:min-h-screen py-4 sm:py-10 md:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
           <div className="max-w-3xl md:max-w-6xl mx-auto w-full">
-            <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 md:-mb-16 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
+            <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 md:-mb-16 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent leading-[1.45]">
               Gallery Preview
             </h3>
             <div className="w-full h-[150px] sm:h-[200px] md:h-[350px] lg:h-[600px] relative">
