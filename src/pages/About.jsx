@@ -88,7 +88,7 @@ function About() {
               <img 
                 src="/images/madhu_babu.jpg" 
                 alt="Dr. Ch. Madhu Babu" 
-                className="w-full h-full object-cover"
+                className="w-[300px] h-[370px] object-cover"
               />
             </div>
             <div className="mt-3 text-lg font-semibold text-white text-center">Dr. Ch. Madhu Babu</div>
@@ -100,7 +100,7 @@ function About() {
               <img 
                 src="/images/pallavi.jpg" 
                 alt="Dr. L. Pallavi" 
-                className="w-full h-full object-cover"
+                className="w-[300px] h-[370px] object-cover"
               />
             </div>
             <div className="mt-3 text-lg font-semibold text-white text-center">Dr. L. Pallavi</div>
