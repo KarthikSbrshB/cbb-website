@@ -126,7 +126,8 @@ function About() {
               Your browser does not support the video tag.
             </video>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Our Events & Activities - Full Screen Section */}
         <section className="flex flex-col justify-center items-center px-4 py-12 sm:min-h-screen sm:justify-center">

@@ -108,7 +108,7 @@ function Events() {
         <div className="absolute z-0 inset-0 pointer-events-none hidden lg:block">
           <HiOutlineComputerDesktop className="text-green-600/80 bg-green-700/10 backdrop-blur-md rounded-xl p-3 lg:p-4 text-4xl lg:text-6xl animate-float-left absolute top-[9%] left-[8%]" />
           <HiOutlineUsers className="text-purple-200/80 bg-purple-400/10 backdrop-blur-md rounded-xl p-3 lg:p-4 text-4xl lg:text-6xl animate-float-right absolute top-[2%] left-[75%]" />
-          <HiOutlinePresentationChartBar className="text-orange-200/80 bg-orange-400/10 backdrop-blur-md rounded-xl p-3 lg:p-4 text-4xl lg:text-6xl animate-float-down absolute top-[10%] left-[64%]" />
+          <HiOutlinePresentationChartBar className="text-orange-200/80 bg-orange-400/10 backdrop-blur-md rounded-xl p-3 lg:p-4 text-4xl lg:text-6xl animate-float-down absolute top-[10%] left-[74%]" />
           <HiOutlineGlobeAlt className="text-blue-300/80 bg-blue-500/10 backdrop-blur-md rounded-xl p-3 lg:p-4 text-4xl lg:text-6xl animate-float-up absolute top-[3%] left-[18%]" />
         </div>
 
@@ -170,8 +170,16 @@ function Events() {
     </div>
   </div>
 
-  {/* Register Button */}
-  <div className="w-full flex justify-center mt-8 sm:mt-10 md:mt-12">
+  {/* Register & Brochure Buttons */}
+  <div className="w-full flex justify-center gap-5 mt-8 sm:mt-10 md:mt-12 flex-wrap sm:flex-nowrap">
+    <a
+      href="/src/assets/Brochure.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="h-12 bg-white/5 border-white/5 text-neutral-400 px-8 py-2 rounded-full backdrop-blur-sm border transition-all duration-300 cursor-pointer hover:bg-white/15 hover:border-white/25 hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.2)] flex items-center justify-center text-sm sm:text-base"
+    >
+      Download Event Brochure
+    </a>
     <BorderedButton onClick={() => whatIsRef.current?.scrollIntoView({ behavior: "smooth" })}>
       Register Now!
     </BorderedButton>
