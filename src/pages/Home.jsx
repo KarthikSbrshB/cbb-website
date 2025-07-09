@@ -15,8 +15,16 @@ import img6 from "../assets/home-gallery/IMG-6.jpeg";
 import img7 from "../assets/home-gallery/IMG-7.JPG";
 import img8 from "../assets/home-gallery/IMG-8.JPG";
 import img9 from "../assets/home-gallery/IMG-9.JPG";
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+
+  const navigate = useNavigate();
+
+  const handleParticipateClick = () => {
+    navigate('/events#what-is');
+  };
+
   const scrollToTop = () => {
     setTimeout(() => {
       window.scrollTo(0, 0);
@@ -71,9 +79,9 @@ function Home() {
               <p className="py-4 text-orange-300 font-semibold">Don't miss out! Open to all students.</p>
             </div>
             <div className="mt-2 sm:mt-10">
-              <Link to="/events" className="inline-flex items-center">
-                <BorderedButton>Participate Now!</BorderedButton>
-              </Link>
+              {/* <Link to="/events" className="inline-flex items-center"> */}
+              <BorderedButton onClick={handleParticipateClick}>Participate Now!</BorderedButton>
+              {/* </Link> */}
             </div>
           </div>
         </section>

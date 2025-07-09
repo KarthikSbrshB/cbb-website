@@ -73,6 +73,12 @@ function Events() {
   }, [location]);
 
   useEffect(() => {
+    if (location.hash === '#what-is' && whatIsRef.current) {
+      whatIsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       const diff = eventDate - new Date();
       if (diff <= 0) {
@@ -174,7 +180,7 @@ function Events() {
 
 
         {/* About Section - Responsive */}
-        <section id="about" ref={whatIsRef} className="min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 py-8 sm:py-12">
+        <section id="what-is" ref={whatIsRef} className="min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 py-8 sm:py-12">
           <HeadingNText title="All about TechSurge 2k25">
             TechSurge is an annual techfest conducted at BVRIT Narsapur by the
             Department of Computer Science and Engineering, hosted by the CBB
