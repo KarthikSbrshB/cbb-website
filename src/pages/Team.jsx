@@ -55,9 +55,9 @@ function Team() {
       role: "Head of Technical Department",
       image: "/src/assets/img/ajay kumar.png",
       email: "ajay@bvrit.ac.in",
-      linkedin: "https://linkedin.com/in/ajay-cbb",
-      github: "https://github.com/ajay-cbb",
-      twitter: "https://twitter.com/ajay-cbb"
+      linkedin: "https://www.linkedin.com/in/ajay-kumar-potuganti",
+      github: "https://github.com/ajay0120",
+      phone: "9573282765"
     },
     {
       name: "Thrinath",
@@ -161,7 +161,7 @@ function Team() {
       <div className="absolute inset-0 [background-size:40px_40px] sm:[background-size:40px_40px] [background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]" />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
-      <div className="relative z-20 w-full text-white">
+      <div className="relative z-20 w-full text-white pointer-events-auto">
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 pt-16 sm:pt-20 md:pt-24">
           <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
             {/* Header */}
@@ -185,7 +185,7 @@ function Team() {
                     className={`w-full max-w-[280px] sm:max-w-sm${member.name === 'Eshwari' ? ' avatar-eshwari' : ''}`}
                     linkedin={member.linkedin}
                     github={member.github}
-                    phone={member.email}
+                    phone={member.phone}
                     behindGradient={true}
                     innerGradient={true}
                     enableTilt={true}
