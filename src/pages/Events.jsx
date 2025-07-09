@@ -223,18 +223,6 @@ function Events() {
               </div>
             ))}
           </div>
-
-          {/* Brochure Download Button */}
-          <div className="mt-10 flex justify-center items-center">
-            <a
-              href="/src/assets/Brochure.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white/5 border-white/5 text-neutral-400 px-8 py-2 rounded-full backdrop-blur-sm border transition-all duration-300 cursor-pointer hover:bg-white/15 hover:border-white/25 hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.2)] text-center"
-            >
-              Download Event Brochure
-            </a>
-          </div>
         </section>
 
         {/* Schedule Table - Already responsive */}
