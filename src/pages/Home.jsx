@@ -15,8 +15,16 @@ import img6 from "../assets/home-gallery/IMG-6.jpeg";
 import img7 from "../assets/home-gallery/IMG-7.JPG";
 import img8 from "../assets/home-gallery/IMG-8.JPG";
 import img9 from "../assets/home-gallery/IMG-9.JPG";
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+
+  const navigate = useNavigate();
+
+  const handleParticipateClick = () => {
+    navigate('/events#what-is');
+  };
+
   const scrollToTop = () => {
     setTimeout(() => {
       window.scrollTo(0, 0);
@@ -31,9 +39,9 @@ function Home() {
 
       <div className="relative z-20 w-full text-white">
         {/* Hero Section */}
-        <section className="min-h-screen py-6 sm:py-10 md:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
-          <img src={logo} alt="CBB Logo" className="w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 mb-4 sm:mb-6 md:mb-8 object-contain drop-shadow-[0_8px_16px_rgba(76,222,245,0.35)]" />
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-center pb-1">
+        <section className="min-h-screen py-8 sm:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
+          <img src={logo} alt="CBB Logo" className="w-46 h-46 sm:w-62 sm:h-62 md:w-76 md:h-76 mb-6 sm:mb-8 pb-6 object-contain drop-shadow-[0_8px_16px_rgba(76,222,245,0.35)]" />
+          <h2 className="text-4xl pb-1 sm:text-5xl md:text-7xl font-extrabold text-center">
             <span className="bg-gradient-to-b from-[#c0f4ff] to-[#4cdef5] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] [text-shadow:_0_2px_4px_rgba(0,0,0,0.4)]">Coding </span>
             <span className="bg-gradient-to-b from-[#c0f4ff] to-[#4cdef5] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] [text-shadow:_0_2px_4px_rgba(0,0,0,0.4)]">Brigade </span>
             <span className="bg-gradient-to-b from-[#81c7f5] to-[#1b7bb3] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] [text-shadow:_0_2px_4px_rgba(0,0,0,0.4)]">BVRIT</span>
@@ -70,10 +78,10 @@ function Home() {
               <p><span className="font-bold text-[#4cdef5]">30th July:</span> Drishti Ideathon</p>
               <p className="py-2 sm:py-4 text-orange-300 font-semibold">Don't miss out! Open to all students.</p>
             </div>
-            <div className="mt-4 sm:mt-6 md:mt-10">
-              <Link to="/events" className="inline-flex items-center">
-                <BorderedButton>Participate Now!</BorderedButton>
-              </Link>
+            <div className="mt-2 sm:mt-10">
+              {/* <Link to="/events" className="inline-flex items-center"> */}
+              <BorderedButton onClick={handleParticipateClick}>Participate Now!</BorderedButton>
+              {/* </Link> */}
             </div>
           </div>
         </section>

@@ -73,23 +73,58 @@ function About() {
           </div>
         </section>
 
-        {/* Our Journey - Full Screen Section */}
-        <section className="flex flex-col justify-center items-center px-4 py-12 sm:min-h-screen sm:justify-center">
-          <div className="w-full max-w-6xl border border-white/10 rounded-xl bg-[#0e0e0e] backdrop-blur-md p-4 sm:p-8 md:p-12 flex flex-col items-center justify-center">
-            <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center">
-              Our Journey
-            </h3>
-            <div className="flex justify-center w-full">
-              <video 
-                className="w-full rounded-lg shadow-lg"
-                autoPlay
-                muted
-                loop
-              >
-                <source src={AboutVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+      {/* Guiding Lights Section */}
+      <section className="flex flex-col items-center justify-center px-4 py-8">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-2 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
+          Guiding lights of coding brigade
+        </h2>
+        <p className="mt-2 mb-8 text-base sm:text-lg md:text-xl text-neutral-300 text-center max-w-2xl mx-auto font-medium">
+          With their unwavering support and leadership Dr. Ch. Madhu Babu sir and Dr L. Pallavi mam have been the backbone of our club's journey, inspiring us to dream, build and lead.
+        </p>
+        <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 px-0 sm:px-6 w-full">
+          {/* Convenor Box + Name/Designation */}
+          <div className="flex flex-col items-center max-w-[300px]">
+            <div className="h-[370px] w-full bg-[#0e0e0e] hover:bg-[#1a1a1a] transition-all duration-300 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden flex flex-col items-center justify-center">
+              <img 
+                src="/images/madhu_babu.jpg" 
+                alt="Dr. Ch. Madhu Babu" 
+                className="w-full h-full object-cover"
+              />
             </div>
+            <div className="mt-3 text-lg font-semibold text-white text-center">Dr. Ch. Madhu Babu</div>
+            <div className="text-sm text-blue-400 text-center">Head of Dept. CSE</div>
+          </div>
+          {/* Coordinator Box + Name/Designation */}
+          <div className="flex flex-col items-center max-w-[300px]">
+            <div className="h-[370px] w-full bg-[#0e0e0e] hover:bg-[#1a1a1a] transition-all duration-300 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden flex flex-col items-center justify-center">
+              <img 
+                src="/images/pallavi.jpg" 
+                alt="Dr. L. Pallavi" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="mt-3 text-lg font-semibold text-white text-center">Dr. L. Pallavi</div>
+            <div className="text-sm text-blue-400 text-center">Associate Head of Dept. CSE</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Journey - Full Screen Section */}
+      <section className="flex flex-col justify-center items-center px-4 py-12 sm:min-h-screen sm:justify-center">
+        <div className="w-full max-w-6xl border border-white/10 rounded-xl bg-[#0e0e0e] backdrop-blur-md p-4 sm:p-8 md:p-12 flex flex-col items-center justify-center">
+          <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center">
+            Our Journey
+          </h3>
+          <div className="flex justify-center w-full">
+            <video 
+              className="w-full rounded-lg shadow-lg"
+              autoPlay
+              muted
+              loop
+            >
+              <source src={AboutVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </section>
 
