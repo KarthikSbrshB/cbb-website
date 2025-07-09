@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback, useMemo } from "react";
+import React, { useEffect, useRef, useCallback, useMemo, useState } from "react";
 import { FaLinkedin, FaGithub, FaPhone } from "react-icons/fa";
 import "./ProfileCard.css";
 
@@ -56,6 +56,20 @@ const ProfileCardComponent = ({
 }) => {
   const wrapRef = useRef(null);
   const cardRef = useRef(null);
+  const [showContactMenu, setShowContactMenu] = useState(false);
+  const contactMenuRef = useRef(null);
+
+  // Close menu on outside click
+  useEffect(() => {
+    if (!showContactMenu) return;
+    function handleClick(e) {
+      if (contactMenuRef.current && !contactMenuRef.current.contains(e.target)) {
+        setShowContactMenu(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [showContactMenu]);
 
   const animationHandlers = useMemo(() => {
     if (!enableTilt) return null;
@@ -142,6 +156,18 @@ const ProfileCardComponent = ({
 
       if (!card || !wrap || !animationHandlers) return;
 
+      // Check if the pointer is over the contact menu
+      if (showContactMenu && contactMenuRef.current) {
+        const menuRect = contactMenuRef.current.getBoundingClientRect();
+        const isOverMenu = (
+          event.clientX >= menuRect.left &&
+          event.clientX <= menuRect.right &&
+          event.clientY >= menuRect.top &&
+          event.clientY <= menuRect.bottom
+        );
+        if (isOverMenu) return; // Don't update transform when over menu
+      }
+
       const rect = card.getBoundingClientRect();
       animationHandlers.updateCardTransform(
         event.clientX - rect.left,
@@ -150,19 +176,31 @@ const ProfileCardComponent = ({
         wrap
       );
     },
-    [animationHandlers]
+    [animationHandlers, showContactMenu]
   );
 
-  const handlePointerEnter = useCallback(() => {
+  const handlePointerEnter = useCallback((event) => {
     const card = cardRef.current;
     const wrap = wrapRef.current;
 
     if (!card || !wrap || !animationHandlers) return;
 
+    // Don't activate tilt if entering via contact menu
+    if (showContactMenu && contactMenuRef.current) {
+      const menuRect = contactMenuRef.current.getBoundingClientRect();
+      const isFromMenu = (
+        event.clientX >= menuRect.left &&
+        event.clientX <= menuRect.right &&
+        event.clientY >= menuRect.top &&
+        event.clientY <= menuRect.bottom
+      );
+      if (isFromMenu) return;
+    }
+
     animationHandlers.cancelAnimation();
     wrap.classList.add("active");
     card.classList.add("active");
-  }, [animationHandlers]);
+  }, [animationHandlers, showContactMenu]);
 
   const handlePointerLeave = useCallback(
     (event) => {
@@ -170,6 +208,18 @@ const ProfileCardComponent = ({
       const wrap = wrapRef.current;
 
       if (!card || !wrap || !animationHandlers) return;
+
+      // Don't deactivate if leaving to contact menu
+      if (showContactMenu && contactMenuRef.current) {
+        const menuRect = contactMenuRef.current.getBoundingClientRect();
+        const isToMenu = (
+          event.clientX >= menuRect.left &&
+          event.clientX <= menuRect.right &&
+          event.clientY >= menuRect.top &&
+          event.clientY <= menuRect.bottom
+        );
+        if (isToMenu) return;
+      }
 
       animationHandlers.createSmoothAnimation(
         ANIMATION_CONFIG.SMOOTH_DURATION,
@@ -181,7 +231,7 @@ const ProfileCardComponent = ({
       wrap.classList.remove("active");
       card.classList.remove("active");
     },
-    [animationHandlers]
+    [animationHandlers, showContactMenu]
   );
 
   useEffect(() => {
@@ -239,9 +289,15 @@ const ProfileCardComponent = ({
     [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient]
   );
 
-  const handleContactClick = useCallback(() => {
-    onContactClick?.();
-  }, [onContactClick]);
+  const handleContactClick = useCallback((e) => {
+    e.stopPropagation(); // Prevent event bubbling
+    setShowContactMenu((v) => !v);
+  }, []);
+
+  const handleLinkClick = useCallback((e) => {
+    e.stopPropagation(); // Prevent event bubbling
+    // Link will handle its own navigation
+  }, []);
 
   return (
     <div
@@ -281,34 +337,137 @@ const ProfileCardComponent = ({
                   </div>
                   <div className="pc-user-text">
                     <div className="pc-handle">@{handle}</div>
-                    <div className="pc-socials" style={{ display: 'flex', gap: '8px', marginTop: '2px' }}>
+                  </div>
+                </div>
+                <div style={{ position: "relative" }}>
+                  <button
+                    className="pc-contact-btn"
+                    onClick={handleContactClick}
+                    type="button"
+                    aria-label={`Contact ${name || "user"}`}
+                    style={{ 
+                      position: "relative",
+                      zIndex: 10,
+                      pointerEvents: "auto"
+                    }}
+                  >
+                    {contactText}
+                  </button>
+                  {showContactMenu && (
+                    <div
+                      ref={contactMenuRef}
+                      style={{
+                        position: "fixed", // Changed from absolute to fixed
+                        bottom: "auto",
+                        top: "auto",
+                        left: "auto",
+                        right: "auto",
+                        transform: "translate(-50%, calc(-100% - 10px))",
+                        background: "rgba(24, 24, 27, 0.95)",
+                        backdropFilter: "blur(10px)",
+                        border: "1px solid #4cdef5",
+                        borderRadius: 8,
+                        boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+                        padding: 12,
+                        zIndex: 9999,
+                        pointerEvents: "auto",
+                        minWidth: 140,
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 8,
+                        alignItems: "stretch",
+                      }}
+                      onMouseEnter={(e) => e.stopPropagation()}
+                      onMouseLeave={(e) => e.stopPropagation()}
+                    >
                       {linkedin && (
-                        <a href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style={{ color: '#4cdef5' }}>
-                          <FaLinkedin size={14} />
+                        <a
+                          href={linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={handleLinkClick}
+                          style={{ 
+                            color: '#4cdef5', 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            gap: 8, 
+                            textDecoration: 'none', 
+                            fontWeight: 500,
+                            padding: '6px 8px',
+                            borderRadius: 4,
+                            transition: 'background-color 0.2s',
+                            cursor: 'pointer',
+                            pointerEvents: 'auto'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.backgroundColor = 'rgba(76, 222, 245, 0.1)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.backgroundColor = 'transparent';
+                          }}
+                        >
+                          <FaLinkedin size={16} /> LinkedIn
                         </a>
                       )}
                       {github && (
-                        <a href={github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" style={{ color: '#4cdef5' }}>
-                          <FaGithub size={14} />
+                        <a
+                          href={github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={handleLinkClick}
+                          style={{ 
+                            color: '#4cdef5', 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            gap: 8, 
+                            textDecoration: 'none', 
+                            fontWeight: 500,
+                            padding: '6px 8px',
+                            borderRadius: 4,
+                            transition: 'background-color 0.2s',
+                            cursor: 'pointer',
+                            pointerEvents: 'auto'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.backgroundColor = 'rgba(76, 222, 245, 0.1)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.backgroundColor = 'transparent';
+                          }}
+                        >
+                          <FaGithub size={16} /> GitHub
                         </a>
                       )}
                       {phone && (
-                        <a href={`tel:${phone}`} aria-label="Call" style={{ color: '#4cdef5' }}>
-                          <FaPhone size={14} />
+                        <a
+                          href={`tel:${phone}`}
+                          onClick={handleLinkClick}
+                          style={{ 
+                            color: '#4cdef5', 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            gap: 8, 
+                            textDecoration: 'none', 
+                            fontWeight: 500,
+                            padding: '6px 8px',
+                            borderRadius: 4,
+                            transition: 'background-color 0.2s',
+                            cursor: 'pointer',
+                            pointerEvents: 'auto'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.backgroundColor = 'rgba(76, 222, 245, 0.1)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.backgroundColor = 'transparent';
+                          }}
+                        >
+                          <FaPhone size={16} /> {phone}
                         </a>
                       )}
                     </div>
-                  </div>
+                  )}
                 </div>
-                <button
-                  className="pc-contact-btn"
-                  onClick={handleContactClick}
-                  style={{ pointerEvents: "auto" }}
-                  type="button"
-                  aria-label={`Contact ${name || "user"}`}
-                >
-                  {contactText}
-                </button>
               </div>
             )}
           </div>
@@ -326,4 +485,4 @@ const ProfileCardComponent = ({
 
 const ProfileCard = React.memo(ProfileCardComponent);
 
-export default ProfileCard; 
+export default ProfileCard;

@@ -56,13 +56,13 @@ const PillNavbar = () => {
     <>
       {/* Desktop Navbar */}
       <div
-        className={`fixed top-5 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 rounded-full overflow-hidden \
+        className={`fixed top-5 left-1/2 transform -translate-x-1/2 z-[70] transition-all duration-300 rounded-full overflow-hidden \
         ${showNavbar ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"} backdrop-blur hidden md:block`}
       >
         <SlideTabs />
       </div>
       {/* Hamburger for mobile */}
-      <div className={`fixed top-5 left-5 z-50 md:hidden transition-all duration-300 ${showNavbar ? "opacity-100" : "opacity-0 -translate-y-full"}`}>
+      <div className={`fixed top-5 left-5 z-[70] md:hidden transition-all duration-300 ${showNavbar ? "opacity-100" : "opacity-0 -translate-y-full"}`}>
         <HamburgerButton open={mobileMenuOpen} setOpen={setMobileMenuOpen} />
       </div>
       {/* Mobile Menu Overlay */}
@@ -72,7 +72,7 @@ const PillNavbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-zinc-950/90 backdrop-blur flex flex-col items-center justify-center md:hidden"
+            className="fixed inset-0 z-[60] bg-zinc-950/90 backdrop-blur flex flex-col items-center justify-center md:hidden"
           >
             <nav>
               <ul className="space-y-8 text-2xl text-zinc-100 font-light text-center">
@@ -109,15 +109,15 @@ const HamburgerButton = ({ open, setOpen }) => (
     onClick={() => setOpen((v) => !v)}
   >
     <span
-      className={`block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 origin-center
+      className={`hamburger-line-1 block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 origin-center
         ${open ? "rotate-45 translate-y-2" : ""}`}
     ></span>
     <span
-      className={`block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 my-1
+      className={`hamburger-line-2 block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 my-1
         ${open ? "opacity-0" : ""}`}
     ></span>
     <span
-      className={`block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 origin-center
+      className={`hamburger-line-3 block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 origin-center
         ${open ? "-rotate-45 -translate-y-2" : ""}`}
     ></span>
   </button>
