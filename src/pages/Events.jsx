@@ -10,6 +10,7 @@ import {
   HiOutlineGlobeAlt,
 } from "react-icons/hi2";
 import { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import PillNavbar from "../components/PillNavbar";
 import { IoClose } from "react-icons/io5";
@@ -19,6 +20,7 @@ function Events() {
   const whatIsRef = useRef(null);
 
   const [activeTab, setActiveTab] = useState(0);
+  const location = useLocation();
   const schedule = [
     // Day 1
   [
@@ -61,6 +63,14 @@ function Events() {
       document.body.classList.remove("overflow-hidden");
     }
   }, [activeModal]);
+
+  useEffect(() => {
+    if (location.hash === "#about" && whatIsRef.current) {
+      setTimeout(() => {
+        whatIsRef.current.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  }, [location]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -164,8 +174,8 @@ function Events() {
 
 
         {/* About Section - Responsive */}
-        <section ref={whatIsRef} className="min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 py-8 sm:py-12">
-          <HeadingNText title="All about this years TechSurge">
+        <section id="about" ref={whatIsRef} className="min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 py-8 sm:py-12">
+          <HeadingNText title="All about TechSurge 2k25">
             TechSurge is an annual techfest conducted at BVRIT Narsapur by the
             Department of Computer Science and Engineering, hosted by the CBB
             club. Spanning over two exciting days, the event brings together
@@ -196,6 +206,18 @@ function Events() {
                 />
               </div>
             ))}
+          </div>
+
+          {/* Brochure Download Button */}
+          <div className="mt-10 flex justify-center">
+            <a
+              href="/src/assets/Brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white/5 border-white/5 text-neutral-400 px-8 py-2 rounded-full backdrop-blur-sm border transition-all duration-300 cursor-pointer hover:bg-white/15 hover:border-white/25 hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.2)]"
+            >
+              Download Event Brochure
+            </a>
           </div>
         </section>
 
