@@ -154,16 +154,11 @@ function Events() {
     </div>
   </div>
 
-  {/* Register and Brochure Buttons */}
-  <div className="w-full flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12">
+  {/* Register Button */}
+  <div className="w-full flex justify-center mt-8 sm:mt-10 md:mt-12">
     <BorderedButton onClick={() => whatIsRef.current?.scrollIntoView({ behavior: "smooth" })}>
       Register Now!
     </BorderedButton>
-    <a href="#" target="_blank" rel="noopener noreferrer">
-      <BorderedButton>
-        Brochure
-      </BorderedButton>
-    </a>
   </div>
 </section>
 
