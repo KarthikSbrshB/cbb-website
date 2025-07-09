@@ -20,16 +20,16 @@ function ScrollToTop() {
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1800); // ⏱ Reduced loader time (1.8 seconds)
+      setTimeout(() => setShowLoader(false), 700); // fade duration match
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
-
-  if (loading) return <Loader />;
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -44,6 +44,11 @@ function App() {
           <Route path="/contact-us" element={<Contact />} />
         </Routes>
       </main>
+      {showLoader && (
+        <div className={`fixed inset-0 z-50 pointer-events-none transition-opacity duration-700 ease-in-out ${loading ? 'opacity-100' : 'opacity-0'}`}>
+          <Loader />
+        </div>
+      )}
     </div>
   );
 }
