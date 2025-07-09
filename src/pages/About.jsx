@@ -15,7 +15,7 @@ function About() {
         <section className="flex flex-col items-center justify-center px-4 py-12 sm:min-h-screen sm:justify-center">
           <div className="flex flex-col justify-center items-center w-full pt-4 sm:pt-8">
             {/* Our Mission Heading */}
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-4 sm:mb-6 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-4 sm:mb-6 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent leading-[1.45]">
               Our Mission
             </h2>
             {/* Subheading/Description */}
@@ -75,8 +75,8 @@ function About() {
 
       {/* Guiding Lights Section */}
       <section className="flex flex-col items-center justify-center px-4 py-8">
-        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-2 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">
-          Guiding lights of coding brigade
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-2 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent leading-[1.45]">
+          Guiding Lights of Coding Brigade
         </h2>
         <p className="mt-2 mb-8 text-base sm:text-lg md:text-xl text-neutral-300 text-center max-w-2xl mx-auto font-medium">
           With their unwavering support and leadership Dr. Ch. Madhu Babu sir and Dr L. Pallavi mam have been the backbone of our club's journey, inspiring us to dream, build and lead.
@@ -112,7 +112,7 @@ function About() {
       {/* Our Journey - Full Screen Section */}
       <section className="flex flex-col justify-center items-center px-4 py-12 sm:min-h-screen sm:justify-center">
         <div className="w-full max-w-6xl border border-white/10 rounded-xl bg-[#0e0e0e] backdrop-blur-md p-4 sm:p-8 md:p-12 flex flex-col items-center justify-center">
-          <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center">
+          <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center leading-[1.45]">
             Our Journey
           </h3>
           <div className="flex justify-center w-full">
@@ -132,7 +132,7 @@ function About() {
         {/* Our Events & Activities - Full Screen Section */}
         <section className="flex flex-col justify-center items-center px-4 py-12 sm:min-h-screen sm:justify-center">
           <div className="w-full max-w-5xl border border-white/10 rounded-xl bg-[#0e0e0e] backdrop-blur-md p-4 sm:p-8 md:p-12 flex flex-col items-center justify-center">
-            <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-8 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center">
+            <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-8 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center leading-[1.45]">
               Our Events & Activities
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-start w-full">
@@ -238,7 +238,7 @@ function About() {
         {/* About Gallery Section */}
         <section className="flex flex-col items-center justify-center px-4 py-12 sm:min-h-screen sm:justify-center">
           <div className="w-full max-w-6xl">
-            <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-10 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center">
+            <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-10 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center leading-[1.45]">
               CBB Event Highlights
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
