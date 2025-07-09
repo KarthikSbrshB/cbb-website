@@ -15,6 +15,13 @@ const PillNavbar = () => {
       const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
       const isAtTop = currentScrollY < 10;
       const isAtBottom = currentScrollY >= maxScrollY - 10;
+      
+      // Don't hide navbar when mobile menu is open
+      if (mobileMenuOpen) {
+        setShowNavbar(true);
+        return;
+      }
+      
       if (isAtTop) {
         setShowNavbar(true);
       } else if (isAtBottom) {
@@ -28,11 +35,14 @@ const PillNavbar = () => {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, mobileMenuOpen]);
 
   useEffect(() => {
     let mouseTimer;
     const handleMouseMove = () => {
+      // Don't auto-hide navbar when mobile menu is open
+      if (mobileMenuOpen) return;
+      
       setShowNavbar(true);
       clearTimeout(mouseTimer);
       mouseTimer = setTimeout(() => {
@@ -44,13 +54,22 @@ const PillNavbar = () => {
       window.removeEventListener("mousemove", handleMouseMove);
       clearTimeout(mouseTimer);
     };
-  }, []);
+  }, [mobileMenuOpen]);
 
   // Close mobile menu on route change
   const location = useLocation();
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
+
+  // Handle mobile menu toggle
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+    // Ensure navbar stays visible when menu is opened
+    if (!mobileMenuOpen) {
+      setShowNavbar(true);
+    }
+  };
 
   return (
     <>
@@ -61,10 +80,14 @@ const PillNavbar = () => {
       >
         <SlideTabs />
       </div>
+      
       {/* Hamburger for mobile */}
-      <div className={`fixed top-5 left-5 z-[70] md:hidden transition-all duration-300 ${showNavbar ? "opacity-100" : "opacity-0 -translate-y-full"}`}>
-        <HamburgerButton open={mobileMenuOpen} setOpen={setMobileMenuOpen} />
+      <div className={`fixed top-5 left-5 z-[70] md:hidden transition-all duration-300 ${
+        showNavbar || mobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
+      }`}>
+        <HamburgerButton open={mobileMenuOpen} setOpen={toggleMobileMenu} />
       </div>
+      
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
@@ -104,20 +127,20 @@ const PillNavbar = () => {
 
 const HamburgerButton = ({ open, setOpen }) => (
   <button
-    aria-label="Open menu"
+    aria-label={open ? "Close menu" : "Open menu"}
     className="w-12 h-12 flex flex-col items-center justify-center relative group"
-    onClick={() => setOpen((v) => !v)}
+    onClick={setOpen}
   >
     <span
-      className={`hamburger-line-1 block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 origin-center
+      className={`block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 origin-center
         ${open ? "rotate-45 translate-y-2" : ""}`}
     ></span>
     <span
-      className={`hamburger-line-2 block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 my-1
+      className={`block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 my-1
         ${open ? "opacity-0" : ""}`}
     ></span>
     <span
-      className={`hamburger-line-3 block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 origin-center
+      className={`block w-8 h-1 rounded-full bg-zinc-200 transition-all duration-300 origin-center
         ${open ? "-rotate-45 -translate-y-2" : ""}`}
     ></span>
   </button>
