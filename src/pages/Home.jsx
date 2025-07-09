@@ -32,7 +32,7 @@ function Home() {
       <div className="relative z-20 w-full text-white">
         {/* Hero Section */}
         <section className="min-h-screen py-10 sm:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
-          <img src={logo} alt="CBB Logo" className="w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 mb-6 sm:mb-8 object-contain drop-shadow-[0_8px_16px_rgba(76,222,245,0.35)]" />
+          <img src={logo} alt="CBB Logo" className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 mb-8 sm:mb-10 pb-6 object-contain drop-shadow-[0_8px_16px_rgba(76,222,245,0.35)]" />
           <h2 className="text-4xl pb-1 sm:text-5xl md:text-7xl font-extrabold text-center">
             <span className="bg-gradient-to-b from-[#c0f4ff] to-[#4cdef5] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] [text-shadow:_0_2px_4px_rgba(0,0,0,0.4)]">Coding </span>
             <span className="bg-gradient-to-b from-[#c0f4ff] to-[#4cdef5] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] [text-shadow:_0_2px_4px_rgba(0,0,0,0.4)]">Brigade </span>
