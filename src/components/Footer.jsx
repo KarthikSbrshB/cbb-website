@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { 
   FaHome, 
   FaUsers, 
@@ -30,11 +31,11 @@ const Footer = () => {
 
           {/* Navigation */}
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-base sm:text-base">
-            <a href="/" className="text-gray-300 hover:text-[#4cdef5] transition-colors py-1 px-2">Home</a>
-            <a href="/about" className="text-gray-300 hover:text-[#4cdef5] transition-colors py-1 px-2">About</a>
-            <a href="/team" className="text-gray-300 hover:text-[#4cdef5] transition-colors py-1 px-2">Team</a>
-            <a href="/events" className="text-gray-300 hover:text-[#4cdef5] transition-colors py-1 px-2">Events</a>
-            <a href="/contact-us" className="text-gray-300 hover:text-[#4cdef5] transition-colors py-1 px-2">Contact</a>
+            <Link to="/" className="text-gray-300 hover:text-[#4cdef5] transition-colors py-1 px-2">Home</Link>
+            <Link to="/about" className="text-gray-300 hover:text-[#4cdef5] transition-colors py-1 px-2">About</Link>
+            <Link to="/team" className="text-gray-300 hover:text-[#4cdef5] transition-colors py-1 px-2">Team</Link>
+            <Link to="/events" className="text-gray-300 hover:text-[#4cdef5] transition-colors py-1 px-2">Events</Link>
+            <Link to="/contact-us" className="text-gray-300 hover:text-[#4cdef5] transition-colors py-1 px-2">Contact</Link>
           </div>
 
           {/* Social Links */}
