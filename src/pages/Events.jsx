@@ -267,7 +267,7 @@ function Events() {
                   <IoClose className="text-xl" />
                 </button>
                 {activeModal === "Vyoma" ? (
-                  <div className="w-full h-full flex flex-col items-center justify-center pt-80 sm:pt-0">
+                  <div className="w-full h-full flex flex-col items-center justify-center pt-60 sm:pt-0">
                     {/* Title and tagline at top center (hidden on mobile) */}
                     <div className="w-full text-center mb-8 sm:mb-10 pt-2 sm:pt-0">
                       <h2 className="hidden sm:block text-4xl sm:text-3xl lg:text-5xl p-2 sm:p-3 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-[#4cdef5] bg-clip-text text-transparent text-center leading-tight break-words whitespace-normal mt-0 sm:mt-0 [text-shadow:_0_2px_8px_rgba(0,0,0,0.5)]">
@@ -335,7 +335,7 @@ function Events() {
                     </div>
                   </div>
                 ) : activeModal === "Drishti" ? (
-                  <div className="w-full h-full flex flex-col items-center justify-center pt-50 sm:pt-0">
+                  <div className="w-full h-full flex flex-col items-center justify-center pt-30 sm:pt-0">
                     {/* Title and tagline at top center */}
                     <div className="w-full text-center mb-8 sm:mb-10 pt-2 sm:pt-0">
                       <h2 className="hidden sm:block text-4xl sm:text-3xl lg:text-5xl p-2 sm:p-3 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-[#4cdef5] bg-clip-text text-transparent text-center leading-tight break-words whitespace-normal mt-0 sm:mt-0 [text-shadow:_0_2px_8px_rgba(0,0,0,0.5)]">
