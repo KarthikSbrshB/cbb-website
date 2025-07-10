@@ -213,8 +213,14 @@ function Events() {
               <div
                 key={i}
                 onClick={() => setActiveModal(title)}
-                className={`cursor-pointer w-full max-w-[300px] bg-[#0e0e0e] hover:bg-[#1a1a1a] transition-all duration-300 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden ${glow}`}
+                className={`relative cursor-pointer w-[85vw] sm:w-full max-w-[220px] sm:max-w-[300px] bg-[#0e0e0e] hover:bg-[#1a1a1a] transition-all duration-300 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden ${glow}`}
               >
+                {/* Click Me Pill */}
+                <div className="absolute left-2 top-2 z-10">
+                  <div className="inline-block px-3 py-1 rounded-full bg-blue-400/90 border border-blue-300 text-white text-xs font-semibold shadow-md rotate-[-20deg]">
+                    Click Me
+                  </div>
+                </div>
                 <img
                   src={image}
                   alt={`${title} Poster`}
@@ -249,7 +255,7 @@ function Events() {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative bg-zinc-900 rounded-xl border border-white/10 px-4 sm:px-6 py-2 sm:py-3 w-full max-w-full sm:max-w-[98%] md:max-w-6xl lg:max-w-7xl min-h-[60vh] sm:min-h-[70vh] text-white shadow-xl max-h-[95vh] overflow-y-auto sm:overflow-y-visible flex items-center justify-center"
+              className="relative bg-zinc-900 rounded-2xl sm:rounded-xl border border-white/10 px-3 sm:px-6 py-3 sm:py-3 w-[85vw] sm:w-full max-w-full sm:max-w-[98%] md:max-w-6xl lg:max-w-7xl h-auto sm:min-h-[70vh] text-white shadow-xl max-h-[75vh] sm:max-h-[95vh] overflow-y-auto sm:overflow-y-visible flex items-center justify-center"
             >
                 <button
                   onClick={() => setActiveModal(null)}
@@ -258,13 +264,13 @@ function Events() {
                   <IoClose className="text-xl" />
                 </button>
                 {activeModal === "Vyoma" ? (
-                  <div className="w-full h-full flex flex-col items-center justify-center">
-                    {/* Title and tagline at top center */}
+                  <div className="w-full h-full flex flex-col items-center justify-center pt-80 sm:pt-0">
+                    {/* Title and tagline at top center (hidden on mobile) */}
                     <div className="w-full text-center mb-8 sm:mb-10 pt-2 sm:pt-0">
-                      <h2 className="text-4xl sm:text-3xl lg:text-5xl p-2 sm:p-3 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-[#4cdef5] bg-clip-text text-transparent text-center leading-tight break-words whitespace-normal mt-0 sm:mt-0 [text-shadow:_0_2px_8px_rgba(0,0,0,0.5)]">
+                      <h2 className="hidden sm:block text-4xl sm:text-3xl lg:text-5xl p-2 sm:p-3 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-[#4cdef5] bg-clip-text text-transparent text-center leading-tight break-words whitespace-normal mt-0 sm:mt-0 [text-shadow:_0_2px_8px_rgba(0,0,0,0.5)]">
                         Vyoma – 24-Hour Hackathon
                       </h2>
-                      <p className="italic text-blue-400 text-base sm:text-lg mt-1 mb-2">Theme: Smart Tech, Smarter World</p>
+                      <p className="hidden sm:block italic text-blue-400 text-base sm:text-lg mt-1 mb-2">Theme: Smart Tech, Smarter World</p>
                     </div>
                     {/* Main content: image and text */}
                     <div className="w-full flex flex-col sm:flex-row items-center justify-center text-center sm:text-left gap-6">
@@ -326,7 +332,7 @@ function Events() {
                     </div>
                   </div>
                 ) : activeModal === "Drishti" ? (
-                  <div className="w-full h-full flex flex-col items-center justify-center pt-8 sm:pt-0">
+                  <div className="w-full h-full flex flex-col items-center justify-center pt-50 sm:pt-0">
                     {/* Title and tagline at top center */}
                     <div className="w-full text-center mb-8 sm:mb-10 pt-2 sm:pt-0">
                       <h2 className="hidden sm:block text-4xl sm:text-3xl lg:text-5xl p-2 sm:p-3 font-bold tracking-wide bg-gradient-to-b from-neutral-200 to-[#4cdef5] bg-clip-text text-transparent text-center leading-tight break-words whitespace-normal mt-0 sm:mt-0 [text-shadow:_0_2px_8px_rgba(0,0,0,0.5)]">
