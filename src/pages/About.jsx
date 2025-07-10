@@ -25,9 +25,9 @@ function About() {
         <section className="flex flex-col items-center justify-center py-12 sm:min-h-screen sm:justify-center">
           <div className="flex flex-col justify-center items-center w-full pt-4 sm:pt-8">
             {/* Our Mission Heading */}
-            <div className="w-full flex flex-col justify-center items-center text-center max-w-xs sm:max-w-2xl mx-auto">
+            <div className="w-full flex flex-col justify-center items-center text-center max-w-xs sm:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto">
               <HeadingNText title="Our Mission">
-                <span className="block max-w-xs sm:max-w-2xl mx-auto">
+                <span className="block max-w-xs sm:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto">
                   CBB is a dynamic student-driven coding club at BVRIT College where passionate minds with diverse technical skills unite to build, learn, and inspire. We're not just another coding club – we're a community of innovators, problem-solvers, and future tech leaders who believe in the power of collaboration and continuous learning.
                 </span>
               </HeadingNText>
@@ -85,9 +85,9 @@ function About() {
 
       {/* Guiding Lights Section */}
       <section className="flex flex-col items-center justify-center py-8">
-        <div className="w-full flex flex-col justify-center items-center text-center max-w-xs sm:max-w-2xl mx-auto">
+        <div className="w-full flex flex-col justify-center items-center text-center max-w-xs sm:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto">
           <HeadingNText title="Guiding Lights of CBB">
-            <span className="block max-w-xs sm:max-w-2xl mx-auto">
+            <span className="block max-w-xs sm:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto">
               With their unwavering support and leadership Dr. Ch. Madhu Babu sir and Dr L. Pallavi mam have been the backbone of our club's journey, inspiring us to dream, build and lead.
             </span>
           </HeadingNText>
