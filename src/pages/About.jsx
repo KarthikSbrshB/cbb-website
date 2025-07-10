@@ -263,7 +263,7 @@ function About() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {/* Card 1 */}
-              <div className="relative rounded-xl overflow-hidden shadow-lg group h-64 flex items-end">
+              <div className="relative rounded-xl overflow-hidden shadow-lg group h-64 flex items-end max-w-[75vw] mx-auto w-full">
                 <img src="/images/DL_Workshop/DL-1.jpg" alt="DL Workshop" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                 <div className="absolute top-0 left-0 w-full bg-black/60 p-4">
                   <h4 className="text-lg font-bold text-white mb-1">DL Workshop</h4>
@@ -271,7 +271,7 @@ function About() {
                 </div>
               </div>
               {/* Card 2 */}
-              <div className="relative rounded-xl overflow-hidden shadow-lg group h-64 flex items-end">
+              <div className="relative rounded-xl overflow-hidden shadow-lg group h-64 flex items-end max-w-[75vw] mx-auto w-full">
                 <img src="/images/FutureStack/FutureStack-1.jpg" alt="FutureStack" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                 <div className="absolute top-0 left-0 w-full bg-black/60 p-4">
                   <h4 className="text-lg font-bold text-white mb-1">FutureStack</h4>
@@ -279,7 +279,7 @@ function About() {
                 </div>
               </div>
               {/* Card 3 */}
-              <div className="relative rounded-xl overflow-hidden shadow-lg group h-64 flex items-end">
+              <div className="relative rounded-xl overflow-hidden shadow-lg group h-64 flex items-end max-w-[75vw] mx-auto w-full">
                 <img src="/images/Nandyala/Nandyala-2.jpeg" alt="Interaction with Young Entrepreneurs" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                 <div className="absolute top-0 left-0 w-full bg-black/60 p-4">
                   <h4 className="text-lg font-bold text-white mb-1">Interaction with Young Entrepreneurs</h4>
@@ -287,7 +287,7 @@ function About() {
                 </div>
               </div>
               {/* Card 4 */}
-              <div className="relative rounded-xl overflow-hidden shadow-lg group h-64 flex items-end">
+              <div className="relative rounded-xl overflow-hidden shadow-lg group h-64 flex items-end max-w-[75vw] mx-auto w-full">
                 <img src="/images/TechSurge24/TechSurge-1.JPG" alt="TechSurge24" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                 <div className="absolute top-0 left-0 w-full bg-black/60 p-4">
                   <h4 className="text-lg font-bold text-white mb-1">TechSurge 24</h4>
@@ -295,7 +295,7 @@ function About() {
                 </div>
               </div>
               {/* Card 5 */}
-              <div className="relative rounded-xl overflow-hidden shadow-lg group h-64 flex items-end">
+              <div className="relative rounded-xl overflow-hidden shadow-lg group h-64 flex items-end max-w-[75vw] mx-auto w-full">
                 <img src="/images/TechTussle/TechTussle-1.JPG" alt="TechTussle" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                 <div className="absolute top-0 left-0 w-full bg-black/60 p-4">
                   <h4 className="text-lg font-bold text-white mb-1">TechTussle</h4>
@@ -303,7 +303,7 @@ function About() {
                 </div>
               </div>
               {/* Card 6 */}
-              <div className="relative rounded-xl overflow-hidden shadow-lg group h-64 flex items-end">
+              <div className="relative rounded-xl overflow-hidden shadow-lg group h-64 flex items-end max-w-[75vw] mx-auto w-full">
                 <img src="/images/TechTussle2/TechTussle2-1.jpg" alt="TechTussle2" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                 <div className="absolute top-0 left-0 w-full bg-black/60 p-4">
                   <h4 className="text-lg font-bold text-white mb-1">TechTussle 2.0</h4>
