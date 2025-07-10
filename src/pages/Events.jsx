@@ -210,22 +210,25 @@ function Events() {
               { title: "Vyoma", image: "/event-posters/Vyoma.PNG", glow: "hover:shadow-[0_0_15px_rgba(168,85,247,0.5)]" },
               { title: "Drishti", image: "/event-posters/Drishti.PNG", glow: "hover:shadow-[0_0_15px_rgba(93,188,252,0.4)]" }
             ].map(({ title, image, glow }, i) => (
-              <div
-                key={i}
-                onClick={() => setActiveModal(title)}
-                className={`relative cursor-pointer w-[85vw] sm:w-full max-w-[220px] sm:max-w-[300px] bg-[#0e0e0e] hover:bg-[#1a1a1a] transition-all duration-300 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden ${glow}`}
-              >
-                {/* Click Me Pill */}
-                <div className="absolute left-2 top-2 z-10">
-                  <div className="inline-block px-3 py-1 rounded-full bg-blue-400/90 border border-blue-300 text-white text-xs font-semibold shadow-md rotate-[-20deg]">
+              <div key={i} className="relative flex flex-col items-center">
+                {/* Click Me Pill - Sticker Style */}
+                <div className="mb-[-14px] z-10">
+                  <div className="inline-block bg-orange-400/20 text-orange-300 px-4 sm:px-6 py-2 rounded-full text-sm sm:text-md font-medium backdrop-blur-xs shadow-md text-center rotate-[-20deg]">
                     Click Me
                   </div>
                 </div>
-                <img
-                  src={image}
-                  alt={`${title} Poster`}
-                  className="w-full h-auto object-contain rounded-lg"
-                />
+
+                {/* Poster Card */}
+                <div
+                  onClick={() => setActiveModal(title)}
+                  className={`relative cursor-pointer w-[85vw] sm:w-full max-w-[220px] sm:max-w-[300px] bg-[#0e0e0e] hover:bg-[#1a1a1a] transition-all duration-300 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden ${glow}`}
+                >
+                  <img
+                    src={image}
+                    alt={`${title} Poster`}
+                    className="w-full h-auto object-contain rounded-lg"
+                  />
+                </div>
               </div>
             ))}
           </div>
