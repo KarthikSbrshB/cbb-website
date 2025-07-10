@@ -30,6 +30,8 @@ function About() {
             <p className="text-neutral-300 text-base sm:text-lg md:text-xl leading-relaxed text-center max-w-4xl mx-auto mb-8 sm:mb-12">
               CBB is a dynamic student-driven coding club at BVRIT College where passionate minds with diverse technical skills unite to build, learn, and inspire. We're not just another coding club – we're a community of innovators, problem-solvers, and future tech leaders who believe in the power of collaboration and continuous learning.
             </p>
+            {/* Spacer for extra gap between Our Mission and What We Do */}
+            <div className="mb-6 sm:mb-10"></div>
             {/* What We Do & Our Values - Side by Side Cards */}
             <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 gap-y-8">
               {/* What We Do Card */}
