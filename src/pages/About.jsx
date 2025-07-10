@@ -25,17 +25,19 @@ function About() {
         <section className="flex flex-col items-center justify-center py-12 sm:min-h-screen sm:justify-center">
           <div className="flex flex-col justify-center items-center w-full pt-4 sm:pt-8">
             {/* Our Mission Heading */}
-            <div className="w-full flex justify-center">
+            <div className="w-full flex flex-col justify-center items-center text-center max-w-xs sm:max-w-2xl mx-auto">
               <HeadingNText title="Our Mission">
-                CBB is a dynamic student-driven coding club at BVRIT College where passionate minds with diverse technical skills unite to build, learn, and inspire. We're not just another coding club – we're a community of innovators, problem-solvers, and future tech leaders who believe in the power of collaboration and continuous learning.
+                <span className="block max-w-xs sm:max-w-2xl mx-auto">
+                  CBB is a dynamic student-driven coding club at BVRIT College where passionate minds with diverse technical skills unite to build, learn, and inspire. We're not just another coding club – we're a community of innovators, problem-solvers, and future tech leaders who believe in the power of collaboration and continuous learning.
+                </span>
               </HeadingNText>
             </div>
             {/* What We Do & Our Values - Side by Side Cards */}
             <div className="w-full pt-6 max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 gap-y-8">
               {/* What We Do Card */}
-              <div className="bg-[#0e0e0e] backdrop-blur-md border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col shadow-lg items-center w-full max-w-md mx-auto">
+              <div className="bg-[#0e0e0e] backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-8 flex flex-col shadow-lg items-center w-full max-w-[90vw] sm:max-w-md mx-auto">
                 <h3 className="text-xl sm:text-2xl font-bold text-center mb-4 text-neutral-100">What We Do</h3>
-                <p className="text-neutral-300 text-center md:text-left mb-4 text-base sm:text-lg">
+                <p className="text-neutral-300 text-center sm:text-left mb-4 text-base sm:text-lg">
                   At CBB, we cultivate a culture of peer-to-peer learning, innovation, and collaboration. Our mission is to bridge the gap between academic knowledge and real-world application through hands-on experience and teamwork.
                 </p>
                 <ul className="list-disc pl-4 sm:pl-5 text-neutral-300 text-left w-full space-y-2">
@@ -46,7 +48,7 @@ function About() {
                 </ul>
               </div>
               {/* Our Values Card */}
-              <div className="bg-[#0e0e0e] backdrop-blur-md border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col shadow-lg items-center w-full max-w-md mx-auto">
+              <div className="bg-[#0e0e0e] backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-8 flex flex-col shadow-lg items-center w-full max-w-[90vw] sm:max-w-md mx-auto">
                 <h3 className="text-xl sm:text-2xl font-bold text-center mb-4 text-neutral-100">Our Values</h3>
                 <div className="relative w-full flex min-h-[220px]">
                   {/* Vertical line */}
@@ -58,20 +60,20 @@ function About() {
                   <ul className="space-y-6 w-full pl-4 sm:pl-6">
                     <li>
                       <div className="flex flex-col">
-                        <span className="font-bold text-neutral-100 text-center md:text-left">Student Leadership</span>
-                        <span className="text-neutral-300 text-sm sm:text-base text-center md:text-left">Empowering students to lead initiatives and drive change in the tech community.</span>
+                        <span className="font-bold text-neutral-100 text-center sm:text-left">Student Leadership</span>
+                        <span className="text-neutral-300 text-sm sm:text-base text-center sm:text-left">Empowering students to lead initiatives and drive change in the tech community.</span>
                       </div>
                     </li>
                     <li>
                       <div className="flex flex-col">
-                        <span className="font-bold text-neutral-100 text-center md:text-left">Knowledge Sharing</span>
-                        <span className="text-neutral-300 text-sm sm:text-base text-center md:text-left">Creating an open environment where everyone teaches and learns from each other.</span>
+                        <span className="font-bold text-neutral-100 text-center sm:text-left">Knowledge Sharing</span>
+                        <span className="text-neutral-300 text-sm sm:text-base text-center sm:text-left">Creating an open environment where everyone teaches and learns from each other.</span>
                       </div>
                     </li>
                     <li>
                       <div className="flex flex-col">
-                        <span className="font-bold text-neutral-100 text-center md:text-left">Continuous Growth</span>
-                        <span className="text-neutral-300 text-sm sm:text-base text-center md:text-left">Providing a platform for ongoing development and skill enhancement.</span>
+                        <span className="font-bold text-neutral-100 text-center sm:text-left">Continuous Growth</span>
+                        <span className="text-neutral-300 text-sm sm:text-base text-center sm:text-left">Providing a platform for ongoing development and skill enhancement.</span>
                       </div>
                     </li>
                   </ul>
@@ -83,9 +85,11 @@ function About() {
 
       {/* Guiding Lights Section */}
       <section className="flex flex-col items-center justify-center py-8">
-        <div className="w-full flex justify-center">
+        <div className="w-full flex flex-col justify-center items-center text-center max-w-xs sm:max-w-2xl mx-auto">
           <HeadingNText title="Guiding Lights of CBB">
-            With their unwavering support and leadership Dr. Ch. Madhu Babu sir and Dr L. Pallavi mam have been the backbone of our club's journey, inspiring us to dream, build and lead.
+            <span className="block max-w-xs sm:max-w-2xl mx-auto">
+              With their unwavering support and leadership Dr. Ch. Madhu Babu sir and Dr L. Pallavi mam have been the backbone of our club's journey, inspiring us to dream, build and lead.
+            </span>
           </HeadingNText>
         </div>
         <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 px-0 sm:px-6 w-full">
