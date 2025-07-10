@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import AboutVideo from "../assets/About-Video.mp4";
+import AboutVideo from "../assets/About-video.mp4";
 import CardSwap, { Card } from "../components/CardSwap";
 import Footer from "../components/Footer";
 import "../index.css";
