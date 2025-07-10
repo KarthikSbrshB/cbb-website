@@ -22,12 +22,14 @@ function About() {
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
       <div className="relative z-20">
         {/* Top Section: Mission, What We Do, Values */}
-        <section className="flex flex-col items-center justify-center px-4 py-12 sm:min-h-screen sm:justify-center">
+        <section className="flex flex-col items-center justify-center py-12 sm:min-h-screen sm:justify-center">
           <div className="flex flex-col justify-center items-center w-full pt-4 sm:pt-8">
             {/* Our Mission Heading */}
-            <HeadingNText title="Our Mission">
-              CBB is a dynamic student-driven coding club at BVRIT College where passionate minds with diverse technical skills unite to build, learn, and inspire. We're not just another coding club – we're a community of innovators, problem-solvers, and future tech leaders who believe in the power of collaboration and continuous learning.
-            </HeadingNText>
+            <div className="flex flex-col items-center justify-center text-center w-full">
+              <HeadingNText title="Our Mission">
+                CBB is a dynamic student-driven coding club at BVRIT College where passionate minds with diverse technical skills unite to build, learn, and inspire. We're not just another coding club – we're a community of innovators, problem-solvers, and future tech leaders who believe in the power of collaboration and continuous learning.
+              </HeadingNText>
+            </div>
             {/* What We Do & Our Values - Side by Side Cards */}
             <div className="w-full pt-6 max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 gap-y-8">
               {/* What We Do Card */}
@@ -80,10 +82,12 @@ function About() {
         </section>
 
       {/* Guiding Lights Section */}
-      <section className="flex flex-col items-center justify-center px-4 py-8">
-        <HeadingNText title="Guiding Lights of CBB">
-          With their unwavering support and leadership Dr. Ch. Madhu Babu sir and Dr L. Pallavi mam have been the backbone of our club's journey, inspiring us to dream, build and lead.
-        </HeadingNText>
+      <section className="flex flex-col items-center justify-center py-8">
+        <div className="flex flex-col items-center justify-center text-center w-full">
+          <HeadingNText title="Guiding Lights of CBB">
+            With their unwavering support and leadership Dr. Ch. Madhu Babu sir and Dr L. Pallavi mam have been the backbone of our club's journey, inspiring us to dream, build and lead.
+          </HeadingNText>
+        </div>
         <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 px-0 sm:px-6 w-full">
           {/* Convenor Box + Name/Designation */}
           <div className="flex flex-col items-center max-w-[300px]">
@@ -250,7 +254,9 @@ function About() {
         {/* About Gallery Section */}
         <section className="flex flex-col items-center justify-center px-4 py-12 sm:min-h-screen sm:justify-center">
           <div className="w-full max-w-6xl">
-            <HeadingNText title="CBB Event Highlights" />
+            <div className="flex flex-col items-center justify-center text-center w-full">
+              <HeadingNText title="CBB Event Highlights" />
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {/* Card 1 */}
               <div className="relative rounded-xl overflow-hidden shadow-lg group h-64 flex items-end">

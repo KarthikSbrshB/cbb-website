@@ -90,7 +90,9 @@ function Home() {
         {/* Meet the Team Glimpse */}
         <section className="min-h-[60vh] sm:min-h-screen py-4 sm:py-10 md:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
           <div className="max-w-3xl md:max-w-6xl mx-auto">
-            <HeadingNText title="Meet the Team"/>
+            <div className="flex flex-col items-center justify-center text-center w-full">
+              <HeadingNText title="Meet the Team"/>
+            </div>
             {/* Team Photo with Spinning Border */}
             <div className="flex justify-center mb-3 sm:mb-6 md:mb-8">
               <div className="relative bg-black rounded-xl overflow-hidden">
@@ -118,7 +120,9 @@ function Home() {
         {/* Gallery Preview */}
         <section className="min-h-[60vh] sm:min-h-screen py-4 sm:py-10 md:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
           <div className="max-w-3xl md:max-w-6xl mx-auto w-full">
-            <HeadingNText title="Gallery Preview"/>
+            <div className="flex flex-col items-center justify-center text-center w-full">
+              <HeadingNText title="Gallery Preview"/>
+            </div>
             <div className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[550px] relative overflow-hidden">
 
               <CircularGallery
