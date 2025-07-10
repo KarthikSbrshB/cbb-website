@@ -117,40 +117,41 @@ function Home() {
           </div>
         </section>
 
-        {/* Gallery Preview */}
-        <section className="min-h-[60vh] sm:min-h-screen py-4 sm:py-10 md:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
-          <div className="max-w-3xl md:max-w-6xl mx-auto w-full">
-            <div className="flex flex-col items-center justify-center text-center w-full">
-              <HeadingNText title="Gallery Preview"/>
+        {/* Gallery Preview (website only) */}
+        <div className="hidden sm:block">
+          <section className="min-h-[60vh] sm:min-h-screen py-4 sm:py-10 md:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
+            <div className="max-w-3xl md:max-w-6xl mx-auto w-full">
+              <div className="flex flex-col items-center justify-center text-center w-full">
+                <HeadingNText title="Gallery Preview"/>
+              </div>
+              <div className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[550px] relative overflow-hidden">
+                <CircularGallery
+                  bend={3}
+                  textColor="#ffffff"
+                  borderRadius={0.05}
+                  scrollEase={0.02}
+                  items={[
+                    { image: img1 },
+                    { image: img2 },
+                    { image: img3 },
+                    { image: img4 },
+                    { image: img5 },
+                    { image: img6 },
+                    { image: img7 },
+                    { image: img8 },
+                    { image: img9 },
+                  ]}
+                />
+              </div>
+              <Link 
+                to="/events"
+                className="inline-flex items-center mt-4 sm:mt-6 md:mt-10"
+              >
+                <BorderedButton>View All</BorderedButton>
+              </Link>
             </div>
-            <div className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[550px] relative overflow-hidden">
-
-              <CircularGallery
-                bend={3}
-                textColor="#ffffff"
-                borderRadius={0.05}
-                scrollEase={0.02}
-                items={[
-                  { image: img1 },
-                  { image: img2 },
-                  { image: img3 },
-                  { image: img4 },
-                  { image: img5 },
-                  { image: img6 },
-                  { image: img7 },
-                  { image: img8 },
-                  { image: img9 },
-                ]}
-              />
-            </div>
-            <Link 
-              to="/events"
-              className="inline-flex items-center mt-4 sm:mt-6 md:mt-10"
-            >
-              <BorderedButton>View All</BorderedButton>
-            </Link>
-          </div>
-        </section>
+          </section>
+        </div>
         <Footer />
       </div>
     </div>
