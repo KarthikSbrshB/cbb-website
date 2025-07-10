@@ -5,6 +5,7 @@ import CircularGallery from "../components/CircularGallery";
 import { Spotlight } from "../components/Spotlight";
 import ComputersCanvas from "../components/ComputersCanvas";
 import BorderedButton from "../components/BorderedButton";
+import HeadingNText from "../components/HeadingNText";
 const img1 = "/home-gallery/IMG-1.JPG";
 const img2 = "/home-gallery/IMG-2.JPG";
 const img3 = "/home-gallery/IMG-3.jpg";
@@ -89,9 +90,7 @@ function Home() {
         {/* Meet the Team Glimpse */}
         <section className="min-h-[60vh] sm:min-h-screen py-4 sm:py-10 md:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
           <div className="max-w-3xl md:max-w-6xl mx-auto">
-            <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-10 md:mb-16 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent leading-[1.45]">
-              Meet the Team
-            </h3>
+            <HeadingNText title="Meet the Team"/>
             {/* Team Photo with Spinning Border */}
             <div className="flex justify-center mb-3 sm:mb-6 md:mb-8">
               <div className="relative bg-black rounded-xl overflow-hidden">
@@ -118,10 +117,9 @@ function Home() {
         {/* Gallery Preview */}
         <section className="min-h-[60vh] sm:min-h-screen py-4 sm:py-10 md:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
           <div className="max-w-3xl md:max-w-6xl mx-auto w-full">
-            <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 md:-mb-16 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent leading-[1.45]">
-              Gallery Preview
-            </h3>
-            <div className="w-full h-[150px] sm:h-[200px] md:h-[350px] lg:h-[600px] relative">
+            <HeadingNText title="Gallery Preview"/>
+            <div className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[550px] relative overflow-hidden">
+
               <CircularGallery
                 bend={3}
                 textColor="#ffffff"

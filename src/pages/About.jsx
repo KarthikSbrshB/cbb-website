@@ -3,6 +3,8 @@ import AboutVideo from "../assets/About-video.mp4";
 import CardSwap, { Card } from "../components/CardSwap";
 import Footer from "../components/Footer";
 import "../index.css";
+import HeadingNText from "../components/HeadingNText";
+
 
 function About() {
   const [isMobile, setIsMobile] = useState(false);
@@ -23,15 +25,9 @@ function About() {
         <section className="flex flex-col items-center justify-center px-4 py-12 sm:min-h-screen sm:justify-center">
           <div className="flex flex-col justify-center items-center w-full pt-4 sm:pt-8">
             {/* Our Mission Heading */}
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-4 sm:mb-6 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent leading-[1.45]">
-              Our Mission
-            </h2>
-            {/* Subheading/Description */}
-            <p className="text-neutral-300 text-base sm:text-lg md:text-xl leading-relaxed text-center max-w-4xl mx-auto mb-8 sm:mb-12">
+            <HeadingNText title="Our Mission">
               CBB is a dynamic student-driven coding club at BVRIT College where passionate minds with diverse technical skills unite to build, learn, and inspire. We're not just another coding club – we're a community of innovators, problem-solvers, and future tech leaders who believe in the power of collaboration and continuous learning.
-            </p>
-            {/* Spacer for extra gap between Our Mission and What We Do */}
-            <div className="mb-6 sm:mb-10"></div>
+            </HeadingNText>
             {/* What We Do & Our Values - Side by Side Cards */}
             <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 gap-y-8">
               {/* What We Do Card */}
@@ -85,34 +81,41 @@ function About() {
 
       {/* Guiding Lights Section */}
       <section className="flex flex-col items-center justify-center px-4 py-8">
-        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-2 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent leading-[1.45]">
-          Guiding Lights of Coding Brigade
-        </h2>
-        <p className="mt-2 mb-8 text-base sm:text-lg md:text-xl text-neutral-300 text-center max-w-2xl mx-auto font-medium">
+        <HeadingNText title="Guiding Lights of CBB">
           With their unwavering support and leadership Dr. Ch. Madhu Babu sir and Dr L. Pallavi mam have been the backbone of our club's journey, inspiring us to dream, build and lead.
-        </p>
+        </HeadingNText>
         <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 px-0 sm:px-6 w-full">
           {/* Convenor Box + Name/Designation */}
           <div className="flex flex-col items-center max-w-[300px]">
-            <div className="h-[370px] w-full bg-[#0e0e0e] hover:bg-[#1a1a1a] transition-all duration-300 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden flex flex-col items-center justify-center">
-              <img 
-                src="/images/madhu_babu.jpg" 
-                alt="Dr. Ch. Madhu Babu" 
-                className="w-[300px] h-[370px] object-cover"
+            <div
+              className={`${
+                isMobile ? 'h-[280px]' : 'h-[370px]'
+              } w-full bg-[#0e0e0e] hover:bg-[#1a1a1a] transition-all duration-300 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden flex flex-col items-center justify-center`}
+            >
+              <img
+                src="/images/madhu_babu.jpg"
+                alt="Dr. Ch. Madhu Babu"
+                className={`${isMobile ? 'w-[230px] h-[280px]' : 'w-[300px] h-[370px]'} object-cover`}
               />
             </div>
+
             <div className="mt-3 text-lg font-semibold text-white text-center">Dr. Ch. Madhu Babu</div>
             <div className="text-sm text-blue-400 text-center">Head of Dept. CSE</div>
           </div>
           {/* Coordinator Box + Name/Designation */}
-          <div className="flex flex-col items-center max-w-[300px]">
-            <div className="h-[370px] w-full bg-[#0e0e0e] hover:bg-[#1a1a1a] transition-all duration-300 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden flex flex-col items-center justify-center">
-              <img 
-                src="/images/pallavi.jpg" 
-                alt="Dr. L. Pallavi" 
-                className="w-[300px] h-[370px] object-cover"
+          <div className="flex flex-col items-center max-w-[300px] mt-10 sm:mt-0">
+            <div
+              className={`${
+                isMobile ? 'h-[280px]' : 'h-[370px]'
+              } w-full bg-[#0e0e0e] hover:bg-[#1a1a1a] transition-all duration-300 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden flex flex-col items-center justify-center`}
+            >
+              <img
+                src="/images/pallavi.jpg"
+                alt="Dr. L. Pallavi"
+                className={`${isMobile ? 'w-[230px] h-[280px]' : 'w-[300px] h-[370px]'} object-cover`}
               />
             </div>
+
             <div className="mt-3 text-lg font-semibold text-white text-center">Dr. L. Pallavi</div>
             <div className="text-sm text-blue-400 text-center">Associate Head of Dept. CSE</div>
           </div>
@@ -122,9 +125,7 @@ function About() {
       {/* Our Journey - Full Screen Section */}
       <section className="flex flex-col justify-center items-center px-4 py-12 sm:min-h-screen sm:justify-center">
         <div className="w-full max-w-6xl border border-white/10 rounded-xl bg-[#0e0e0e] backdrop-blur-md p-4 sm:p-8 md:p-12 flex flex-col items-center justify-center">
-          <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center leading-[1.45]">
-            Our Journey
-          </h3>
+          <HeadingNText title="Our Journey" />
           <div className="flex justify-center w-full">
             <video
               className="w-full rounded-lg shadow-lg"
@@ -145,9 +146,7 @@ function About() {
         {/* Our Events & Activities - Full Screen Section */}
         <section className="flex flex-col justify-center items-center px-4 py-12 sm:min-h-screen sm:justify-center">
           <div className="w-full max-w-5xl border border-white/10 rounded-xl bg-[#0e0e0e] backdrop-blur-md p-4 sm:p-8 md:p-12 flex flex-col items-center justify-center">
-            <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-8 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center leading-[1.45]">
-              Our Events & Activities
-            </h3>
+            <HeadingNText title="Our Events & Activities" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-start w-full">
               {/* Left side - Content */}
               <div className="space-y-4 sm:space-y-6">
@@ -251,9 +250,7 @@ function About() {
         {/* About Gallery Section */}
         <section className="flex flex-col items-center justify-center px-4 py-12 sm:min-h-screen sm:justify-center">
           <div className="w-full max-w-6xl">
-            <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-10 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent text-center leading-[1.45]">
-              CBB Event Highlights
-            </h3>
+            <HeadingNText title="CBB Event Highlights" />
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {/* Card 1 */}
               <div className="relative rounded-xl overflow-hidden shadow-lg group h-64 flex items-end">

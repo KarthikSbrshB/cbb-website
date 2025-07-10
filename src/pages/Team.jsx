@@ -2,6 +2,7 @@ import React from 'react';
 import { FaEnvelope, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 import Footer from "../components/Footer";
 import ProfileCard from "../components/ProfileCard";
+import HeadingNText from "../components/HeadingNText";
 
 function Team() {
   const teamMembers = [
@@ -166,8 +167,9 @@ function Team() {
           <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
             {/* Header */}
             <div className="text-center mb-6 sm:mb-8 lg:mb-12">
-              <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 mt-10 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent leading-[1.45]">CBB Batch 2026</h2>
-              <p className="text-gray-400 text-xs sm:text-base md:text-lg lg:text-xl">One Team. One Vision. Infinite Possibilities.</p>
+              <HeadingNText title="CBB Batch 2026">
+                One Team. One Vision. Infinite Possibilities.
+              </HeadingNText>
             </div>
 
             {/* Team Grid with ProfileCards */}
