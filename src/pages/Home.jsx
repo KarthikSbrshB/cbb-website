@@ -98,6 +98,7 @@ function Home() {
                   src={teamImage} 
                   alt="CBB Team" 
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>

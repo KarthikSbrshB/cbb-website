@@ -86,10 +86,10 @@ export function TimelineDemo() {
             TechTussle 2.0: 20th & 29th April 2025
           </p>
           <div className="grid grid-cols-2 gap-4">
-            <img src="/images/TechTussle2/TechTussle2-1.jpg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/TechTussle2/TechTussle2-2.jpg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/TechTussle2/TechTussle2-3.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/TechTussle2/TechTussle2-4.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
+            <img src="/images/TechTussle2/TechTussle2-1.jpg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/TechTussle2/TechTussle2-2.jpg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/TechTussle2/TechTussle2-3.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/TechTussle2/TechTussle2-4.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
           </div>
         </div>
       ),
@@ -102,8 +102,8 @@ export function TimelineDemo() {
             Deep Learning workshop: 21st - 26th April 2025
           </p>
           <div className="grid grid-cols-2 gap-4">
-            <img src="/images/DL_Workshop/DL-1.jpg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/DL_Workshop/DL-2.jpg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
+            <img src="/images/DL_Workshop/DL-1.jpg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/DL_Workshop/DL-2.jpg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
           </div>
         </div>
       ),
@@ -116,10 +116,10 @@ export function TimelineDemo() {
             Future Stack: 13th & 20th February 2025
           </p>
           <div className="grid grid-cols-2 gap-4">
-            <img src="/images/FutureStack/FutureStack-1.jpg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/FutureStack/FutureStack-2.jpg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/FutureStack/FutureStack-3.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/FutureStack/FutureStack-4.jpg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
+            <img src="/images/FutureStack/FutureStack-1.jpg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/FutureStack/FutureStack-2.jpg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/FutureStack/FutureStack-3.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/FutureStack/FutureStack-4.jpg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
           </div>
         </div>
       ),
@@ -132,10 +132,10 @@ export function TimelineDemo() {
             Interaction with Young Entrepreneurs: 11th September 2024
           </p>
           <div className="grid grid-cols-2 gap-4">
-            <img src="/images/Nandyala/Nandyala-1.gif" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/Nandyala/Nandyala-2.jpeg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/Nandyala/Nandyala-3.jpeg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/Nandyala/Nandyala-4.jpeg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
+            <img src="/images/Nandyala/Nandyala-1.gif" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/Nandyala/Nandyala-2.jpeg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/Nandyala/Nandyala-3.jpeg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/Nandyala/Nandyala-4.jpeg" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
           </div>
         </div>
       ),
@@ -148,10 +148,10 @@ export function TimelineDemo() {
             TechTussle – Clash of Coders: 8th & 20th August 2024
           </p>
           <div className="grid grid-cols-2 gap-4">
-            <img src="/images/TechTussle/TechTussle-1.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/TechTussle/TechTussle-2.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/TechTussle/TechTussle-3.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/TechTussle/TechTussle-4.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
+            <img src="/images/TechTussle/TechTussle-1.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/TechTussle/TechTussle-2.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/TechTussle/TechTussle-3.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/TechTussle/TechTussle-4.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
           </div>
         </div>
       ),
@@ -164,10 +164,10 @@ export function TimelineDemo() {
             TechSurge 2k24: 22nd – 24th April 2024
           </p>
           <div className="grid grid-cols-2 gap-4">
-            <img src="/images/TechSurge24/TechSurge-1.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/TechSurge24/TechSurge-2.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/TechSurge24/TechSurge-3.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
-            <img src="/images/TechSurge24/TechSurge-4.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" />
+            <img src="/images/TechSurge24/TechSurge-1.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/TechSurge24/TechSurge-2.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/TechSurge24/TechSurge-3.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
+            <img src="/images/TechSurge24/TechSurge-4.JPG" alt="" className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60" loading="lazy" />
           </div>
         </div>
       ),
