@@ -173,7 +173,7 @@ function Events() {
   {/* Register & Brochure Buttons */}
   <div className="w-full flex justify-center gap-5 mt-8 sm:mt-10 md:mt-12 flex-wrap sm:flex-nowrap">
     <a
-      href="/src/assets/Brochure.pdf"
+      href="/Brochure.pdf"
       target="_blank"
       rel="noopener noreferrer"
       className="h-12 bg-white/5 border-white/5 text-neutral-400 px-8 py-2 rounded-full backdrop-blur-sm border transition-all duration-300 cursor-pointer hover:bg-white/15 hover:border-white/25 hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.2)] flex items-center justify-center text-sm sm:text-base"
@@ -207,8 +207,8 @@ function Events() {
           {/* Event Cards - Responsive grid */}
           <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-8 lg:gap-12 px-4 sm:px-6">
             {[
-              { title: "Vyoma", image: "/src/assets/event-posters/Vyoma.PNG", glow: "hover:shadow-[0_0_15px_rgba(168,85,247,0.5)]" },
-              { title: "Drishti", image: "/src/assets/event-posters/Drishti.PNG", glow: "hover:shadow-[0_0_15px_rgba(93,188,252,0.4)]" }
+              { title: "Vyoma", image: "/event-posters/Vyoma.PNG", glow: "hover:shadow-[0_0_15px_rgba(168,85,247,0.5)]" },
+              { title: "Drishti", image: "/event-posters/Drishti.PNG", glow: "hover:shadow-[0_0_15px_rgba(93,188,252,0.4)]" }
             ].map(({ title, image, glow }, i) => (
               <div
                 key={i}
@@ -271,7 +271,7 @@ function Events() {
                       {/* Left: Image */}
                       <div className="w-full sm:w-1/3">
                         <img
-                          src="/src/assets/event-posters/Vyoma.PNG"
+                          src="/event-posters/Vyoma.PNG"
                           alt="Vyoma Hackathon Poster"
                           className="hidden sm:block w-full max-w-[220px] sm:max-w-[260px] object-contain rounded-lg mx-auto"
                         />
@@ -339,7 +339,7 @@ function Events() {
                       {/* Left: Image */}
                       <div className="w-full sm:w-1/3">
                         <img
-                          src="/src/assets/event-posters/Drishti.PNG"
+                          src="/event-posters/Drishti.PNG"
                           alt="Drishti"
                           className="hidden sm:block w-full max-w-[220px] sm:max-w-[260px] object-contain rounded-lg mx-auto"
                         />

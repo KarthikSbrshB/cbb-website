@@ -1,20 +1,20 @@
-import teamImage from "../assets/img/TEAM-1.jpeg";
+const teamImage = "/img/TEAM-1.jpeg";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import CircularGallery from "../components/CircularGallery";
 import { Spotlight } from "../components/Spotlight";
 import ComputersCanvas from "../components/ComputersCanvas";
-import logo from "../assets/logo.png";
 import BorderedButton from "../components/BorderedButton";
-import img1 from "../assets/home-gallery/IMG-1.JPG";
-import img2 from "../assets/home-gallery/IMG-2.JPG";
-import img3 from "../assets/home-gallery/IMG-3.jpg";
-import img4 from "../assets/home-gallery/IMG-4.JPG";
-import img5 from "../assets/home-gallery/IMG-5.jpeg";
-import img6 from "../assets/home-gallery/IMG-6.jpeg";
-import img7 from "../assets/home-gallery/IMG-7.JPG";
-import img8 from "../assets/home-gallery/IMG-8.JPG";
-import img9 from "../assets/home-gallery/IMG-9.JPG";
+const img1 = "/home-gallery/IMG-1.JPG";
+const img2 = "/home-gallery/IMG-2.JPG";
+const img3 = "/home-gallery/IMG-3.jpg";
+const img4 = "/home-gallery/IMG-4.JPG";
+const img5 = "/home-gallery/IMG-5.jpeg";
+const img6 = "/home-gallery/IMG-6.jpeg";
+const img7 = "/home-gallery/IMG-7.JPG";
+const img8 = "/home-gallery/IMG-8.JPG";
+const img9 = "/home-gallery/IMG-9.JPG";
+
 import { useNavigate } from 'react-router-dom';
 
 function Home() {
@@ -40,7 +40,7 @@ function Home() {
       <div className="relative z-20 w-full text-white">
         {/* Hero Section */}
         <section className="min-h-screen pt-16 md:pt-24 py-8 sm:py-16 flex flex-col items-center justify-center text-center px-4 sm:px-6">
-          <img src={logo} alt="CBB Logo" className="w-63 h-63 sm:w-62 sm:h-62 md:w-76 md:h-76 mb-6 sm:mb-8 pb-6 object-contain drop-shadow-[0_8px_16px_rgba(76,222,245,0.35)]" />
+          <img src="/logo.png" alt="CBB Logo" className="w-63 h-63 sm:w-62 sm:h-62 md:w-76 md:h-76 mb-6 sm:mb-8 pb-6 object-contain drop-shadow-[0_8px_16px_rgba(76,222,245,0.35)]" />
           <h2 className="text-4xl pb-1 sm:text-5xl md:text-7xl font-extrabold text-center leading-[1.45]">
             <span className="bg-gradient-to-b from-[#c0f4ff] to-[#4cdef5] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] [text-shadow:_0_2px_4px_rgba(0,0,0,0.4)]">Coding </span>
             <span className="bg-gradient-to-b from-[#c0f4ff] to-[#4cdef5] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] [text-shadow:_0_2px_4px_rgba(0,0,0,0.4)]">Brigade </span>
