@@ -29,7 +29,7 @@ function About() {
               CBB is a dynamic student-driven coding club at BVRIT College where passionate minds with diverse technical skills unite to build, learn, and inspire. We're not just another coding club – we're a community of innovators, problem-solvers, and future tech leaders who believe in the power of collaboration and continuous learning.
             </HeadingNText>
             {/* What We Do & Our Values - Side by Side Cards */}
-            <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 gap-y-8">
+            <div className="w-full pt-6 max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 gap-y-8">
               {/* What We Do Card */}
               <div className="bg-[#0e0e0e] backdrop-blur-md border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col shadow-lg items-center w-full max-w-md mx-auto">
                 <h3 className="text-xl sm:text-2xl font-bold text-center mb-4 text-neutral-100">What We Do</h3>
