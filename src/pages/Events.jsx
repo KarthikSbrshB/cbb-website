@@ -332,20 +332,10 @@ function Events() {
       ))}
     </div>
     
-    {/* Current Round Display */}
-    <div className="mt-4 sm:mt-6 md:mt-8 w-full flex flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8">
-      <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl uppercase tracking-widest text-neutral-400 font-bold">
-        Current Round:
-      </p>
-      <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-orange-400 font-bold">
-        {currentRound}
-      </div>
-    </div>
-
     {/* Next Round Timer */}
     <div className="mt-4 sm:mt-6 md:mt-8 w-full flex flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8">
       <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl uppercase tracking-widest text-neutral-400 font-bold">
-        {nextRound.includes("Review") ? "Review starts in:" : nextRound.includes("Evaluation") ? "Evaluation starts in:" : "Next Round starts in:"}
+        {nextRound.includes("Review") ? "Sankalp Review starts in:" : nextRound.includes("Evaluation") ? "Evaluation starts in:" : "Next Round starts in:"}
       </p>
       <div className="flex gap-2 sm:gap-3 md:gap-4 text-center font-mono text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-orange-400 font-bold">
         {nextRoundTime.split(" ").map((unit, i) => (
