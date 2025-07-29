@@ -21,42 +21,58 @@ function Events() {
 
   const [activeTab, setActiveTab] = useState(0);
   const location = useLocation();
+  
+  // Original schedule format for ScheduleTable component
   const schedule = [
     // Day 1
-  [
-    { from: "09:30 AM", to: "10:00 AM", activity: "Assembly" },
-    { from: "10:00 AM", to: "10:30 AM", activity: "Inauguration" },
-    { from: "10:30 AM", to: "12:30 PM", activity: "Round 1: Srishti" },
-    { from: "12:30 PM", to: "01:00 PM", activity: "Round 1 Review" },
-    { from: "01:00 PM", to: "02:00 PM", activity: "Lunch" },
-    { from: "02:00 PM", to: "04:00 PM", activity: "Round 2: Sankalp" },
-    { from: "04:00 PM", to: "04:15 PM", activity: "Break" },
-    { from: "04:15 PM", to: "07:30 PM", activity: "Round 2 (Continued)" },
-    { from: "07:30 PM", to: "08:30 PM", activity: "Dinner" },
-    { from: "08:30 PM", to: "09:00 PM", activity: "Round 2 Review" },
-    { from: "09:00 PM", to: "12:00 AM", activity: "Round 3: Samarth" },
-  ],
+    [
+      { from: "09:30 AM", to: "10:00 AM", activity: "Assembly" },
+      { from: "10:00 AM", to: "10:30 AM", activity: "Inauguration" },
+      { from: "10:30 AM", to: "12:30 PM", activity: "Round 1: Srishti" },
+      { from: "12:30 PM", to: "01:00 PM", activity: "Round 1 Review" },
+      { from: "01:00 PM", to: "02:00 PM", activity: "Lunch" },
+      { from: "02:00 PM", to: "04:00 PM", activity: "Round 2: Sankalp" },
+      { from: "04:00 PM", to: "04:15 PM", activity: "Break" },
+      { from: "04:15 PM", to: "07:30 PM", activity: "Round 2 (Continued)" },
+      { from: "07:30 PM", to: "08:30 PM", activity: "Dinner" },
+      { from: "08:30 PM", to: "09:00 PM", activity: "Round 2 Review" },
+      { from: "09:00 PM", to: "12:00 AM", activity: "Round 3: Samarth" },
+    ],
 
-  // Day 2
-  [
-    { from: "12:00 AM", to: "02:00 AM", activity: "Activities + Refreshments" },
-    { from: "02:00 AM", to: "07:00 AM", activity: "Round 3 (Continued)" },
-    { from: "07:00 AM", to: "09:00 AM", activity: "Morning Break" },
-    { from: "09:00 AM", to: "09:30 AM", activity: "Round 3 (Continued)" },
-    { from: "09:30 AM", to: "11:15 AM", activity: "Final Review & Announcement of winners" },
-    { from: "11:15 AM", to: "11:30 AM", activity: "Closing Ceremony & Vote of Thanks" },
-    { from: "11:30 AM", to: "12:00 PM", activity: "Assemble for Drishti" },
-    { from: "12:00 PM", to: "03:00 PM", activity: "Participants pitch their ideas" },
-    { from: "03:00 PM", to: "03:30 PM", activity: "Announcement of winners & Vote of Thanks" }
-  ]
-   
+    // Day 2
+    [
+      { from: "12:00 AM", to: "02:00 AM", activity: "Activities + Refreshments" },
+      { from: "02:00 AM", to: "07:00 AM", activity: "Round 3 (Continued)" },
+      { from: "07:00 AM", to: "09:00 AM", activity: "Morning Break" },
+      { from: "09:00 AM", to: "09:30 AM", activity: "Round 3 (Continued)" },
+      { from: "09:30 AM", to: "11:15 AM", activity: "Final Review & Announcement of winners" },
+      { from: "11:15 AM", to: "11:30 AM", activity: "Closing Ceremony & Vote of Thanks" },
+      { from: "11:30 AM", to: "12:00 PM", activity: "Assemble for Drishti" },
+      { from: "12:00 PM", to: "03:00 PM", activity: "Participants pitch their ideas" },
+      { from: "03:00 PM", to: "03:30 PM", activity: "Announcement of winners & Vote of Thanks" }
+    ]
+  ];
+  
+  // Timer schedule data based on the provided images
+  const timerSchedule = [
+    // Day 1 (29-07-2025)
+    { round: "Round-1 Srishti", start: "2025-07-29T11:00:00", end: "2025-07-29T16:00:00" },
+    { round: "Round 1 Review", start: "2025-07-29T14:00:00", end: "2025-07-29T16:00:00" },
+    { round: "Round-2 Sankalp", start: "2025-07-29T16:40:00", end: "2025-07-29T21:30:00" },
+    { round: "Round 2 Review", start: "2025-07-29T20:30:00", end: "2025-07-29T21:30:00" },
+    { round: "Round-3 Samarth", start: "2025-07-29T22:30:00", end: "2025-07-30T10:00:00" },
+    // Day 2 (30-07-2025)
+    { round: "Round 3 Review", start: "2025-07-30T09:00:00", end: "2025-07-30T10:00:00" },
+    { round: "Finalizing teams", start: "2025-07-30T10:00:00", end: "2025-07-30T10:30:00" },
+    { round: "Prize Distribution", start: "2025-07-30T11:00:00", end: "2025-07-30T12:00:00" }
   ];
 
-  const eventDate = new Date("2025-07-30T11:00:00"); // Hackathon ends at 30-07-25 11AM
-  const secondRoundDate = new Date("2025-07-29T16:40:00"); // Second round starts at 4:40 today
-
+  const eventDate = new Date("2025-07-30T12:00:00"); // Hackathon ends at 30-07-25 12:00 PM (Prize Distribution)
+  
   const [timeLeft, setTimeLeft] = useState("");
-  const [secondRoundTimeLeft, setSecondRoundTimeLeft] = useState("");
+  const [currentRound, setCurrentRound] = useState("");
+  const [nextRound, setNextRound] = useState("");
+  const [nextRoundTime, setNextRoundTime] = useState("");
 
   useEffect(() => {
     if (activeModal) {
@@ -84,11 +100,13 @@ function Events() {
     const interval = setInterval(() => {
       const now = new Date();
       const hackathonEnd = eventDate - now;
-      const secondRoundStart = secondRoundDate - now;
       
       // Update main countdown (Hackathon end)
       if (hackathonEnd <= 0) {
         setTimeLeft("Hackathon Ended!");
+        setCurrentRound("Event Completed");
+        setNextRound("");
+        setNextRoundTime("");
         clearInterval(interval);
       } else {
         const days = Math.floor(hackathonEnd / (1000 * 60 * 60 * 24));
@@ -96,29 +114,116 @@ function Events() {
         const minutes = Math.floor((hackathonEnd / (1000 * 60)) % 60);
         const seconds = Math.floor((hackathonEnd / 1000) % 60);
         setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`);
-      }
-      
-      // Update second round countdown
-      if (secondRoundStart <= 0) {
-        setSecondRoundTimeLeft("Second Round Started!");
-      } else {
-        const hours = Math.floor((secondRoundStart / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((secondRoundStart / (1000 * 60)) % 60);
-        const seconds = Math.floor((secondRoundStart / 1000) % 60);
-        setSecondRoundTimeLeft(`${hours}h ${minutes}m ${seconds}s`);
+        
+        // Find current and next round
+        let currentRoundFound = false;
+        let nextRoundFound = false;
+        
+        for (let i = 0; i < timerSchedule.length; i++) {
+          const round = timerSchedule[i];
+          const roundStart = new Date(round.start);
+          const roundEnd = new Date(round.end);
+          
+          // Check if we're in this round
+          if (now >= roundStart && now <= roundEnd) {
+            setCurrentRound(round.round);
+            currentRoundFound = true;
+            
+            // Find next round
+            if (i + 1 < timerSchedule.length) {
+              const nextRoundData = timerSchedule[i + 1];
+              setNextRound(nextRoundData.round);
+              const nextStart = new Date(nextRoundData.start);
+              const timeToNext = nextStart - now;
+              const hours = Math.floor((timeToNext / (1000 * 60 * 60)) % 24);
+              const minutes = Math.floor((timeToNext / (1000 * 60)) % 60);
+              const seconds = Math.floor((timeToNext / 1000) % 60);
+              setNextRoundTime(`${hours}h ${minutes}m ${seconds}s`);
+              nextRoundFound = true;
+            } else {
+              // If this is the last round, show event end
+              setNextRound("Event Ends");
+              const timeToEnd = eventDate - now;
+              const hours = Math.floor((timeToEnd / (1000 * 60 * 60)) % 24);
+              const minutes = Math.floor((timeToEnd / (1000 * 60)) % 60);
+              const seconds = Math.floor((timeToEnd / 1000) % 60);
+              setNextRoundTime(`${hours}h ${minutes}m ${seconds}s`);
+              nextRoundFound = true;
+            }
+            break;
+          }
+          
+          // Check if this round is next
+          if (!currentRoundFound && now < roundStart) {
+            if (!nextRoundFound) {
+              setNextRound(round.round);
+              const timeToNext = roundStart - now;
+              const hours = Math.floor((timeToNext / (1000 * 60 * 60)) % 24);
+              const minutes = Math.floor((timeToNext / (1000 * 60)) % 60);
+              const seconds = Math.floor((timeToNext / 1000) % 60);
+              setNextRoundTime(`${hours}h ${minutes}m ${seconds}s`);
+              nextRoundFound = true;
+            }
+          }
+        }
+        
+        // If no current round found, check if event hasn't started or has ended
+        if (!currentRoundFound) {
+          const firstRound = timerSchedule[0];
+          const lastRound = timerSchedule[timerSchedule.length - 1];
+          const firstStart = new Date(firstRound.start);
+          const lastEnd = new Date(lastRound.end);
+          
+          if (now < firstStart) {
+            setCurrentRound("Event Not Started");
+            if (!nextRoundFound) {
+              setNextRound(firstRound.round);
+              const timeToFirst = firstStart - now;
+              const hours = Math.floor((timeToFirst / (1000 * 60 * 60)) % 24);
+              const minutes = Math.floor((timeToFirst / (1000 * 60)) % 60);
+              const seconds = Math.floor((timeToFirst / 1000) % 60);
+              setNextRoundTime(`${hours}h ${minutes}m ${seconds}s`);
+            }
+          } else if (now > lastEnd) {
+            setCurrentRound("Event Completed");
+            setNextRound("");
+            setNextRoundTime("");
+          } else {
+            // Find the most recent round that has ended
+            for (let i = timerSchedule.length - 1; i >= 0; i--) {
+              const round = timerSchedule[i];
+              const roundEnd = new Date(round.end);
+              if (now > roundEnd) {
+                setCurrentRound(round.round);
+                // Find next round
+                if (i + 1 < timerSchedule.length) {
+                  const nextRoundData = timerSchedule[i + 1];
+                  setNextRound(nextRoundData.round);
+                  const nextStart = new Date(nextRoundData.start);
+                  const timeToNext = nextStart - now;
+                  const hours = Math.floor((timeToNext / (1000 * 60 * 60)) % 24);
+                  const minutes = Math.floor((timeToNext / (1000 * 60)) % 60);
+                  const seconds = Math.floor((timeToNext / 1000) % 60);
+                  setNextRoundTime(`${hours}h ${minutes}m ${seconds}s`);
+                }
+                break;
+              }
+            }
+          }
+        }
       }
     }, 1000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative flex w-full items-center justify-center bg-black overflow-x-hidden">
+    <div className="relative flex w-full items-center justify-center bg-black overflow-hidden scrollbar-hide h-screen">
       <PillNavbar />
       <div className="absolute inset-0 [background-size:40px_40px] [background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]" />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
-      <div className="relative z-20 w-full text-white">
-        <div className="mx-auto w-full max-w-screen-xl px-4 sm:px-6">
+      <div className="relative z-20 w-full text-white scrollbar-hide h-full overflow-hidden">
+        <div className="mx-auto w-full max-w-screen-xl px-4 sm:px-6 scrollbar-hide h-full overflow-hidden">
 
         {/* Floating Icons - Responsive positioning */}
         <div className="absolute z-0 inset-0 pointer-events-none hidden lg:block">
@@ -162,10 +267,10 @@ function Events() {
 
   {/* Countdown Timer */}
   <div className="text-center w-full flex flex-col items-center mt-6 sm:mt-8 md:mt-10">
-    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase tracking-widest text-neutral-400 mb-3 sm:mb-4 md:mb-6 font-bold">
+    <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl uppercase tracking-widest text-neutral-400 mb-3 sm:mb-4 md:mb-6 font-bold">
       Hackathon ends in
     </p>
-    <div className="flex gap-4 sm:gap-6 md:gap-8 lg:gap-10 text-center font-mono text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-[#4cdef5] font-bold">
+    <div className="flex gap-3 sm:gap-4 md:gap-5 lg:gap-6 text-center font-mono text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-[#4cdef5] font-bold">
       {timeLeft.split(" ").map((unit, i) => (
         <motion.div
           key={i}
@@ -178,20 +283,30 @@ function Events() {
           <span className="text-shadow-sm font-bold">
             {unit.split(/(?<=\D)(?=\d)|(?<=\d)(?=\D)/)[0]}
           </span>
-          <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-neutral-400 tracking-tight font-bold">
+          <span className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-neutral-400 tracking-tight font-bold">
             {unit.split(/(?<=\D)(?=\d)|(?<=\d)(?=\D)/)[1]}
           </span>
         </motion.div>
       ))}
     </div>
     
-    {/* Second Round Timer */}
+    {/* Current Round Display */}
     <div className="mt-4 sm:mt-6 md:mt-8 w-full flex flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8">
-      <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase tracking-widest text-neutral-400 font-bold">
-        Second Round starts in
+      <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl uppercase tracking-widest text-neutral-400 font-bold">
+        Current Round:
       </p>
-      <div className="flex gap-2 sm:gap-3 md:gap-4 text-center font-mono text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-orange-400 font-bold">
-        {secondRoundTimeLeft.split(" ").map((unit, i) => (
+      <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-orange-400 font-bold">
+        {currentRound}
+      </div>
+    </div>
+
+    {/* Next Round Timer */}
+    <div className="mt-4 sm:mt-6 md:mt-8 w-full flex flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8">
+      <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl uppercase tracking-widest text-neutral-400 font-bold">
+        {nextRound.includes("Review") ? "Review starts in:" : nextRound.includes("Evaluation") ? "Evaluation starts in:" : "Next Round starts in:"}
+      </p>
+      <div className="flex gap-2 sm:gap-3 md:gap-4 text-center font-mono text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-orange-400 font-bold">
+        {nextRoundTime.split(" ").map((unit, i) => (
           <motion.div
             key={i}
             initial={{ y: -10, opacity: 0 }}
