@@ -119,6 +119,7 @@ function Events() {
         let currentRoundFound = false;
         let nextRoundFound = false;
         
+        // First pass: Check for reviews/evaluations (they have priority)
         for (let i = 0; i < timerSchedule.length; i++) {
           const round = timerSchedule[i];
           const roundStart = new Date(round.start);
@@ -126,43 +127,84 @@ function Events() {
           
           // Check if we're in this round
           if (now >= roundStart && now <= roundEnd) {
-            setCurrentRound(round.round);
-            currentRoundFound = true;
-            
-            // Find next round
-            if (i + 1 < timerSchedule.length) {
-              const nextRoundData = timerSchedule[i + 1];
-              setNextRound(nextRoundData.round);
-              const nextStart = new Date(nextRoundData.start);
-              const timeToNext = nextStart - now;
-              const hours = Math.floor((timeToNext / (1000 * 60 * 60)) % 24);
-              const minutes = Math.floor((timeToNext / (1000 * 60)) % 60);
-              const seconds = Math.floor((timeToNext / 1000) % 60);
-              setNextRoundTime(`${hours}h ${minutes}m ${seconds}s`);
-              nextRoundFound = true;
-            } else {
-              // If this is the last round, show event end
-              setNextRound("Event Ends");
-              const timeToEnd = eventDate - now;
-              const hours = Math.floor((timeToEnd / (1000 * 60 * 60)) % 24);
-              const minutes = Math.floor((timeToEnd / (1000 * 60)) % 60);
-              const seconds = Math.floor((timeToEnd / 1000) % 60);
-              setNextRoundTime(`${hours}h ${minutes}m ${seconds}s`);
-              nextRoundFound = true;
+            // Prioritize reviews/evaluations over main rounds
+            if (round.round.includes("Review") || round.round.includes("Evaluation")) {
+              setCurrentRound(round.round);
+              currentRoundFound = true;
+              
+              // Find next round
+              if (i + 1 < timerSchedule.length) {
+                const nextRoundData = timerSchedule[i + 1];
+                setNextRound(nextRoundData.round);
+                const nextStart = new Date(nextRoundData.start);
+                const timeToNext = nextStart - now;
+                const hours = Math.floor((timeToNext / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((timeToNext / (1000 * 60)) % 60);
+                const seconds = Math.floor((timeToNext / 1000) % 60);
+                setNextRoundTime(`${hours}h ${minutes}m ${seconds}s`);
+                nextRoundFound = true;
+              } else {
+                // If this is the last round, show event end
+                setNextRound("Event Ends");
+                const timeToEnd = eventDate - now;
+                const hours = Math.floor((timeToEnd / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((timeToEnd / (1000 * 60)) % 60);
+                const seconds = Math.floor((timeToEnd / 1000) % 60);
+                setNextRoundTime(`${hours}h ${minutes}m ${seconds}s`);
+                nextRoundFound = true;
+              }
+              break;
             }
-            break;
           }
-          
-          // Check if this round is next
-          if (!currentRoundFound && now < roundStart) {
-            if (!nextRoundFound) {
-              setNextRound(round.round);
-              const timeToNext = roundStart - now;
-              const hours = Math.floor((timeToNext / (1000 * 60 * 60)) % 24);
-              const minutes = Math.floor((timeToNext / (1000 * 60)) % 60);
-              const seconds = Math.floor((timeToNext / 1000) % 60);
-              setNextRoundTime(`${hours}h ${minutes}m ${seconds}s`);
-              nextRoundFound = true;
+        }
+        
+        // Second pass: If no review/evaluation found, check for main rounds
+        if (!currentRoundFound) {
+          for (let i = 0; i < timerSchedule.length; i++) {
+            const round = timerSchedule[i];
+            const roundStart = new Date(round.start);
+            const roundEnd = new Date(round.end);
+            
+            // Check if we're in this round
+            if (now >= roundStart && now <= roundEnd) {
+              setCurrentRound(round.round);
+              currentRoundFound = true;
+              
+              // Find next round
+              if (i + 1 < timerSchedule.length) {
+                const nextRoundData = timerSchedule[i + 1];
+                setNextRound(nextRoundData.round);
+                const nextStart = new Date(nextRoundData.start);
+                const timeToNext = nextStart - now;
+                const hours = Math.floor((timeToNext / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((timeToNext / (1000 * 60)) % 60);
+                const seconds = Math.floor((timeToNext / 1000) % 60);
+                setNextRoundTime(`${hours}h ${minutes}m ${seconds}s`);
+                nextRoundFound = true;
+              } else {
+                // If this is the last round, show event end
+                setNextRound("Event Ends");
+                const timeToEnd = eventDate - now;
+                const hours = Math.floor((timeToEnd / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((timeToEnd / (1000 * 60)) % 60);
+                const seconds = Math.floor((timeToEnd / 1000) % 60);
+                setNextRoundTime(`${hours}h ${minutes}m ${seconds}s`);
+                nextRoundFound = true;
+              }
+              break;
+            }
+            
+            // Check if this round is next
+            if (!currentRoundFound && now < roundStart) {
+              if (!nextRoundFound) {
+                setNextRound(round.round);
+                const timeToNext = roundStart - now;
+                const hours = Math.floor((timeToNext / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((timeToNext / (1000 * 60)) % 60);
+                const seconds = Math.floor((timeToNext / 1000) % 60);
+                setNextRoundTime(`${hours}h ${minutes}m ${seconds}s`);
+                nextRoundFound = true;
+              }
             }
           }
         }
