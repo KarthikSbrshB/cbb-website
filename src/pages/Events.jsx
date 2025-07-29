@@ -52,9 +52,11 @@ function Events() {
    
   ];
 
-  const eventDate = new Date("2025-07-29T09:00:00");
+  const eventDate = new Date("2025-07-30T11:00:00"); // Hackathon ends at 30-07-25 11AM
+  const secondRoundDate = new Date("2025-07-29T16:40:00"); // Second round starts at 4:40 today
 
   const [timeLeft, setTimeLeft] = useState("");
+  const [secondRoundTimeLeft, setSecondRoundTimeLeft] = useState("");
 
   useEffect(() => {
     if (activeModal) {
@@ -80,16 +82,30 @@ function Events() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const diff = eventDate - new Date();
-      if (diff <= 0) {
-        setTimeLeft("Event Started!");
+      const now = new Date();
+      const hackathonEnd = eventDate - now;
+      const secondRoundStart = secondRoundDate - now;
+      
+      // Update main countdown (Hackathon end)
+      if (hackathonEnd <= 0) {
+        setTimeLeft("Hackathon Ended!");
         clearInterval(interval);
       } else {
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
+        const days = Math.floor(hackathonEnd / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((hackathonEnd / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((hackathonEnd / (1000 * 60)) % 60);
+        const seconds = Math.floor((hackathonEnd / 1000) % 60);
         setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`);
+      }
+      
+      // Update second round countdown
+      if (secondRoundStart <= 0) {
+        setSecondRoundTimeLeft("Second Round Started!");
+      } else {
+        const hours = Math.floor((secondRoundStart / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((secondRoundStart / (1000 * 60)) % 60);
+        const seconds = Math.floor((secondRoundStart / 1000) % 60);
+        setSecondRoundTimeLeft(`${hours}h ${minutes}m ${seconds}s`);
       }
     }, 1000);
     return () => clearInterval(interval);
@@ -114,30 +130,30 @@ function Events() {
 
 
 
-<section className="min-h-screen mt-16 sm:mt-24 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-8 sm:py-12">
+<section className="min-h-screen mt-8 sm:mt-12 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-4 sm:py-8">
   {/* Title Container */}
-  <div className="relative w-full sm:w-fit mt-6 sm:mt-10">
-    <div className="absolute -top-5 sm:-top-5 left-1/2 -translate-x-1/2 bg-blue-200/10 text-blue-300 backdrop-blur-sm px-6 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold">
+  <div className="relative w-full sm:w-fit mt-2 sm:mt-4">
+    <div className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 bg-blue-200/10 text-blue-300 backdrop-blur-sm px-4 sm:px-6 py-1 sm:py-2 rounded-full text-sm sm:text-base font-semibold">
       Upcoming Event
     </div>
 
     {/* Desktop Layout */}
-    <div className="hidden sm:block relative mt-10 sm:mt-14">
-      <span className="relative left-[-15%] bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text py-8 pb-6 text-[8vw] leading-[1.2] font-[Revamped] text-transparent">
+    <div className="hidden sm:block relative mt-6 sm:mt-8">
+      <span className="relative left-[-15%] bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text py-4 pb-2 text-[6vw] leading-[1.2] font-[Revamped] text-transparent">
         TechSurge
       </span>
-      <span className="tracking-tighter flicker absolute top-[45%] -translate-y-1/2 left-[75%] text-[11vw] text-[#4cdef5d7] px-11 font-[CyberBrush]">
+      <span className="tracking-tighter flicker absolute top-[45%] -translate-y-1/2 left-[75%] text-[8vw] text-[#4cdef5d7] px-8 font-[CyberBrush]">
         2k25
       </span>
     </div>
 
     {/* Mobile Layout */}
-    <div className="block sm:hidden relative mt-10">
+    <div className="block sm:hidden relative mt-6">
       <div className="flex flex-col items-center">
-        <span className="bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text py-6 pb-1 text-[13vw] leading-[1.1] font-[Revamped] text-transparent">
+        <span className="bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text py-4 pb-1 text-[10vw] leading-[1.1] font-[Revamped] text-transparent">
           TechSurge
         </span>
-        <span className="tracking-tighter flicker text-[16vw] text-[#4cdef5d7] font-[CyberBrush] -mt-3">
+        <span className="tracking-tighter flicker text-[12vw] text-[#4cdef5d7] font-[CyberBrush] -mt-2">
           2k25
         </span>
       </div>
@@ -145,11 +161,11 @@ function Events() {
   </div>
 
   {/* Countdown Timer */}
-  <div className="text-center w-full flex flex-col items-center mt-10 sm:mt-12 md:mt-14">
-    <p className="text-xs sm:text-sm uppercase tracking-widest text-neutral-400 mb-2 sm:mb-4">
-      Starts in
+  <div className="text-center w-full flex flex-col items-center mt-6 sm:mt-8 md:mt-10">
+    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase tracking-widest text-neutral-400 mb-3 sm:mb-4 md:mb-6 font-bold">
+      Hackathon ends in
     </p>
-    <div className="flex gap-3 sm:gap-5 md:gap-6 text-center font-mono text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#4cdef5]">
+    <div className="flex gap-4 sm:gap-6 md:gap-8 lg:gap-10 text-center font-mono text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-[#4cdef5] font-bold">
       {timeLeft.split(" ").map((unit, i) => (
         <motion.div
           key={i}
@@ -159,30 +175,41 @@ function Events() {
           transition={{ duration: 0.3 }}
           className="flex flex-col items-center"
         >
-          <span className="text-shadow-sm">
+          <span className="text-shadow-sm font-bold">
             {unit.split(/(?<=\D)(?=\d)|(?<=\d)(?=\D)/)[0]}
           </span>
-          <span className="text-xs sm:text-sm text-neutral-400 tracking-tight">
+          <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-neutral-400 tracking-tight font-bold">
             {unit.split(/(?<=\D)(?=\d)|(?<=\d)(?=\D)/)[1]}
           </span>
         </motion.div>
       ))}
     </div>
-  </div>
-
-  {/* Register & Brochure Buttons */}
-  <div className="w-full flex justify-center gap-5 mt-8 sm:mt-10 md:mt-12 flex-wrap sm:flex-nowrap">
-    <a
-      href="/Brochure.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="h-12 bg-white/5 border-white/5 text-neutral-400 px-8 py-2 rounded-full backdrop-blur-sm border transition-all duration-300 cursor-pointer hover:bg-white/15 hover:border-white/25 hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.2)] flex items-center justify-center text-sm sm:text-base"
-    >
-      Download Event Brochure
-    </a>
-    <BorderedButton onClick={() => whatIsRef.current?.scrollIntoView({ behavior: "smooth" })}>
-      Register Now!
-    </BorderedButton>
+    
+    {/* Second Round Timer */}
+    <div className="mt-4 sm:mt-6 md:mt-8 w-full flex flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8">
+      <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase tracking-widest text-neutral-400 font-bold">
+        Second Round starts in
+      </p>
+      <div className="flex gap-2 sm:gap-3 md:gap-4 text-center font-mono text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-orange-400 font-bold">
+        {secondRoundTimeLeft.split(" ").map((unit, i) => (
+          <motion.div
+            key={i}
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 10, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="flex flex-col items-center"
+          >
+            <span className="text-shadow-sm font-bold">
+              {unit.split(/(?<=\D)(?=\d)|(?<=\d)(?=\D)/)[0]}
+            </span>
+            <span className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-neutral-400 tracking-tight font-bold">
+              {unit.split(/(?<=\D)(?=\d)|(?<=\d)(?=\D)/)[1]}
+            </span>
+          </motion.div>
+        ))}
+      </div>
+    </div>
   </div>
 </section>
 
