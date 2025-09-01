@@ -88,7 +88,7 @@ function About() {
         <div className="w-full flex flex-col justify-center items-center text-center max-w-xs sm:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto">
           <HeadingNText title="Guiding Lights of CBB">
             <span className="block max-w-xs sm:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto">
-              With their unwavering support and leadership Dr. Ch. Madhu Babu sir and Dr L. Pallavi mam have been the backbone of our club's journey, inspiring us to dream, build and lead.
+              With their unwavering support and leadership Dr. Ch. Madhu Babu sir and Dr. L. Pallavi mam have been the backbone of our club's journey, inspiring us to dream, build and lead.
             </span>
           </HeadingNText>
         </div>
